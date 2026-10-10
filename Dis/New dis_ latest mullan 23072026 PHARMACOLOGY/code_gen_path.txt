@@ -1,0 +1,110 @@
+  ST = Right(DATE11, 2) & Mid(DATE11, 4, 2) & Left(DATE11, 2)
+    pathno = MSFlexGrid1.TextMatrix(MSFlexGrid1.row - 1, 7) 'Clear it on NEW Load
+    If MSFlexGrid1.row > 1 Then
+        'pathno = MSFlexGrid1.TextMatrix(MSFlexGrid1.row, 7)
+        
+        pathno = pathno + 1
+        
+        '***** Shraddha 05/11/09 *****
+        Dim zeros As String
+        zeros = ""
+        'While Len(CStr(pathno)) < 3
+         
+'            If Len(CStr(pathno)) = 1 Then
+'                zeros = "00" & CStr(pathno)
+'            ElseIf Len(CStr(pathno)) = 2 Then
+'                zeros = "0" & CStr(pathno)
+'            Else
+'                zeros = pathno
+'            End If
+            
+            '***** Commented and added by Shraddha 03/02/10 *****
+            If Len(CStr(pathno)) = 1 Then
+                zeros = "000" & CStr(pathno)
+            ElseIf Len(CStr(pathno)) = 2 Then
+                zeros = "00" & CStr(pathno)
+            ElseIf Len(CStr(pathno)) = 3 Then
+                zeros = "0" & CStr(pathno)
+            Else
+                zeros = pathno
+            End If
+            '****************************************************
+        'Wend
+        '*****************************
+        
+    End If
+   
+        
+        '*****************************
+        '***** Shraddha 10/02/10 *****
+        '***** If PathNo already given 16/10/09 *****
+    '*****
+    Dim MODALITY As String
+    Dim hlreqno As String
+    SELDEPT_QR(0) = MODALITYB
+    Set SELDEPT_RS = SELDEPT_QR.OpenResultset(1, 3)
+    MODALITY = Trim(SELDEPT_RS("MODALITYCD"))
+    
+    'If Trim(txt_pathno.Text) <> "" Then
+    If zeros <> "" Then
+        If MODALITY = "BC" Or MODALITY = "EL" Or MODALITY = "TM" Then
+            For i = 1 To MSFlexGrid1.Rows - 1
+                If Trim(txt_pathno.Text) = Trim(MSFlexGrid1.TextMatrix(i, 6)) Then
+                    MsgBox "Lab No. Already exists"
+                    Exit Sub
+                End If
+            Next
+        
+            'If Len(Trim(txt_pathno.Text)) <= 4 And Len(Trim(txt_pathno.Text)) <> 0 Then
+            If Len(Trim(zeros)) <= 4 And Len(Trim(zeros)) <> 0 Then
+                SELDREQUISITNQR(0) = ST & UCase(Trim(zeros))
+            End If
+            If Len(Trim(txt_pathno.Text)) > 4 Then
+                SELDREQUISITNQR(0) = UCase(Trim(zeros))
+            End If
+            SELDREQUISITNQR(1) = Trim(dept) & MODALITY & "%"
+            Set SELDREQUISITNRS = SELDREQUISITNQR.OpenResultset(1, 3)
+        End If
+
+            If SELDREQUISITNRS.RowCount > 0 Then
+                'MsgBox "The Path No. is  Given already " & SELDREQUISITNRS("caseno") & vbCrLf & "Sample not yet received, Please give different Path No"
+                MsgBox "The Path No. is  Given already " & SELDREQUISITNRS("caseno") & " " & SELDREQUISITNRS("REQNO") & vbCrLf & "Sample not yet received, Please give different Path No"
+                'txt_pathno.Top = MSFlexGrid1.CellTop + MSFlexGrid1.Top
+                txt_pathno.Visible = True '11/12/09
+                txt_pathno.Top = 3480
+                txt_pathno.Left = 12720
+                txt_pathno.Text = ""
+                
+                MSFlexGrid1.clear
+
+                MSFlexGrid1.Rows = 2
+                           
+                
+                'TXTREQNO_Change
+                Exit Sub
+            End If
+    End If
+
+'*****
+        '*****************************
+        
+    'MSFlexGrid1.TextMatrix(MSFlexGrid1.row, 7) = pathno
+        
+    MSFlexGrid1.TextMatrix(MSFlexGrid1.row, 7) = zeros
+    
+'    If Len(Trim(MSFlexGrid1.TextMatrix(MSFlexGrid1.row, 7))) > 3 Then
+'        upddrequisitn(0) = UCase(Trim(MSFlexGrid1.TextMatrix(MSFlexGrid1.row, 7)))
+'    End If
+    'MSFlexGrid1.TextMatrix(MSFlexGrid1.row, 7) = txt_pathno.Text
+    If Len(Trim(MSFlexGrid1.TextMatrix(MSFlexGrid1.row, 7))) <= 4 And Len(Trim(MSFlexGrid1.TextMatrix(MSFlexGrid1.row, 7))) <> 0 Then
+        upddrequisitn(0) = ST & UCase(Trim(MSFlexGrid1.TextMatrix(MSFlexGrid1.row, 7)))
+        upd_TEMMPCOLL_QR(0) = ST & UCase(Trim(MSFlexGrid1.TextMatrix(MSFlexGrid1.row, 7)))
+    End If
+    upddrequisitn(1) = MSFlexGrid1.TextMatrix(MSFlexGrid1.row, 1)
+    upd_TEMMPCOLL_QR(1) = MSFlexGrid1.TextMatrix(MSFlexGrid1.row, 1)
+    upddrequisitn.Execute
+    upd_TEMMPCOLL_QR.Execute
+        
+    txt_pathno.Visible = False
+
+    

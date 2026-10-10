@@ -1,0 +1,10 @@
+Line 770: Class MSMask.MaskEdBox of control MaskEdBox1 was not a loaded control class.
+Line 1116: Class Project1.UserControl1 of control UserControl11 was not a loaded control class.
+Line 776: The property name _ExtentX in MaskEdBox1 is invalid.
+Line 777: The property name _ExtentY in MaskEdBox1 is invalid.
+Line 778: The property name _Version in MaskEdBox1 is invalid.
+Line 780: The property name MaxLength in MaskEdBox1 is invalid.
+Line 790: The property name Mask in MaskEdBox1 is invalid.
+Line 791: The property name PromptChar in MaskEdBox1 is invalid.
+Line 1122: The property name _ExtentX in UserControl11 is invalid.
+Line 1123: The property name _ExtentY in UserControl11 is invalid.

@@ -1,0 +1,6 @@
+@DISRIS_UI_HostAddress = http://localhost:5191
+
+GET {{DISRIS_UI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

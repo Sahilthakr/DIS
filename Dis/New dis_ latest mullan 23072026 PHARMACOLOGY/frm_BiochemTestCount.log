@@ -1,0 +1,6 @@
+Line 133: Class MSMask.MaskEdBox of control msk_frmdt was not a loaded control class.
+Line 156: Class MSMask.MaskEdBox of control msk_todt was not a loaded control class.
+Line 179: Class Crystal.CrystalReport of control CR_CSF was not a loaded control class.
+Line 187: Class Crystal.CrystalReport of control CR_SERUM was not a loaded control class.
+Line 195: Class Crystal.CrystalReport of control CR_URNTEST was not a loaded control class.
+Line 203: Class Crystal.CrystalReport of control CR_FLUIDS was not a loaded control class.

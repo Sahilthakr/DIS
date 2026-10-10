@@ -1,0 +1,138 @@
+Line 137: Class TabDlg.SSTab of control SSTab1 was not a loaded control class.
+Line 1729: Class MSMask.MaskEdBox of control MaskEdBox1 was not a loaded control class.
+Line 2076: Class Project1.UserControl1 of control UserControl11 was not a loaded control class.
+Line 2085: Class Crystal.CrystalReport of control CRYSTALREPORT1 was not a loaded control class.
+Line 45: Property ItemData in cmb_addendumby had an invalid file reference.
+Line 47: Property List in cmb_addendumby had an invalid file reference.
+Line 143: The property name _ExtentX in SSTab1 is invalid.
+Line 144: The property name _ExtentY in SSTab1 is invalid.
+Line 145: The property name _Version in SSTab1 is invalid.
+Line 146: The property name Tabs in SSTab1 is invalid.
+Line 147: The property name TabHeight in SSTab1 is invalid.
+Line 148: The property name TabCaption(0) in SSTab1 is invalid.
+Line 149: The property name TabPicture(0) in SSTab1 is invalid.
+Line 150: The property name Tab(0).ControlEnabled in SSTab1 is invalid.
+Line 151: The property name Tab(0).Control(0) in SSTab1 is invalid.
+Line 152: The property name Tab(0).Control(0).Enabled in SSTab1 is invalid.
+Line 153: The property name Tab(0).Control(1) in SSTab1 is invalid.
+Line 154: The property name Tab(0).Control(1).Enabled in SSTab1 is invalid.
+Line 155: The property name Tab(0).Control(2) in SSTab1 is invalid.
+Line 156: The property name Tab(0).Control(2).Enabled in SSTab1 is invalid.
+Line 157: The property name Tab(0).Control(3) in SSTab1 is invalid.
+Line 158: The property name Tab(0).Control(3).Enabled in SSTab1 is invalid.
+Line 159: The property name Tab(0).Control(4) in SSTab1 is invalid.
+Line 160: The property name Tab(0).Control(4).Enabled in SSTab1 is invalid.
+Line 161: The property name Tab(0).Control(5) in SSTab1 is invalid.
+Line 162: The property name Tab(0).Control(5).Enabled in SSTab1 is invalid.
+Line 163: The property name Tab(0).Control(6) in SSTab1 is invalid.
+Line 164: The property name Tab(0).Control(6).Enabled in SSTab1 is invalid.
+Line 165: The property name Tab(0).Control(7) in SSTab1 is invalid.
+Line 166: The property name Tab(0).Control(7).Enabled in SSTab1 is invalid.
+Line 167: The property name Tab(0).Control(8) in SSTab1 is invalid.
+Line 168: The property name Tab(0).Control(8).Enabled in SSTab1 is invalid.
+Line 169: The property name Tab(0).Control(9) in SSTab1 is invalid.
+Line 170: The property name Tab(0).Control(9).Enabled in SSTab1 is invalid.
+Line 171: The property name Tab(0).Control(10) in SSTab1 is invalid.
+Line 172: The property name Tab(0).Control(10).Enabled in SSTab1 is invalid.
+Line 173: The property name Tab(0).Control(11) in SSTab1 is invalid.
+Line 174: The property name Tab(0).Control(11).Enabled in SSTab1 is invalid.
+Line 175: The property name Tab(0).Control(12) in SSTab1 is invalid.
+Line 176: The property name Tab(0).Control(12).Enabled in SSTab1 is invalid.
+Line 177: The property name Tab(0).Control(13) in SSTab1 is invalid.
+Line 178: The property name Tab(0).Control(13).Enabled in SSTab1 is invalid.
+Line 179: The property name Tab(0).Control(14) in SSTab1 is invalid.
+Line 180: The property name Tab(0).Control(14).Enabled in SSTab1 is invalid.
+Line 181: The property name Tab(0).Control(15) in SSTab1 is invalid.
+Line 182: The property name Tab(0).Control(15).Enabled in SSTab1 is invalid.
+Line 183: The property name Tab(0).Control(16) in SSTab1 is invalid.
+Line 184: The property name Tab(0).Control(16).Enabled in SSTab1 is invalid.
+Line 185: The property name Tab(0).Control(17) in SSTab1 is invalid.
+Line 186: The property name Tab(0).Control(17).Enabled in SSTab1 is invalid.
+Line 187: The property name Tab(0).Control(18) in SSTab1 is invalid.
+Line 188: The property name Tab(0).Control(18).Enabled in SSTab1 is invalid.
+Line 189: The property name Tab(0).Control(19) in SSTab1 is invalid.
+Line 190: The property name Tab(0).Control(19).Enabled in SSTab1 is invalid.
+Line 191: The property name Tab(0).Control(20) in SSTab1 is invalid.
+Line 192: The property name Tab(0).Control(20).Enabled in SSTab1 is invalid.
+Line 193: The property name Tab(0).Control(21) in SSTab1 is invalid.
+Line 194: The property name Tab(0).Control(21).Enabled in SSTab1 is invalid.
+Line 195: The property name Tab(0).Control(22) in SSTab1 is invalid.
+Line 196: The property name Tab(0).Control(22).Enabled in SSTab1 is invalid.
+Line 197: The property name Tab(0).ControlCount in SSTab1 is invalid.
+Line 198: The property name TabCaption(1) in SSTab1 is invalid.
+Line 199: The property name TabPicture(1) in SSTab1 is invalid.
+Line 200: The property name Tab(1).ControlEnabled in SSTab1 is invalid.
+Line 201: The property name Tab(1).Control(0) in SSTab1 is invalid.
+Line 202: The property name Tab(1).Control(1) in SSTab1 is invalid.
+Line 203: The property name Tab(1).Control(2) in SSTab1 is invalid.
+Line 204: The property name Tab(1).Control(3) in SSTab1 is invalid.
+Line 205: The property name Tab(1).Control(4) in SSTab1 is invalid.
+Line 206: The property name Tab(1).Control(5) in SSTab1 is invalid.
+Line 207: The property name Tab(1).Control(6) in SSTab1 is invalid.
+Line 208: The property name Tab(1).Control(7) in SSTab1 is invalid.
+Line 209: The property name Tab(1).Control(8) in SSTab1 is invalid.
+Line 210: The property name Tab(1).Control(9) in SSTab1 is invalid.
+Line 211: The property name Tab(1).Control(10) in SSTab1 is invalid.
+Line 212: The property name Tab(1).Control(11) in SSTab1 is invalid.
+Line 213: The property name Tab(1).Control(12) in SSTab1 is invalid.
+Line 214: The property name Tab(1).Control(13) in SSTab1 is invalid.
+Line 215: The property name Tab(1).Control(14) in SSTab1 is invalid.
+Line 216: The property name Tab(1).Control(15) in SSTab1 is invalid.
+Line 217: The property name Tab(1).Control(16) in SSTab1 is invalid.
+Line 218: The property name Tab(1).Control(17) in SSTab1 is invalid.
+Line 219: The property name Tab(1).Control(18) in SSTab1 is invalid.
+Line 220: The property name Tab(1).Control(19) in SSTab1 is invalid.
+Line 221: The property name Tab(1).Control(20) in SSTab1 is invalid.
+Line 222: The property name Tab(1).Control(21) in SSTab1 is invalid.
+Line 223: The property name Tab(1).Control(22) in SSTab1 is invalid.
+Line 224: The property name Tab(1).Control(23) in SSTab1 is invalid.
+Line 225: The property name Tab(1).Control(24) in SSTab1 is invalid.
+Line 226: The property name Tab(1).Control(25) in SSTab1 is invalid.
+Line 227: The property name Tab(1).Control(26) in SSTab1 is invalid.
+Line 228: The property name Tab(1).Control(27) in SSTab1 is invalid.
+Line 229: The property name Tab(1).Control(28) in SSTab1 is invalid.
+Line 230: The property name Tab(1).Control(29) in SSTab1 is invalid.
+Line 231: The property name Tab(1).Control(30) in SSTab1 is invalid.
+Line 232: The property name Tab(1).Control(31) in SSTab1 is invalid.
+Line 233: The property name Tab(1).ControlCount in SSTab1 is invalid.
+Line 323: Property ItemData in cmb_grade had an invalid file reference.
+Line 325: Property List in cmb_grade had an invalid file reference.
+Line 376: Property ItemData in cmb_fsd had an invalid file reference.
+Line 378: Property List in cmb_fsd had an invalid file reference.
+Line 395: Property ItemData in CMB_ICDH had an invalid file reference.
+Line 397: Property List in CMB_ICDH had an invalid file reference.
+Line 415: Property ItemData in CMB_N had an invalid file reference.
+Line 417: Property List in CMB_N had an invalid file reference.
+Line 433: Property ItemData in cmb_m had an invalid file reference.
+Line 435: Property List in cmb_m had an invalid file reference.
+Line 452: Property ItemData in cmb_t had an invalid file reference.
+Line 454: Property List in cmb_t had an invalid file reference.
+Line 607: Property ItemData in cmb_immhische had an invalid file reference.
+Line 609: Property List in cmb_immhische had an invalid file reference.
+Line 625: Property ItemData in cmb_grossby had an invalid file reference.
+Line 627: Property List in cmb_grossby had an invalid file reference.
+Line 1211: Property MouseIcon in CMD_NEW had an invalid file reference.
+Line 1230: Property MouseIcon in cmd_view had an invalid file reference.
+Line 1249: Property MouseIcon in cmd_modify had an invalid file reference.
+Line 1268: Property MouseIcon in cmd_save had an invalid file reference.
+Line 1287: Property MouseIcon in cmd_cancel had an invalid file reference.
+Line 1306: Property MouseIcon in cmd_print had an invalid file reference.
+Line 1325: Property MouseIcon in cmd_back had an invalid file reference.
+Line 1344: Property MouseIcon in cmd_commit had an invalid file reference.
+Line 1363: Property MouseIcon in cmd_fullreport had an invalid file reference.
+Line 1735: The property name _ExtentX in MaskEdBox1 is invalid.
+Line 1736: The property name _ExtentY in MaskEdBox1 is invalid.
+Line 1737: The property name _Version in MaskEdBox1 is invalid.
+Line 1739: The property name PromptInclude in MaskEdBox1 is invalid.
+Line 1740: The property name MaxLength in MaskEdBox1 is invalid.
+Line 1750: The property name Mask in MaskEdBox1 is invalid.
+Line 1751: The property name PromptChar in MaskEdBox1 is invalid.
+Line 2082: The property name _ExtentX in UserControl11 is invalid.
+Line 2083: The property name _ExtentY in UserControl11 is invalid.
+Line 2088: The property name _ExtentX in CRYSTALREPORT1 is invalid.
+Line 2089: The property name _ExtentY in CRYSTALREPORT1 is invalid.
+Line 2090: The property name _Version in CRYSTALREPORT1 is invalid.
+Line 2091: The property name WindowControlBox in CRYSTALREPORT1 is invalid.
+Line 2092: The property name WindowMaxButton in CRYSTALREPORT1 is invalid.
+Line 2093: The property name WindowMinButton in CRYSTALREPORT1 is invalid.
+Line 2094: The property name PrintFileLinesPerPage in CRYSTALREPORT1 is invalid.

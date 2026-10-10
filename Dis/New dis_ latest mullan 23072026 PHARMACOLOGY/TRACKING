@@ -1,0 +1,1973 @@
+VERSION 5.00
+Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
+Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "msmask32.ocx"
+Begin VB.Form TRACKING 
+   BackColor       =   &H8000000B&
+   Caption         =   "INTRA-DEPARTMENTAL TRACKING"
+   ClientHeight    =   10185
+   ClientLeft      =   60
+   ClientTop       =   375
+   ClientWidth     =   13185
+   FillColor       =   &H008080FF&
+   ForeColor       =   &H80000008&
+   LinkTopic       =   "Form2"
+   ScaleHeight     =   10185
+   ScaleWidth      =   13185
+   StartUpPosition =   2  'CenterScreen
+   WindowState     =   2  'Maximized
+   Begin VB.Timer Timer1 
+      Interval        =   100
+      Left            =   120
+      Top             =   120
+   End
+   Begin VB.PictureBox DTP 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   840
+      ScaleHeight     =   315
+      ScaleWidth      =   1155
+      TabIndex        =   38
+      Top             =   8400
+      Visible         =   0   'False
+      Width           =   1215
+   End
+   Begin VB.ComboBox COMPATH 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   315
+      ItemData        =   "TRACKING.frx":0000
+      Left            =   5400
+      List            =   "TRACKING.frx":0002
+      Style           =   2  'Dropdown List
+      TabIndex        =   35
+      Top             =   2160
+      Visible         =   0   'False
+      Width           =   1935
+   End
+   Begin VB.TextBox TXT_DRNAME 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   285
+      Left            =   -480
+      TabIndex        =   31
+      Top             =   8520
+      Visible         =   0   'False
+      Width           =   2175
+   End
+   Begin VB.ComboBox COM_PENDING 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   315
+      ItemData        =   "TRACKING.frx":0004
+      Left            =   120
+      List            =   "TRACKING.frx":0020
+      TabIndex        =   30
+      Top             =   8040
+      Visible         =   0   'False
+      Width           =   1815
+   End
+   Begin VB.ComboBox COM_SIGNBY 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   315
+      ItemData        =   "TRACKING.frx":0072
+      Left            =   120
+      List            =   "TRACKING.frx":008E
+      TabIndex        =   29
+      Top             =   7320
+      Visible         =   0   'False
+      Width           =   1815
+   End
+   Begin VB.Frame Frame2 
+      Height          =   1695
+      Left            =   120
+      TabIndex        =   13
+      Top             =   1320
+      Width           =   11895
+      Begin VB.OptionButton Option3 
+         Caption         =   "PATHNO"
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   4200
+         TabIndex        =   33
+         Top             =   1080
+         Width           =   1095
+      End
+      Begin VB.ComboBox cbo_modality 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   315
+         ItemData        =   "TRACKING.frx":00D7
+         Left            =   2760
+         List            =   "TRACKING.frx":00E4
+         Style           =   2  'Dropdown List
+         TabIndex        =   27
+         Top             =   600
+         Width           =   915
+      End
+      Begin VB.OptionButton Option4 
+         Caption         =   "CCNO."
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   1440
+         TabIndex        =   25
+         Top             =   1080
+         Visible         =   0   'False
+         Width           =   975
+      End
+      Begin VB.OptionButton Option2 
+         Caption         =   "CASE NO"
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   1440
+         TabIndex        =   24
+         Top             =   1080
+         Width           =   1215
+      End
+      Begin VB.TextBox Text1 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   5400
+         TabIndex        =   23
+         Top             =   1080
+         Width           =   1215
+      End
+      Begin VB.Frame FRAMEALL 
+         Height          =   735
+         Left            =   4320
+         TabIndex        =   18
+         Top             =   120
+         Width           =   5175
+         Begin MSMask.MaskEdBox msk_fromdt 
+            Height          =   375
+            Left            =   1440
+            TabIndex        =   19
+            Top             =   240
+            Width           =   1215
+            _ExtentX        =   2143
+            _ExtentY        =   661
+            _Version        =   393216
+            Appearance      =   0
+            ForeColor       =   4210752
+            MaxLength       =   10
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Mask            =   "##/##/####"
+            PromptChar      =   "_"
+         End
+         Begin MSMask.MaskEdBox msk_todt 
+            Height          =   375
+            Left            =   3840
+            TabIndex        =   20
+            Top             =   240
+            Width           =   1215
+            _ExtentX        =   2143
+            _ExtentY        =   661
+            _Version        =   393216
+            Appearance      =   0
+            ForeColor       =   0
+            MaxLength       =   10
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Mask            =   "##/##/####"
+            PromptChar      =   "_"
+         End
+         Begin VB.Label Label5 
+            AutoSize        =   -1  'True
+            Caption         =   "To Date"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   240
+            Left            =   2880
+            TabIndex        =   22
+            Top             =   240
+            Width           =   975
+         End
+         Begin VB.Label Label4 
+            Caption         =   "From Date"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   255
+            Left            =   240
+            TabIndex        =   21
+            Top             =   240
+            Width           =   1215
+         End
+      End
+      Begin VB.OptionButton Option1 
+         Caption         =   "ALL"
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   1440
+         TabIndex        =   17
+         Top             =   240
+         Value           =   -1  'True
+         Width           =   735
+      End
+      Begin VB.Frame patient 
+         Height          =   975
+         Left            =   120
+         TabIndex        =   14
+         Top             =   240
+         Width           =   1215
+         Begin VB.OptionButton opt_patient 
+            Caption         =   "Patient"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   255
+            Left            =   120
+            TabIndex        =   16
+            Top             =   240
+            Width           =   975
+         End
+         Begin VB.OptionButton opt_staff 
+            Caption         =   "Staff"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000000&
+            Height          =   255
+            Left            =   120
+            TabIndex        =   15
+            Top             =   600
+            Width           =   975
+         End
+      End
+      Begin MSMask.MaskEdBox Msk_caseno 
+         Height          =   375
+         Left            =   2760
+         TabIndex        =   26
+         Top             =   1080
+         Width           =   1095
+         _ExtentX        =   1931
+         _ExtentY        =   661
+         _Version        =   393216
+         Appearance      =   0
+         PromptInclude   =   0   'False
+         MaxLength       =   8
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Mask            =   "??>/#####"
+         PromptChar      =   "_"
+      End
+      Begin VB.Label Label7 
+         Caption         =   "PATHNO"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   4320
+         TabIndex        =   36
+         Top             =   1080
+         Visible         =   0   'False
+         Width           =   855
+      End
+      Begin VB.Label Label6 
+         AutoSize        =   -1  'True
+         Caption         =   "Mod. Code"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   240
+         Left            =   1440
+         TabIndex        =   28
+         Top             =   600
+         Width           =   1140
+      End
+   End
+   Begin VB.ComboBox COM_DESPATCH 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   315
+      ItemData        =   "TRACKING.frx":00F5
+      Left            =   120
+      List            =   "TRACKING.frx":0108
+      TabIndex        =   12
+      Top             =   7680
+      Visible         =   0   'False
+      Width           =   1815
+   End
+   Begin VB.Frame Frame1 
+      Height          =   1215
+      Index           =   0
+      Left            =   2880
+      TabIndex        =   4
+      Top             =   7320
+      Width           =   6255
+      Begin VB.CommandButton CMD_PRINT 
+         Caption         =   "&PRINT"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   5040
+         TabIndex        =   37
+         Top             =   720
+         Width           =   1095
+      End
+      Begin VB.CommandButton CMD_DEL 
+         Caption         =   "&DELETE"
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   5040
+         TabIndex        =   34
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton CMD_MOD 
+         Caption         =   "&MODIFY"
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   3840
+         TabIndex        =   32
+         Top             =   720
+         Width           =   1095
+      End
+      Begin VB.CommandButton CMD_CANCEL 
+         Caption         =   "&CANCEL"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   3840
+         TabIndex        =   11
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton CMB_SHOW 
+         Caption         =   "S&HOW"
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   2640
+         TabIndex        =   10
+         Top             =   720
+         Width           =   1095
+      End
+      Begin VB.CommandButton CMB_SAVE 
+         Caption         =   "&SAVE"
+         Enabled         =   0   'False
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   2640
+         TabIndex        =   9
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton CMB_BACK 
+         Caption         =   "&BACK"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   1440
+         TabIndex        =   8
+         Top             =   720
+         Width           =   1095
+      End
+      Begin VB.CommandButton CMB_NEW 
+         Caption         =   "&NEW"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   240
+         TabIndex        =   7
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton CMB_EXIT 
+         Caption         =   "E&XIT"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   240
+         TabIndex        =   6
+         Top             =   720
+         Width           =   1095
+      End
+      Begin VB.CommandButton CMB_VIEW 
+         Caption         =   "&VIEW"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   1440
+         TabIndex        =   5
+         Top             =   240
+         Width           =   1095
+      End
+   End
+   Begin MSFlexGridLib.MSFlexGrid FLEX 
+      Height          =   4095
+      Left            =   120
+      TabIndex        =   3
+      Top             =   3120
+      Width           =   11895
+      _ExtentX        =   20981
+      _ExtentY        =   7223
+      _Version        =   393216
+      Cols            =   28
+      FixedCols       =   4
+      ForeColorFixed  =   16711680
+      WordWrap        =   -1  'True
+      FillStyle       =   1
+      GridLines       =   2
+      AllowUserResizing=   3
+      Appearance      =   0
+      FormatString    =   $"TRACKING.frx":0150
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VB.Label Label8 
+      Alignment       =   2  'Center
+      Caption         =   "INTRA-DEPARTMENTAL TRACKING SYSTEM"
+      BeginProperty Font 
+         Name            =   "Times New Roman"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H000000FF&
+      Height          =   495
+      Left            =   1920
+      TabIndex        =   39
+      Top             =   720
+      Width           =   7695
+   End
+   Begin VB.Label Label3 
+      Alignment       =   2  'Center
+      Caption         =   "INTRA-DEPARTMENTAL TRACKING SYSTEM"
+      BeginProperty Font 
+         Name            =   "Times New Roman"
+         Size            =   15
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H000000FF&
+      Height          =   375
+      Left            =   1560
+      TabIndex        =   2
+      Top             =   9240
+      Visible         =   0   'False
+      Width           =   8535
+   End
+   Begin VB.Label Label2 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
+      Caption         =   "DEPARTMENT OF PATHOLOGY"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   255
+      Left            =   3360
+      TabIndex        =   1
+      Top             =   360
+      Width           =   4935
+   End
+   Begin VB.Label Label1 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
+      Caption         =   "HOMI BHABHA CANCER HOSPITAL AND RESEARCH CENTRE"
+      BeginProperty Font 
+         Name            =   "Times New Roman"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   375
+      Left            =   1200
+      TabIndex        =   0
+      Top             =   0
+      Width           =   9375
+   End
+End
+Attribute VB_Name = "TRACKING"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+
+Public DTVALUE As Date
+Public R1 As Integer
+Public C1 As Integer
+Dim RS As rdoResultset
+Dim SELDREQ_QR As rdoQuery
+Dim SELDREQ_RS As rdoResultset
+Dim SELDREQFLAG As Boolean
+Dim SELDREQ_QR1 As rdoQuery
+Dim SELDREQ_RS1 As rdoResultset
+Dim SELDREQFLAG1 As Boolean
+Dim SELDREQ_QR2 As rdoQuery
+Dim SELDREQ_RS2 As rdoResultset
+Dim SELDREQFLAG2 As Boolean
+Dim CASENO As Variant
+Dim mod_flag As Boolean
+Dim new_flag As Boolean
+Dim VIEW_FLAG As Boolean
+Dim SELSP_QR As rdoQuery
+Dim SELSP_RS As rdoResultset
+Dim SELFA_QR As rdoQuery
+Dim SELFA_RS As rdoResultset
+Dim SELFNAC_QR As rdoQuery
+Dim SELFNAC_RS As rdoResultset
+
+Dim SELPATH_QR As rdoQuery
+Dim SELPATH_RS As rdoResultset
+Dim UPDTRACK_QR As rdoQuery
+Dim UPDTRACK_RS As rdoResultset
+Dim INSDTRACK_QR As rdoQuery
+Dim INSDTRACK_RS As rdoResultset
+Dim SELNM_QR As rdoQuery
+Dim SELNM_RS As rdoResultset
+Dim SELDTRACK_QR As rdoQuery
+Dim SELDTRACK_RS As rdoResultset
+Dim SELDPATH_QR As rdoQuery
+Dim SELDPATH_RS As rdoResultset
+Dim SELDFA_QR As rdoQuery
+Dim SELDFA_RS As rdoResultset
+Dim SELDSP_QR As rdoQuery
+Dim SELDSP_RS As rdoResultset
+Dim SELSP1_QR As rdoQuery
+Dim SELSP1_RS As rdoResultset
+Dim SELFA1_QR As rdoQuery
+Dim SELFA1_RS As rdoResultset
+Dim DEL_QR As rdoQuery
+Dim DEL_RS As rdoResultset
+Dim SELCODENAME_QR As rdoQuery
+Dim SELCODENAME_RS As rdoResultset
+Dim SELALLPATH_QR As rdoQuery
+Dim SELALLPATH_RS As rdoResultset
+
+Private Sub CMB_BACK_Click()
+    mod_flag = False
+    new_flag = False
+    FRAMEALL.Enabled = True
+    Option1.Enabled = True
+    Option2.Enabled = True
+    Option4.Enabled = True
+    FLEX.Rows = 1
+    CMB_VIEW.Enabled = True
+    CMB_NEW.Enabled = True
+    Option3.Enabled = True
+    Text1.Enabled = True
+    Msk_caseno.Enabled = True
+    TXT_DRNAME.Visible = False
+    COM_DESPATCH.Visible = False
+    COM_PENDING.Visible = False
+    COM_SIGNBY.Visible = False
+    DTP.Visible = False
+    CMB_SHOW.Enabled = True
+    CMD_MOD.Enabled = True
+    Label7.Visible = False
+    COMPATH.Visible = False
+    Option3.Visible = True
+    Option3.Enabled = True
+    Text1.Visible = True
+    COMPATH.clear
+    Msk_caseno.Text = ""
+    Msk_caseno.Mask = "??>/#####"
+    CMB_SAVE.Enabled = True
+    CMD_DEL.Enabled = False
+    Option1.Value = False
+    Option2.Value = False
+    Option3.Value = False
+    Option4.Value = False
+    Msk_caseno.Enabled = False
+    Text1.Enabled = False
+    DIS_MAIN.show
+    Me.Hide
+End Sub
+
+Private Sub CMB_EXIT_Click()
+    Unload Me
+End Sub
+
+Private Sub CMB_NEW_Click()
+new_flag = True
+CMB_VIEW.Enabled = False
+CMB_NEW.Enabled = False
+CMD_MOD.Enabled = False
+Option1.Enabled = True
+Option1.Value = True
+CMB_SHOW.Enabled = True
+Option2.Enabled = True
+Option3.Enabled = True
+Option4.Enabled = True
+End Sub
+
+Private Sub CMB_SAVE_Click()
+'////////////THIS IS FOR UPDATE RECORDS IN DTRACK
+''////////////////////////////////////////////////
+    TXT_DRNAME.Visible = False
+    COM_DESPATCH.Visible = False
+    COM_PENDING.Visible = False
+    COM_SIGNBY.Visible = False
+    DTP.Visible = False
+    
+Dim TOTALROWS As Integer
+If mod_flag = True Then
+    TOTALROWS = FLEX.Rows
+    t = 1
+    For t = 1 To TOTALROWS - 1
+      UPDTRACK_QR(0) = Trim(IIf(Trim(FLEX.TextMatrix(t, 6)) = "", Null, FLEX.TextMatrix(t, 6)))
+      UPDTRACK_QR(1) = Trim(IIf(Trim(FLEX.TextMatrix(t, 7)) = "", Null, FLEX.TextMatrix(t, 7)))
+      UPDTRACK_QR(2) = Trim(IIf(Trim(FLEX.TextMatrix(t, 8)) = "", Null, FLEX.TextMatrix(t, 8)))
+      UPDTRACK_QR(3) = Trim(IIf(Trim(FLEX.TextMatrix(t, 9)) = "", Null, FLEX.TextMatrix(t, 9)))
+      UPDTRACK_QR(4) = Trim(IIf(Trim(FLEX.TextMatrix(t, 10)) = "", Null, FLEX.TextMatrix(t, 10)))
+      UPDTRACK_QR(5) = Trim(IIf(Trim(FLEX.TextMatrix(t, 11)) = "", Null, FLEX.TextMatrix(t, 11)))
+      UPDTRACK_QR(6) = Trim(IIf(Trim(FLEX.TextMatrix(t, 12)) = "", Null, FLEX.TextMatrix(t, 12)))
+      UPDTRACK_QR(7) = Trim(IIf(Trim(FLEX.TextMatrix(t, 13)) = "", Null, FLEX.TextMatrix(t, 13)))
+      UPDTRACK_QR(8) = Trim(IIf(Trim(FLEX.TextMatrix(t, 14)) = "", Null, FLEX.TextMatrix(t, 14)))
+      UPDTRACK_QR(9) = Trim(IIf(Trim(FLEX.TextMatrix(t, 15)) = "", Null, FLEX.TextMatrix(t, 15)))
+      UPDTRACK_QR(10) = Trim(IIf(Trim(FLEX.TextMatrix(t, 16)) = "", Null, FLEX.TextMatrix(t, 16)))
+      UPDTRACK_QR(11) = Trim(IIf(Trim(FLEX.TextMatrix(t, 17)) = "", Null, FLEX.TextMatrix(t, 17)))
+      UPDTRACK_QR(12) = Trim(IIf(Trim(FLEX.TextMatrix(t, 18)) = "", Null, FLEX.TextMatrix(t, 18)))
+      UPDTRACK_QR(13) = Trim(IIf(Trim(FLEX.TextMatrix(t, 19)) = "", Null, FLEX.TextMatrix(t, 19)))
+      UPDTRACK_QR(14) = Trim(IIf(Trim(FLEX.TextMatrix(t, 20)) = "", Null, FLEX.TextMatrix(t, 20)))
+      UPDTRACK_QR(15) = Trim(IIf(Trim(FLEX.TextMatrix(t, 21)) = "", Null, FLEX.TextMatrix(t, 21)))
+      UPDTRACK_QR(16) = Trim(IIf(Trim(FLEX.TextMatrix(t, 22)) = "", Null, FLEX.TextMatrix(t, 22)))
+      UPDTRACK_QR(17) = Trim(IIf(Trim(FLEX.TextMatrix(t, 23)) = "", Null, FLEX.TextMatrix(t, 23)))
+      UPDTRACK_QR(18) = Trim(IIf(Trim(FLEX.TextMatrix(t, 24)) = "", Null, FLEX.TextMatrix(t, 24)))
+      UPDTRACK_QR(19) = Trim(IIf(Trim(FLEX.TextMatrix(t, 25)) = "", Null, FLEX.TextMatrix(t, 25)))
+      UPDTRACK_QR(20) = Trim(IIf(Trim(FLEX.TextMatrix(t, 26)) = "", Null, FLEX.TextMatrix(t, 26)))
+      UPDTRACK_QR(21) = Trim(FLEX.TextMatrix(t, 1))
+      UPDTRACK_QR.Execute
+    Next
+    MsgBox "UPDATED RECORDS SUCCESSFULLY!!!", vbExclamation, "UPDATED RECORDS"
+    CMB_SAVE.Enabled = False
+End If
+''/////////////////////THIS IS FOR NEW RECORDS INSERT IN DTRACK
+'/////////////////////////////////////////////////////////////
+
+If new_flag = True Then
+    TOTALROWS = FLEX.Rows
+    For t = 1 To TOTALROWS - 1
+    
+    INSDTRACK_QR(0) = FLEX.TextMatrix(t, 1)
+    INSDTRACK_QR(1) = FLEX.TextMatrix(t, 2)
+    INSDTRACK_QR(2) = FLEX.TextMatrix(t, 3)
+    INSDTRACK_QR(3) = FLEX.TextMatrix(t, 4)
+    dd = FLEX.TextMatrix(t, 5)
+    dd = Format(dd, "DD/MM/YYYY")
+    INSDTRACK_QR(4) = dd
+    INSDTRACK_QR(5) = FLEX.TextMatrix(t, 27)
+    INSDTRACK_QR.Execute
+    Next
+    CMB_SAVE.Enabled = False
+End If
+End Sub
+
+Private Sub CMB_SHOW_Click()
+If VIEW_FLAG = True Then
+If Option1.Value = True Then
+    If cbo_modality.Text = "" Then
+        MsgBox "PLEASE SELECT MODALITY CODE", vbExclamation, "MODALITY"
+        Exit Sub
+    ElseIf cbo_modality.Text = "ALL" Then
+        SELDTRACK_QR(0) = GET_REVDATE(msk_fromdt.Text)
+        SELDTRACK_QR(1) = GET_REVDATE(msk_todt.Text)
+        SELDTRACK_QR.Execute
+        i = 0
+        FLEX.Rows = 1
+        Set SELDTRACK_RS = SELDTRACK_QR.OpenResultset(1, 3)
+        While Not SELDTRACK_RS.EOF
+        i = i + 1
+        FLEX.Rows = i + 1
+        Me.MousePointer = vbHourglass
+        FLEX.TextMatrix(i, 0) = i
+        FLEX.TextMatrix(i, 1) = IIf(IsNull(SELDTRACK_RS("PATHNO")), " ", SELDTRACK_RS("PATHNO"))
+        FLEX.TextMatrix(i, 2) = IIf(IsNull(SELDTRACK_RS("CASENO")), " ", SELDTRACK_RS("CASENO"))
+        FLEX.TextMatrix(i, 3) = IIf(IsNull(SELDTRACK_RS("PRONAME")), " ", SELDTRACK_RS("PRONAME"))
+        FLEX.TextMatrix(i, 4) = IIf(IsNull(SELDTRACK_RS("NMATERIAL")), " ", SELDTRACK_RS("NMATERIAL"))
+        dd = IIf(IsNull(SELDTRACK_RS("RECDT")), " ", SELDTRACK_RS("RECDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 5) = dd
+        dd = IIf(IsNull(SELDTRACK_RS("GRODT")), " ", SELDTRACK_RS("GRODT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 6) = dd
+        dd = IIf(IsNull(SELDTRACK_RS("PRODT")), " ", SELDTRACK_RS("PRODT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 7) = dd
+        dd = IIf(IsNull(SELDTRACK_RS("EMBDT")), " ", SELDTRACK_RS("EMBDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 8) = dd
+        dd = IIf(IsNull(SELDTRACK_RS("CUTTDT")), " ", SELDTRACK_RS("CUTTDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 9) = dd
+        dd = IIf(IsNull(SELDTRACK_RS("STAINDT")), " ", SELDTRACK_RS("STAINDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 10) = dd
+        dd = IIf(IsNull(SELDTRACK_RS("SUBDT")), " ", SELDTRACK_RS("SUBDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 11) = dd
+        FLEX.TextMatrix(i, 12) = IIf(IsNull(SELDTRACK_RS("SUBDRNAME")), " ", SELDTRACK_RS("SUBDRNAME"))
+        dd = IIf(IsNull(SELDTRACK_RS("HWDT")), " ", SELDTRACK_RS("HWDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 13) = dd
+        dd = IIf(IsNull(SELDTRACK_RS("HWDESPDT")), " ", SELDTRACK_RS("HWDESPDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 14) = dd
+        FLEX.TextMatrix(i, 15) = IIf(IsNull(SELDTRACK_RS("HWDESPTO")), " ", SELDTRACK_RS("HWDESPTO"))
+        FLEX.TextMatrix(i, 16) = IIf(IsNull(SELDTRACK_RS("PENDINGFOR")), " ", SELDTRACK_RS("PENDINGFOR"))
+        FLEX.TextMatrix(i, 17) = IIf(IsNull(SELDTRACK_RS("PENDINGDRN")), " ", SELDTRACK_RS("PENDINGDRN"))
+        dd = IIf(IsNull(SELDTRACK_RS("PREADYON")), " ", SELDTRACK_RS("PREADYON"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 18) = dd
+        FLEX.TextMatrix(i, 19) = IIf(IsNull(SELDTRACK_RS("PSUBBY")), " ", SELDTRACK_RS("PSUBBY"))
+        dd = IIf(IsNull(SELDTRACK_RS("EXFINALDT")), " ", SELDTRACK_RS("EXFINALDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 20) = dd
+        dd = IIf(IsNull(SELDTRACK_RS("FINALDT")), " ", SELDTRACK_RS("FINALDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 21) = dd
+        dd = IIf(IsNull(SELDTRACK_RS("TYPEDT")), " ", SELDTRACK_RS("TYPEDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 22) = dd
+        dd = IIf(IsNull(SELDTRACK_RS("SIGNDT")), " ", SELDTRACK_RS("SIGNDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 23) = dd
+        FLEX.TextMatrix(i, 24) = IIf(IsNull(SELDTRACK_RS("SIGNBY")), " ", SELDTRACK_RS("SIGNBY"))
+        dd = IIf(IsNull(SELDTRACK_RS("DISPDT")), " ", SELDTRACK_RS("DISPDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 25) = dd
+        FLEX.TextMatrix(i, 26) = IIf(IsNull(SELDTRACK_RS("DISPTO")), " ", SELDTRACK_RS("DISPTO"))
+        FLEX.TextMatrix(i, 27) = IIf(IsNull(SELDTRACK_RS("MODALITYCD")), " ", SELDTRACK_RS("MODALITYCD"))
+        SELDTRACK_RS.MoveNext
+        Wend
+        Me.MousePointer = 0
+    ElseIf cbo_modality.Text = "SP" Then '
+        SELSP1_QR(0) = GET_REVDATE(msk_fromdt.Text)
+        SELSP1_QR(1) = GET_REVDATE(msk_todt.Text)
+        SELSP1_QR.Execute
+        i = 0
+        FLEX.Rows = 1
+        Set SELSP1_RS = SELSP1_QR.OpenResultset(1, 3)
+        While Not SELSP1_RS.EOF
+        i = i + 1
+        FLEX.Rows = i + 1
+        Me.MousePointer = vbHourglass
+        DoEvents
+        FLEX.TextMatrix(i, 0) = i
+        FLEX.TextMatrix(i, 1) = IIf(IsNull(SELSP1_RS("PATHNO")), " ", SELSP1_RS("PATHNO"))
+        FLEX.TextMatrix(i, 2) = IIf(IsNull(SELSP1_RS("CASENO")), " ", SELSP1_RS("CASENO"))
+        FLEX.TextMatrix(i, 3) = IIf(IsNull(SELSP1_RS("PRONAME")), " ", SELSP1_RS("PRONAME"))
+        FLEX.TextMatrix(i, 4) = IIf(IsNull(SELSP1_RS("NMATERIAL")), " ", SELSP1_RS("NMATERIAL"))
+        dd = IIf(IsNull(SELSP1_RS("RECDT")), " ", SELSP1_RS("RECDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 5) = dd
+        dd = IIf(IsNull(SELSP1_RS("GRODT")), " ", SELSP1_RS("GRODT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 6) = dd
+        dd = IIf(IsNull(SELSP1_RS("PRODT")), " ", SELSP1_RS("PRODT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 7) = dd
+        dd = IIf(IsNull(SELSP1_RS("EMBDT")), " ", SELSP1_RS("EMBDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 8) = dd
+        dd = IIf(IsNull(SELSP1_RS("CUTTDT")), " ", SELSP1_RS("CUTTDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 9) = dd
+        dd = IIf(IsNull(SELSP1_RS("STAINDT")), " ", SELSP1_RS("STAINDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 10) = dd
+        dd = IIf(IsNull(SELSP1_RS("SUBDT")), " ", SELSP1_RS("SUBDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 11) = dd
+        FLEX.TextMatrix(i, 12) = IIf(IsNull(SELSP1_RS("SUBDRNAME")), " ", SELSP1_RS("SUBDRNAME"))
+        dd = IIf(IsNull(SELSP1_RS("HWDT")), " ", SELSP1_RS("HWDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 13) = dd
+        dd = IIf(IsNull(SELSP1_RS("HWDESPDT")), " ", SELSP1_RS("HWDESPDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 14) = dd
+        FLEX.TextMatrix(i, 15) = IIf(IsNull(SELSP1_RS("HWDESPTO")), " ", SELSP1_RS("HWDESPTO"))
+        FLEX.TextMatrix(i, 16) = IIf(IsNull(SELSP1_RS("PENDINGFOR")), " ", SELSP1_RS("PENDINGFOR"))
+        FLEX.TextMatrix(i, 17) = IIf(IsNull(SELSP1_RS("PENDINGDRN")), " ", SELSP1_RS("PENDINGDRN"))
+        dd = IIf(IsNull(SELSP1_RS("PREADYON")), " ", SELSP1_RS("PREADYON"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 18) = dd
+        FLEX.TextMatrix(i, 19) = IIf(IsNull(SELSP1_RS("PSUBBY")), " ", SELSP1_RS("PSUBBY"))
+        dd = IIf(IsNull(SELSP1_RS("EXFINALDT")), " ", SELSP1_RS("EXFINALDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 20) = dd
+        dd = IIf(IsNull(SELSP1_RS("FINALDT")), " ", SELSP1_RS("FINALDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 21) = dd
+        dd = IIf(IsNull(SELSP1_RS("TYPEDT")), " ", SELSP1_RS("TYPEDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 22) = dd
+        dd = IIf(IsNull(SELSP1_RS("SIGNDT")), " ", SELSP1_RS("SIGNDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 23) = dd
+        FLEX.TextMatrix(i, 24) = IIf(IsNull(SELSP1_RS("SIGNBY")), " ", SELSP1_RS("SIGNBY"))
+        dd = IIf(IsNull(SELSP1_RS("DISPDT")), " ", SELSP1_RS("DISPDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 25) = dd
+        FLEX.TextMatrix(i, 26) = IIf(IsNull(SELSP1_RS("DISPTO")), " ", SELSP1_RS("DISPTO"))
+        FLEX.TextMatrix(i, 27) = IIf(IsNull(SELSP1_RS("MODALITYCD")), " ", SELSP1_RS("MODALITYCD"))
+        SELSP1_RS.MoveNext
+        Wend
+        Me.MousePointer = 0
+
+    ElseIf cbo_modality.Text = "FA" Then
+        SELFA1_QR(0) = GET_REVDATE(msk_fromdt.Text)
+        SELFA1_QR(1) = GET_REVDATE(msk_todt.Text)
+        SELFA1_QR.Execute
+        i = 0
+        FLEX.Rows = 1
+        Set SELFA1_RS = SELFA1_QR.OpenResultset(1, 3)
+        While Not SELFA1_RS.EOF
+        i = i + 1
+        FLEX.Rows = i + 1
+        Me.MousePointer = vbHourglass
+        FLEX.TextMatrix(i, 0) = i
+        FLEX.TextMatrix(i, 1) = IIf(IsNull(SELFA1_RS("PATHNO")), " ", SELFA1_RS("PATHNO"))
+        FLEX.TextMatrix(i, 2) = IIf(IsNull(SELFA1_RS("CASENO")), " ", SELFA1_RS("CASENO"))
+        FLEX.TextMatrix(i, 3) = IIf(IsNull(SELFA1_RS("PRONAME")), " ", SELFA1_RS("PRONAME"))
+        FLEX.TextMatrix(i, 4) = IIf(IsNull(SELFA1_RS("NMATERIAL")), " ", SELFA1_RS("NMATERIAL"))
+        dd = IIf(IsNull(SELFA1_RS("RECDT")), " ", SELFA1_RS("RECDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 5) = dd
+        dd = IIf(IsNull(SELFA1_RS("GRODT")), " ", SELFA1_RS("GRODT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 6) = dd
+        dd = IIf(IsNull(SELFA1_RS("PRODT")), " ", SELFA1_RS("PRODT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 7) = dd
+        dd = IIf(IsNull(SELFA1_RS("EMBDT")), " ", SELFA1_RS("EMBDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 8) = dd
+        dd = IIf(IsNull(SELFA1_RS("CUTTDT")), " ", SELFA1_RS("CUTTDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 9) = dd
+        dd = IIf(IsNull(SELFA1_RS("STAINDT")), " ", SELFA1_RS("STAINDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 10) = dd
+        dd = IIf(IsNull(SELFA1_RS("SUBDT")), " ", SELFA1_RS("SUBDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 11) = dd
+        FLEX.TextMatrix(i, 12) = IIf(IsNull(SELFA1_RS("SUBDRNAME")), " ", SELFA1_RS("SUBDRNAME"))
+        dd = IIf(IsNull(SELFA1_RS("HWDT")), " ", SELFA1_RS("HWDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 13) = dd
+        dd = IIf(IsNull(SELFA1_RS("HWDESPDT")), " ", SELFA1_RS("HWDESPDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 14) = dd
+        FLEX.TextMatrix(i, 15) = IIf(IsNull(SELFA1_RS("HWDESPTO")), " ", SELFA1_RS("HWDESPTO"))
+        FLEX.TextMatrix(i, 16) = IIf(IsNull(SELFA1_RS("PENDINGFOR")), " ", SELFA1_RS("PENDINGFOR"))
+        FLEX.TextMatrix(i, 17) = IIf(IsNull(SELFA1_RS("PENDINGDRN")), " ", SELFA1_RS("PENDINGDRN"))
+        dd = IIf(IsNull(SELFA1_RS("PREADYON")), " ", SELFA1_RS("PREADYON"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 18) = dd
+        FLEX.TextMatrix(i, 19) = IIf(IsNull(SELFA1_RS("PSUBBY")), " ", SELFA1_RS("PSUBBY"))
+        dd = IIf(IsNull(SELFA1_RS("EXFINALDT")), " ", SELFA1_RS("EXFINALDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 20) = dd
+        dd = IIf(IsNull(SELFA1_RS("FINALDT")), " ", SELFA1_RS("FINALDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 21) = dd
+        dd = IIf(IsNull(SELFA1_RS("TYPEDT")), " ", SELFA1_RS("TYPEDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 22) = dd
+        dd = IIf(IsNull(SELFA1_RS("SIGNDT")), " ", SELFA1_RS("SIGNDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 23) = dd
+        FLEX.TextMatrix(i, 24) = IIf(IsNull(SELFA1_RS("SIGNBY")), " ", SELFA1_RS("SIGNBY"))
+        dd = IIf(IsNull(SELFA1_RS("DISPDT")), " ", SELFA1_RS("DISPDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 25) = dd
+        FLEX.TextMatrix(i, 26) = IIf(IsNull(SELFA1_RS("DISPTO")), " ", SELFA1_RS("DISPTO"))
+        FLEX.TextMatrix(i, 27) = IIf(IsNull(SELFA1_RS("MODALITYCD")), " ", SELFA1_RS("MODALITYCD"))
+        
+        SELFA1_RS.MoveNext
+        Wend
+        Me.MousePointer = 0
+    End If
+End If
+
+If Option2.Value = True Or Option3.Value = True Then
+
+'THIS IS FOR ALL PATHNO
+    If Option2.Value = True And COMPATH.Text = "ALL" Then
+            i = 0
+            FLEX.Rows = 1
+            For m = 1 To COMPATH.ListCount - 1
+                Me.MousePointer = vbHourglass
+                PATHNO1 = COMPATH.List(m)
+                SELDPATH_QR(0) = Trim(UCase(PATHNO1))
+                SELDPATH_QR.Execute
+                Set SELDPATH_RS = SELDPATH_QR.OpenResultset(1, 3)
+                i = i + 1
+                FLEX.Rows = i + 1
+        FLEX.TextMatrix(i, 0) = i
+        FLEX.TextMatrix(i, 1) = IIf(IsNull(SELDPATH_RS("PATHNO")), " ", SELDPATH_RS("PATHNO"))
+        FLEX.TextMatrix(i, 2) = IIf(IsNull(SELDPATH_RS("CASENO")), " ", SELDPATH_RS("CASENO"))
+        FLEX.TextMatrix(i, 3) = IIf(IsNull(SELDPATH_RS("PRONAME")), " ", SELDPATH_RS("PRONAME"))
+        FLEX.TextMatrix(i, 4) = IIf(IsNull(SELDPATH_RS("NMATERIAL")), " ", SELDPATH_RS("NMATERIAL"))
+        dd = IIf(IsNull(SELDPATH_RS("RECDT")), " ", SELDPATH_RS("RECDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 5) = dd
+        dd = IIf(IsNull(SELDPATH_RS("GRODT")), " ", SELDPATH_RS("GRODT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 6) = dd
+        dd = IIf(IsNull(SELDPATH_RS("PRODT")), " ", SELDPATH_RS("PRODT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 7) = dd
+        dd = IIf(IsNull(SELDPATH_RS("EMBDT")), " ", SELDPATH_RS("EMBDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 8) = dd
+        dd = IIf(IsNull(SELDPATH_RS("CUTTDT")), " ", SELDPATH_RS("CUTTDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 9) = dd
+        dd = IIf(IsNull(SELDPATH_RS("STAINDT")), " ", SELDPATH_RS("STAINDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 10) = dd
+        dd = IIf(IsNull(SELDPATH_RS("SUBDT")), " ", SELDPATH_RS("SUBDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 11) = dd
+        FLEX.TextMatrix(i, 12) = IIf(IsNull(SELDPATH_RS("SUBDRNAME")), " ", SELDPATH_RS("SUBDRNAME"))
+        dd = IIf(IsNull(SELDPATH_RS("HWDT")), " ", SELDPATH_RS("HWDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 13) = dd
+        dd = IIf(IsNull(SELDPATH_RS("HWDESPDT")), " ", SELDPATH_RS("HWDESPDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 14) = dd
+        FLEX.TextMatrix(i, 15) = IIf(IsNull(SELDPATH_RS("HWDESPTO")), " ", SELDPATH_RS("HWDESPTO"))
+        FLEX.TextMatrix(i, 16) = IIf(IsNull(SELDPATH_RS("PENDINGFOR")), " ", SELDPATH_RS("PENDINGFOR"))
+        FLEX.TextMatrix(i, 17) = IIf(IsNull(SELDPATH_RS("PENDINGDRN")), " ", SELDPATH_RS("PENDINGDRN"))
+        dd = IIf(IsNull(SELDPATH_RS("PREADYON")), " ", SELDPATH_RS("PREADYON"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 18) = dd
+        FLEX.TextMatrix(i, 19) = IIf(IsNull(SELDPATH_RS("PSUBBY")), " ", SELDPATH_RS("PSUBBY"))
+        dd = IIf(IsNull(SELDPATH_RS("EXFINALDT")), " ", SELDPATH_RS("EXFINALDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 20) = dd
+        dd = IIf(IsNull(SELDPATH_RS("FINALDT")), " ", SELDPATH_RS("FINALDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 21) = dd
+        dd = IIf(IsNull(SELDPATH_RS("TYPEDT")), " ", SELDPATH_RS("TYPEDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 22) = dd
+        dd = IIf(IsNull(SELDPATH_RS("SIGNDT")), " ", SELDPATH_RS("SIGNDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 23) = dd
+        FLEX.TextMatrix(i, 24) = IIf(IsNull(SELDPATH_RS("SIGNBY")), " ", SELDPATH_RS("SIGNBY"))
+        dd = IIf(IsNull(SELDPATH_RS("DISPDT")), " ", SELDPATH_RS("DISPDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 25) = dd
+        FLEX.TextMatrix(i, 26) = IIf(IsNull(SELDPATH_RS("DISPTO")), " ", SELDPATH_RS("DISPTO"))
+        FLEX.TextMatrix(i, 27) = IIf(IsNull(SELDPATH_RS("MODALITYCD")), " ", SELDPATH_RS("MODALITYCD"))
+        
+            Next
+                Me.MousePointer = 0
+                Exit Sub
+    
+
+ 'THIS IS FOR PARTICULAR PATHNO
+    ElseIf Option2.Value = True Then
+        SELDPATH_QR(0) = Trim(UCase(COMPATH.Text))
+    ElseIf Option3.Value = True Then
+        SELDPATH_QR(0) = Trim(UCase(Text1.Text))
+    End If
+    SELDPATH_QR.Execute
+    i = 0
+    FLEX.Rows = 1
+ Set SELDPATH_RS = SELDPATH_QR.OpenResultset(1, 3)
+ While Not SELDPATH_RS.EOF
+ i = i + 1
+ FLEX.Rows = i + 1
+Me.MousePointer = vbHourglass
+        FLEX.TextMatrix(i, 0) = i
+        FLEX.TextMatrix(i, 1) = IIf(IsNull(SELDPATH_RS("PATHNO")), " ", SELDPATH_RS("PATHNO"))
+        FLEX.TextMatrix(i, 2) = IIf(IsNull(SELDPATH_RS("CASENO")), " ", SELDPATH_RS("CASENO"))
+        FLEX.TextMatrix(i, 3) = IIf(IsNull(SELDPATH_RS("PRONAME")), " ", SELDPATH_RS("PRONAME"))
+        FLEX.TextMatrix(i, 4) = IIf(IsNull(SELDPATH_RS("NMATERIAL")), " ", SELDPATH_RS("NMATERIAL"))
+        dd = IIf(IsNull(SELDPATH_RS("RECDT")), " ", SELDPATH_RS("RECDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 5) = dd
+        dd = IIf(IsNull(SELDPATH_RS("GRODT")), " ", SELDPATH_RS("GRODT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 6) = dd
+        dd = IIf(IsNull(SELDPATH_RS("PRODT")), " ", SELDPATH_RS("PRODT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 7) = dd
+        dd = IIf(IsNull(SELDPATH_RS("EMBDT")), " ", SELDPATH_RS("EMBDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 8) = dd
+        dd = IIf(IsNull(SELDPATH_RS("CUTTDT")), " ", SELDPATH_RS("CUTTDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 9) = dd
+        dd = IIf(IsNull(SELDPATH_RS("STAINDT")), " ", SELDPATH_RS("STAINDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 10) = dd
+        dd = IIf(IsNull(SELDPATH_RS("SUBDT")), " ", SELDPATH_RS("SUBDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 11) = dd
+        FLEX.TextMatrix(i, 12) = IIf(IsNull(SELDPATH_RS("SUBDRNAME")), " ", SELDPATH_RS("SUBDRNAME"))
+        dd = IIf(IsNull(SELDPATH_RS("HWDT")), " ", SELDPATH_RS("HWDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 13) = dd
+        dd = IIf(IsNull(SELDPATH_RS("HWDESPDT")), " ", SELDPATH_RS("HWDESPDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 14) = dd
+        FLEX.TextMatrix(i, 15) = IIf(IsNull(SELDPATH_RS("HWDESPTO")), " ", SELDPATH_RS("HWDESPTO"))
+        FLEX.TextMatrix(i, 16) = IIf(IsNull(SELDPATH_RS("PENDINGFOR")), " ", SELDPATH_RS("PENDINGFOR"))
+        FLEX.TextMatrix(i, 17) = IIf(IsNull(SELDPATH_RS("PENDINGDRN")), " ", SELDPATH_RS("PENDINGDRN"))
+        dd = IIf(IsNull(SELDPATH_RS("PREADYON")), " ", SELDPATH_RS("PREADYON"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 18) = dd
+        FLEX.TextMatrix(i, 19) = IIf(IsNull(SELDPATH_RS("PSUBBY")), " ", SELDPATH_RS("PSUBBY"))
+        dd = IIf(IsNull(SELDPATH_RS("EXFINALDT")), " ", SELDPATH_RS("EXFINALDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 20) = dd
+        dd = IIf(IsNull(SELDPATH_RS("FINALDT")), " ", SELDPATH_RS("FINALDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 21) = dd
+        dd = IIf(IsNull(SELDPATH_RS("TYPEDT")), " ", SELDPATH_RS("TYPEDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 22) = dd
+        dd = IIf(IsNull(SELDPATH_RS("SIGNDT")), " ", SELDPATH_RS("SIGNDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 23) = dd
+        FLEX.TextMatrix(i, 24) = IIf(IsNull(SELDPATH_RS("SIGNBY")), " ", SELDPATH_RS("SIGNBY"))
+        dd = IIf(IsNull(SELDPATH_RS("DISPDT")), " ", SELDPATH_RS("DISPDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 25) = dd
+        FLEX.TextMatrix(i, 26) = IIf(IsNull(SELDPATH_RS("DISPTO")), " ", SELDPATH_RS("DISPTO"))
+        FLEX.TextMatrix(i, 27) = IIf(IsNull(SELDPATH_RS("MODALITYCD")), " ", SELDPATH_RS("MODALITYCD"))
+        SELDPATH_RS.MoveNext
+        Wend
+    Me.MousePointer = 0
+End If
+CMB_SHOW.Enabled = False
+End If
+
+''' THIS CODE FOR NEW BUTTON
+
+''/////////////////////////////////////////////////////////////////////////
+
+
+If new_flag = True Then
+If Option1.Value = True Then
+    If cbo_modality.Text = "" Then
+        MsgBox "PLEASE SELECT MODALITY CODE", vbExclamation, "MODALITY"
+        Exit Sub
+    ElseIf cbo_modality.Text = "ALL" Then
+        SELDREQ_QR(0) = GET_REVDATE(msk_fromdt.Text)
+        SELDREQ_QR(1) = GET_REVDATE(msk_todt.Text)
+        SELDREQ_QR.Execute
+        i = 0
+        FLEX.Rows = 1
+        Set SELDREQ_RS = SELDREQ_QR.OpenResultset(1, 3)
+        While Not SELDREQ_RS.EOF
+        ser_code = Trim(SELDREQ_RS!ser_code)
+        SELCODENAME_QR(0) = ser_code
+        SELCODENAME_QR.Execute
+        Set SELCODENAME_RS = SELCODENAME_QR.OpenResultset(1, 3)
+        PRO_CODE = Trim((SELCODENAME_RS!SER_DET))
+        i = i + 1
+        FLEX.Rows = i + 1
+        Me.MousePointer = vbHourglass
+        FLEX.TextMatrix(i, 0) = i
+        PATH = IIf(IsNull(SELDREQ_RS("PATHNO")), " ", SELDREQ_RS("PATHNO"))
+        If Trim(PATH) = "" Then
+            FLEX.TextMatrix(i, 4) = ""
+        Else
+            SELNM_QR(0) = PATH
+            Set SELNM_RS = SELNM_QR.OpenResultset(1, 3)
+            nm = IIf(IsNull(SELNM_RS("NMETERIALS")), " ", SELNM_RS("NMETERIALS"))
+            FLEX.TextMatrix(i, 4) = nm
+        End If
+        FLEX.TextMatrix(i, 1) = PATH
+        FLEX.TextMatrix(i, 2) = IIf(IsNull(SELDREQ_RS("CASENO")), " ", SELDREQ_RS("CASENO"))
+        FLEX.TextMatrix(i, 3) = PRO_CODE
+        dd = IIf(IsNull(SELDREQ_RS("APNTDT")), " ", SELDREQ_RS("APNTDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 5) = dd
+        FLEX.TextMatrix(i, 27) = IIf(IsNull(SELDREQ_RS("MODALITYCD")), " ", SELDREQ_RS("MODALITYCD"))
+        SELDREQ_RS.MoveNext
+        Wend
+        Me.MousePointer = 0
+    ElseIf cbo_modality.Text = "SP" Then
+        SELSP_QR(0) = GET_REVDATE(msk_fromdt.Text)
+        SELSP_QR(1) = GET_REVDATE(msk_todt.Text)
+        SELSP_QR.Execute
+        i = 0
+        FLEX.Rows = 1
+        Set SELSP_RS = SELSP_QR.OpenResultset(1, 3)
+        While Not SELSP_RS.EOF
+        ser_code = Trim(SELSP_RS!ser_code)
+        SELCODENAME_QR(0) = ser_code
+        SELCODENAME_QR.Execute
+        Set SELCODENAME_RS = SELCODENAME_QR.OpenResultset(1, 3)
+        PRO_CODE = Trim((SELCODENAME_RS!SER_DET))
+        
+        i = i + 1
+        FLEX.Rows = i + 1
+        Me.MousePointer = vbHourglass
+        DoEvents
+        FLEX.TextMatrix(i, 0) = i
+        PATH = IIf(IsNull(SELSP_RS("PATHNO")), " ", SELSP_RS("PATHNO"))
+        If Trim(PATH) = "" Then
+            FLEX.TextMatrix(i, 4) = ""
+        Else
+            SELNM_QR(0) = PATH
+            Set SELNM_RS = SELNM_QR.OpenResultset(1, 3)
+            nm = IIf(IsNull(SELNM_RS("NMETERIALS")), " ", SELNM_RS("NMETERIALS"))
+            FLEX.TextMatrix(i, 4) = nm
+        End If
+        FLEX.TextMatrix(i, 1) = PATH
+        FLEX.TextMatrix(i, 2) = IIf(IsNull(SELSP_RS("CASENO")), " ", SELSP_RS("CASENO"))
+        FLEX.TextMatrix(i, 3) = PRO_CODE
+        dd = IIf(IsNull(SELSP_RS("APNTDT")), " ", SELSP_RS("APNTDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 5) = dd
+        FLEX.TextMatrix(i, 27) = IIf(IsNull(SELSP_RS("MODALITYCD")), " ", SELSP_RS("MODALITYCD"))
+        SELSP_RS.MoveNext
+        Wend
+        Me.MousePointer = 0
+
+    ElseIf cbo_modality.Text = "FA" Then
+        SELFA_QR(0) = GET_REVDATE(msk_fromdt.FormattedText)
+        SELFA_QR(1) = GET_REVDATE(msk_todt.FormattedText)
+        SELFA_QR.Execute
+        i = 0
+        FLEX.Rows = 1
+        Set SELFA_RS = SELFA_QR.OpenResultset(1, 3)
+        While Not SELFA_RS.EOF
+        ser_code = Trim(SELFA_RS!ser_code)
+        SELCODENAME_QR(0) = ser_code
+        SELCODENAME_QR.Execute
+        Set SELCODENAME_RS = SELCODENAME_QR.OpenResultset(1, 3)
+        PRO_CODE = Trim((SELCODENAME_RS!SER_DET))
+        
+        i = i + 1
+        FLEX.Rows = i + 1
+        Me.MousePointer = vbHourglass
+        FLEX.TextMatrix(i, 0) = i
+        PATH = IIf(IsNull(SELFA_RS("PATHNO")), " ", SELFA_RS("PATHNO"))
+        If Trim(PATH) = "" Then
+            FLEX.TextMatrix(i, 4) = ""
+        Else
+            SELNM_QR(0) = PATH
+            Set SELNM_RS = SELNM_QR.OpenResultset(1, 3)
+            nm = IIf(IsNull(SELNM_RS("NMETERIALS")), " ", SELNM_RS("NMETERIALS"))
+            FLEX.TextMatrix(i, 4) = nm
+        End If
+        FLEX.TextMatrix(i, 1) = PATH
+        FLEX.TextMatrix(i, 2) = IIf(IsNull(SELFA_RS("CASENO")), " ", SELFA_RS("CASENO"))
+        FLEX.TextMatrix(i, 3) = PRO_CODE
+        dd = IIf(IsNull(SELFA_RS("APNTDT")), " ", SELFA_RS("APNTDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+        FLEX.TextMatrix(i, 5) = dd
+        FLEX.TextMatrix(i, 27) = IIf(IsNull(SELFA_RS("MODALITYCD")), "", SELFA_RS("MODALITYCD"))
+        SELFA_RS.MoveNext
+        Wend
+        Me.MousePointer = 0
+    End If
+End If
+If Option2.Value = True Or Option4.Value = True Then
+    If Trim(COMPATH.Text) = "ALL" Then
+            i = 0
+            FLEX.Rows = 1
+            For m = 1 To COMPATH.ListCount - 1
+            Me.MousePointer = vbHourglass
+            PATHNO1 = COMPATH.List(m)
+            SELDREQ_QR1(0) = Trim(UCase(PATHNO1))
+            SELDREQ_QR1.Execute
+            Set SELDREQ_RS1 = SELDREQ_QR1.OpenResultset(1, 3)
+                
+                ser_code = Trim(SELDREQ_RS1!ser_code)
+                SELCODENAME_QR(0) = ser_code
+                SELCODENAME_QR.Execute
+                
+                Set SELCODENAME_RS = SELCODENAME_QR.OpenResultset(1, 3)
+                PRO_CODE = Trim((SELCODENAME_RS!SER_DET))
+                Me.MousePointer = vbHourglass
+                i = i + 1
+                FLEX.Rows = i + 1
+                FLEX.TextMatrix(i, 0) = i
+                FLEX.TextMatrix(i, 1) = Trim(UCase(PATHNO1))
+                FLEX.TextMatrix(i, 2) = IIf(IsNull(SELDREQ_RS1("CASENO")), " ", SELDREQ_RS1("CASENO"))
+                FLEX.TextMatrix(i, 3) = PRO_CODE
+                FLEX.TextMatrix(i, 4) = IIf(IsNull(SELDREQ_RS1("NMETERIALS")), " ", SELDREQ_RS1("NMETERIALS"))
+                dd = IIf(IsNull(SELDREQ_RS1("APNTDT")), " ", SELDREQ_RS1("APNTDT"))
+                dd = Format(dd, "DD/MM/YYYY")
+                FLEX.TextMatrix(i, 5) = dd
+                FLEX.TextMatrix(i, 27) = IIf(IsNull(SELDREQ_RS1("MODALITYCD")), "", SELDREQ_RS1("MODALITYCD"))
+              '  SELDREQ_RS1.MoveNext
+                
+                
+            Next
+            Me.MousePointer = 0
+    Else
+    SELDREQ_QR1(0) = Trim(UCase(COMPATH.Text))
+    SELDREQ_QR1.Execute
+    i = 0
+    FLEX.Rows = 1
+    Set SELDREQ_RS1 = SELDREQ_QR1.OpenResultset(1, 3)
+    While Not SELDREQ_RS1.EOF
+    ser_code = Trim(SELDREQ_RS1!ser_code)
+    SELCODENAME_QR(0) = ser_code
+    SELCODENAME_QR.Execute
+    Set SELCODENAME_RS = SELCODENAME_QR.OpenResultset(1, 3)
+    PRO_CODE = Trim((SELCODENAME_RS!SER_DET))
+    i = i + 1
+    FLEX.Rows = i + 1
+    Me.MousePointer = vbHourglass
+    FLEX.TextMatrix(i, 0) = i
+        SELNM_QR(0) = Trim(UCase(COMPATH.Text))
+        SELNM_QR.Execute
+        Set SELNM_RS = SELNM_QR.OpenResultset(1, 3)
+        nm = IIf(IsNull(SELNM_RS("NMETERIALS")), " ", SELNM_RS("NMETERIALS"))
+    FLEX.TextMatrix(i, 1) = Trim(UCase(COMPATH.Text))
+    FLEX.TextMatrix(i, 2) = IIf(IsNull(SELDREQ_RS1("CASENO")), " ", SELDREQ_RS1("CASENO"))
+    FLEX.TextMatrix(i, 3) = PRO_CODE
+    FLEX.TextMatrix(i, 4) = nm
+        dd = IIf(IsNull(SELDREQ_RS1("APNTDT")), " ", SELDREQ_RS1("APNTDT"))
+        dd = Format(dd, "DD/MM/YYYY")
+    FLEX.TextMatrix(i, 5) = dd
+    FLEX.TextMatrix(i, 27) = IIf(IsNull(SELDREQ_RS1("MODALITYCD")), "", SELDREQ_RS1("MODALITYCD"))
+    SELDREQ_RS1.MoveNext
+    Wend
+    Me.MousePointer = 0
+End If
+End If
+If Option3.Value = True Then
+    SELDREQ_QR2(0) = Trim(UCase(Text1.Text))
+    SELDREQ_QR2.Execute
+    i = 0
+    FLEX.Rows = 1
+    Set SELDREQ_RS2 = SELDREQ_QR2.OpenResultset(1, 3)
+    While Not SELDREQ_RS2.EOF
+    ser_code = Trim(SELDREQ_RS2!ser_code)
+    SELCODENAME_QR(0) = ser_code
+    SELCODENAME_QR.Execute
+    Set SELCODENAME_RS = SELCODENAME_QR.OpenResultset(1, 3)
+    PRO_CODE = Trim((SELCODENAME_RS!SER_DET))
+        
+    i = i + 1
+    FLEX.Rows = i + 1
+    Me.MousePointer = vbHourglass
+    FLEX.TextMatrix(i, 0) = i
+    FLEX.TextMatrix(i, 1) = IIf(IsNull(SELDREQ_RS2("PATHNO")), " ", SELDREQ_RS2("PATHNO"))
+    FLEX.TextMatrix(i, 2) = IIf(IsNull(SELDREQ_RS2("CASENO")), " ", SELDREQ_RS2("CASENO"))
+    FLEX.TextMatrix(i, 3) = PRO_CODE
+    FLEX.TextMatrix(i, 4) = nm
+    dd = IIf(IsNull(SELDREQ_RS2("APNTDT")), " ", SELDREQ_RS2("APNTDT"))
+    dd = Format(dd, "DD/MM/YYYY")
+    FLEX.TextMatrix(i, 5) = dd
+    FLEX.TextMatrix(i, 27) = IIf(IsNull(SELDREQ_RS2("MODALITYCD")), "", SELDREQ_RS2("MODALITYCD"))
+    SELDREQ_RS2.MoveNext
+    Wend
+    Me.MousePointer = 0
+End If
+CMB_SHOW.Enabled = False
+CMB_SAVE.Enabled = True
+End If
+End Sub
+
+Private Sub cmb_view_Click()
+    CMD_MOD.Enabled = True
+    CMB_VIEW.Enabled = False
+    CMB_NEW.Enabled = False
+    CMD_DEL.Enabled = True
+    VIEW_FLAG = True
+    Option1.Enabled = True
+    Option1.Value = True
+    CMB_SHOW.Enabled = True
+    Option2.Enabled = True
+    Option3.Enabled = True
+    Option4.Enabled = True
+End Sub
+
+Private Sub cmd_cancel_Click()
+  
+    FRAMEALL.Enabled = True
+    Option1.Enabled = True
+    Option2.Enabled = True
+    Option4.Enabled = True
+    FLEX.Rows = 1
+    CMB_VIEW.Enabled = True
+    CMB_NEW.Enabled = True
+    Option3.Enabled = True
+    Text1.Enabled = True
+    Msk_caseno.Enabled = True
+    TXT_DRNAME.Visible = False
+    COM_DESPATCH.Visible = False
+    COM_PENDING.Visible = False
+    COM_SIGNBY.Visible = False
+    CMB_SHOW.Enabled = True
+    CMD_MOD.Enabled = False
+    Label7.Visible = False
+    COMPATH.Visible = False
+    Option3.Visible = True
+    Option3.Enabled = True
+    Text1.Visible = True
+    Text1.Text = ""
+    COMPATH.clear
+    Msk_caseno.Text = ""
+    Msk_caseno.Mask = "??>/#####"
+    CMB_SAVE.Enabled = True
+    CMD_DEL.Enabled = False
+    Option1.Value = False
+    Option2.Value = False
+    Option3.Value = False
+    Option4.Value = False
+    Msk_caseno.Enabled = False
+    Text1.Enabled = False
+    DTP.Visible = False
+    mod_flag = False
+    new_flag = False
+End Sub
+
+Private Sub CMD_DEL_Click()
+R2 = FLEX.row
+i = Trim(FLEX.TextMatrix(R2, 2))
+DEL_QR(0) = i
+m1 = MsgBox("DO YOU WANT TO DELETE RECORD", vbYesNoCancel, "DELETE FROM TRACKING SYSTEM")
+If m1 = vbYes Then
+    DEL_QR.Execute
+FLEX.TextMatrix(R2, 1) = ""
+FLEX.TextMatrix(R2, 2) = ""
+FLEX.TextMatrix(R2, 3) = ""
+FLEX.TextMatrix(R2, 4) = ""
+FLEX.TextMatrix(R2, 5) = ""
+FLEX.TextMatrix(R2, 6) = ""
+FLEX.TextMatrix(R2, 7) = ""
+FLEX.TextMatrix(R2, 8) = ""
+FLEX.TextMatrix(R2, 9) = ""
+FLEX.TextMatrix(R2, 10) = ""
+FLEX.TextMatrix(R2, 11) = ""
+FLEX.TextMatrix(R2, 12) = ""
+FLEX.TextMatrix(R2, 13) = ""
+FLEX.TextMatrix(R2, 14) = ""
+FLEX.TextMatrix(R2, 15) = ""
+FLEX.TextMatrix(R2, 16) = ""
+FLEX.TextMatrix(R2, 17) = ""
+FLEX.TextMatrix(R2, 18) = ""
+FLEX.TextMatrix(R2, 19) = ""
+FLEX.TextMatrix(R2, 20) = ""
+FLEX.TextMatrix(R2, 21) = ""
+FLEX.TextMatrix(R2, 22) = ""
+FLEX.TextMatrix(R2, 23) = ""
+FLEX.TextMatrix(R2, 24) = ""
+FLEX.TextMatrix(R2, 25) = ""
+FLEX.TextMatrix(R2, 26) = ""
+End If
+End Sub
+
+Private Sub CMD_MOD_Click()
+    mod_flag = True
+    CMD_MOD.Enabled = False
+    CMB_SAVE.Enabled = True
+'    DTP.Visible = True
+End Sub
+
+Private Sub cmd_print_Click()
+DTP.Visible = False
+FLEX.TextMatrix(R1, C1) = ""
+End Sub
+
+
+Private Sub FLEX_Click()
+If mod_flag = True Then
+R1 = FLEX.MouseRow
+C1 = FLEX.MouseCol
+If (C1 = 6 Or C1 = 7 Or C1 = 8 Or C1 = 9 Or C1 = 10 Or C1 = 11 Or C1 = 13 Or C1 = 14 Or C1 = 18 Or C1 = 20 Or C1 = 21 Or C1 = 22 Or C1 = 23 Or C1 = 25) And (R1 > 0) Then
+    DTP.Visible = True
+    DTP.Left = FLEX.Left + FLEX.CellLeft
+    DTP.Top = FLEX.Top + FLEX.CellTop
+    DTP.Width = FLEX.CellWidth + 50
+    DTP.Height = FLEX.CellHeight + 50
+ElseIf C1 = 12 Then
+    If FLEX.TextMatrix(R1, C1) <> "" Then
+        TXT_DRNAME.Text = FLEX.TextMatrix(R1, C1)
+    End If
+    TXT_DRNAME.Visible = True
+    TXT_DRNAME.Left = FLEX.Left + FLEX.CellLeft
+    TXT_DRNAME.Top = FLEX.Top + FLEX.CellTop
+    TXT_DRNAME.Width = FLEX.CellWidth
+    TXT_DRNAME.Height = FLEX.CellHeight
+ElseIf C1 = 15 Or C1 = 26 Then
+    COM_DESPATCH.Visible = True
+    COM_DESPATCH.Left = FLEX.Left + FLEX.CellLeft
+    COM_DESPATCH.Top = FLEX.Top + FLEX.CellTop
+    COM_DESPATCH.Width = FLEX.CellWidth
+ElseIf C1 = 16 Then
+    COM_PENDING.Visible = True
+    COM_PENDING.Left = FLEX.Left + FLEX.CellLeft
+    COM_PENDING.Top = FLEX.Top + FLEX.CellTop
+    COM_PENDING.Width = FLEX.CellWidth
+ElseIf C1 = 17 Or C1 = 19 Then
+    If FLEX.TextMatrix(R1, C1) <> "" Then
+        TXT_DRNAME.Text = FLEX.TextMatrix(R1, C1)
+    End If
+    TXT_DRNAME.Visible = True
+    TXT_DRNAME.Left = FLEX.Left + FLEX.CellLeft
+    TXT_DRNAME.Top = FLEX.Top + FLEX.CellTop
+    TXT_DRNAME.Width = FLEX.CellWidth
+    TXT_DRNAME.Height = FLEX.CellHeight
+ElseIf C1 = 24 Then
+    COM_SIGNBY.Visible = True
+    COM_SIGNBY.Left = FLEX.Left + FLEX.CellLeft
+    COM_SIGNBY.Top = FLEX.Top + FLEX.CellTop
+    COM_SIGNBY.Width = FLEX.CellWidth
+End If
+Else
+TXT_DRNAME.Visible = False
+COM_DESPATCH.Visible = False
+COM_PENDING.Visible = False
+COM_SIGNBY.Visible = False
+DTP.Visible = False
+End If
+End Sub
+
+Private Sub FLEX_RowColChange()
+If (C1 = 6 Or C1 = 7 Or C1 = 8 Or C1 = 9 Or C1 = 10 Or C1 = 11 Or C1 = 13 Or C1 = 14 Or C1 = 18 Or C1 = 20 Or C1 = 21 Or C1 = 22 Or C1 = 23 Or C1 = 25) And (R1 > 0) Then
+    'DD = DTP.Value
+    dd = Format(dd, "DD/MM/YYYY")
+    FLEX.TextMatrix(R1, C1) = dd
+    FLEX.CellAlignment = flexAlignLeftCenter
+    DTP.Visible = False
+ElseIf C1 = 12 Then
+    FLEX.TextMatrix(R1, C1) = UCase(TXT_DRNAME.Text)
+    FLEX.CellAlignment = flexAlignLeftCenter
+    TXT_DRNAME.Text = ""
+    TXT_DRNAME.Visible = False
+ElseIf C1 = 15 Or C1 = 26 Then
+    FLEX.TextMatrix(R1, C1) = UCase(COM_DESPATCH.Text)
+    FLEX.CellAlignment = flexAlignLeftCenter
+    COM_DESPATCH.Visible = False
+ElseIf C1 = 16 Then
+    FLEX.TextMatrix(R1, C1) = UCase(COM_PENDING.Text)
+    FLEX.CellAlignment = flexAlignLeftCenter
+    COM_PENDING.Visible = False
+ElseIf C1 = 17 Or C1 = 19 Then
+    FLEX.TextMatrix(R1, C1) = UCase(TXT_DRNAME.Text)
+    FLEX.CellAlignment = flexAlignLeftCenter
+    TXT_DRNAME.Text = ""
+    TXT_DRNAME.Visible = False
+ElseIf C1 = 24 Then
+    FLEX.TextMatrix(R1, C1) = UCase(COM_SIGNBY.Text)
+    FLEX.CellAlignment = flexAlignLeftCenter
+    COM_SIGNBY.Visible = False
+End If
+End Sub
+
+Private Sub FLEX_Scroll()
+If mod_flag = True Then
+If (C1 = 11 Or C1 = 6 Or C1 = 7 Or C1 = 8 Or C1 = 9 Or C1 = 10 Or C1 = 13 Or C1 = 14 Or C1 = 18 Or C1 = 20 Or C1 = 21 Or C1 = 22 Or C1 = 23 Or C1 = 25) And (R1 > 0) Then
+   ' DD = DTP.Value
+    dd = Format(dd, "DD/MM/YYYY")
+    FLEX.TextMatrix(R1, C1) = dd
+    FLEX.CellAlignment = flexAlignLeftCenter
+    DTP.Visible = False
+ElseIf C1 = 12 Then
+    FLEX.TextMatrix(R1, C1) = UCase(TXT_DRNAME.Text)
+    FLEX.CellAlignment = flexAlignLeftCenter
+    TXT_DRNAME.Visible = False
+ElseIf C1 = 15 Or C1 = 26 Then
+    FLEX.TextMatrix(R1, C1) = UCase(COM_DESPATCH.Text)
+    FLEX.CellAlignment = flexAlignLeftCenter
+    COM_DESPATCH.Visible = False
+ElseIf C1 = 16 Then
+    FLEX.TextMatrix(R1, C1) = UCase(COM_PENDING.Text)
+    FLEX.CellAlignment = flexAlignLeftCenter
+    COM_PENDING.Visible = False
+ElseIf C1 = 17 Or C1 = 19 Then
+    FLEX.TextMatrix(R1, C1) = UCase(TXT_DRNAME.Text)
+    FLEX.CellAlignment = flexAlignLeftCenter
+    TXT_DRNAME.Visible = False
+ElseIf C1 = 24 Then
+    FLEX.TextMatrix(R1, C1) = UCase(COM_SIGNBY.Text)
+    FLEX.CellAlignment = flexAlignLeftCenter
+    COM_SIGNBY.Visible = False
+End If
+End If
+End Sub
+
+Private Sub Form_Load()
+Msk_caseno.Enabled = False
+Text1.Enabled = False
+FLEX.RowHeight(0) = 700
+FLEX.ColWidth(3) = 1700
+FLEX.ColWidth(4) = 1700
+FLEX.ColWidth(5) = 1300
+FLEX.ColWidth(6) = 1300
+FLEX.ColWidth(7) = 1300
+FLEX.ColWidth(8) = 1300
+FLEX.ColWidth(9) = 1300
+FLEX.ColWidth(10) = 1300
+FLEX.ColWidth(11) = 1300
+FLEX.ColWidth(12) = 1500
+FLEX.ColWidth(13) = 1300
+FLEX.ColWidth(14) = 1300
+FLEX.ColWidth(15) = 1500
+FLEX.ColWidth(16) = 1500
+FLEX.ColWidth(17) = 1500
+FLEX.ColWidth(18) = 1500
+FLEX.ColWidth(19) = 1500
+FLEX.ColWidth(20) = 1700
+FLEX.ColWidth(21) = 1300
+FLEX.ColWidth(22) = 1500
+FLEX.ColWidth(23) = 1400
+FLEX.ColWidth(24) = 1700
+FLEX.ColWidth(25) = 1400
+FLEX.ColWidth(26) = 1700
+FLEX.ColWidth(27) = 0
+
+'THESE QUERIES FOR NEW BUTTON//////////////////////////////////////////////////////////////
+'*******************************************************************************************
+
+'THIS IS FOR CURRENT DATE///////////////////////////////////
+Set RS = rdb.OpenResultset("SELECT DISTINCT CURRENT DATE DT1 , CURRENT TIME TM1 FROM PATOOLSLIB.MA107") '***2/2/99
+DATE11 = RS("dt1") '**add 24/11/2k
+
+'THIS IS FOR ALL//////////////////////////////
+str = "SELECT B.CASENO,B.PATHNO,A.APNTDT,A.MODALITYCD,A.SER_CODE FROM RISLIB.RREQUISITN A,DISLIB.DREQUISITN B WHERE  A.APNTDT BETWEEN ? AND ?  AND (A.MODALITYCD='SP' OR A.MODALITYCD='FA')  AND A.REQNSTAT='E' AND A.CASENO=B.CASENO AND A.REQNNO=B.REQNO AND A.CASENO NOT IN (SELECT CASENO FROM DISLIB.DTRACK) ORDER BY B.PATHNO"
+Set SELDREQ_QR = rdb.CreateQuery("DR", str)
+
+'THIS IS FOR PARTICULAR CASENO(PATHNO) ////////////////////////(CORRECT)
+str = "SELECT  B.REQNO, B.CASENO, B.PATHNO, B.NMETERIALS,A.APNTDT,A.MODALITYCD,A.SER_CODE FROM RISLIB.RREQUISITN A,DISLIB.DREQUISITN B WHERE  B.CASENO=A.CASENO AND A.REQNNO=B.REQNO AND B.PATHNO NOT IN (SELECT PATHNO FROM DISLIB.DTRACK) AND B.PATHNO=? "
+Set SELDREQ_QR1 = rdb.CreateQuery("DR1", str)
+
+
+'THIS IS FOR PARTICULAR PATHNO/////////////////////(CORRECT)
+str = "SELECT B.CASENO,B.PATHNO,B.NMETERIALS,A.APNTDT,A.MODALITYCD,A.SER_CODE FROM RISLIB.RREQUISITN A,DISLIB.DREQUISITN B WHERE A.CASENO=B.CASENO AND A.REQNNO=B.REQNO AND (A.MODALITYCD='SP' OR A.MODALITYCD='FA') AND  B.PATHNO NOT IN (SELECT PATHNO FROM DISLIB.DTRACK) AND B.PATHNO=? ORDER BY B.PATHNO"
+Set SELDREQ_QR2 = rdb.CreateQuery("DR2", str)
+
+'THIS IS FOR SP//////////////////////////////////(CORRECT)
+str = "SELECT B.CASENO,B.PATHNO,A.APNTDT,A.MODALITYCD,A.SER_CODE FROM RISLIB.RREQUISITN A,DISLIB.DREQUISITN B WHERE A.REQNNO=B.REQNO AND A.APNTDT BETWEEN ? AND ?  AND A.MODALITYCD='SP' AND  A.REQNSTAT='E' AND A.CASENO=B.CASENO AND A.CASENO NOT IN (SELECT CASENO FROM DISLIB.DTRACK) ORDER BY B.PATHNO"
+Set SELSP_QR = rdb.CreateQuery("SP", str)
+
+'THIS IS FOR FA//////////////////////////////(CORRECT)
+str = "SELECT B.CASENO,B.PATHNO,A.APNTDT,A.MODALITYCD,A.SER_CODE FROM RISLIB.RREQUISITN A,DISLIB.DREQUISITN B WHERE A.REQNNO=B.REQNO AND A.CASENO=B.CASENO  AND A.APNTDT BETWEEN ? AND ? AND A.MODALITYCD='FA' AND A.REQNSTAT='E' AND A.CASENO NOT IN (SELECT CASENO FROM DISLIB.DTRACK) ORDER BY B.PATHNO "
+Set SELFA_QR = rdb.CreateQuery("FNAC", str)
+
+
+'THIS IS FOR PATHNO FOR PARTICULAR CASNO////////////////
+str = "SELECT DISTINCT B.PATHNO FROM RISLIB.RREQUISITN A,DISLIB.DREQUISITN B WHERE B.CASENO=? AND A.REQNNO=B.REQNO AND (REQNO LIKE '%SP%' OR REQNO LIKE '%FA%')"
+Set SELPATH_QR = rdb.CreateQuery("PATH", str)
+
+'THIS IS FOR INSERT RECORDS IN DTRACK TABLE
+str = "INSERT INTO DISLIB.DTRACK(PATHNO,CASENO,PRONAME,NMATERIAL,RECDT,MODALITYCD)VALUES(?,?,?,?,?,?)"
+Set INSDTRACK_QR = rdb.CreateQuery("INSDTRACK", str)
+
+'THIS IS FOR NATURE OF MATERIAL
+str = "SELECT NMETERIALS FROM DISLIB.DREQUISITN WHERE PATHNO=?"
+Set SELNM_QR = rdb.CreateQuery("NM", str)
+
+'THIS IS FOR ALL PATHNO FOR NEW
+str = "SELECT B.CASENO,B.PATHNO,A.APNTDT,A.MODALITYCD,A.SER_CODE FROM RISLIB.RREQUISITN A,DISLIB.DREQUISITN B WHERE CASENO=?  "
+str = "SELECT B.CASENO,B.PATHNO,B.NMETERIALS,A.APNTDT,A.MODALITYCD,A.SER_CODE FROM RISLIB.RREQUISITN A,DISLIB.DREQUISITN B WHERE CASENO=? AND A.REQNNO=B.REQNO AND (A.MODALITYCD='SP' OR A.MODALITYCD='FA') AND  B.PATHNO NOT IN (SELECT PATHNO FROM DISLIB.DTRACK)  ORDER BY B.PATHNO"
+
+'THIS IS FOR ALL PATHNO FOR VIEW
+
+Set SELALLPATH_QR = rdb.CreateQuery("ALLPATHNO", str)
+
+'THESE QUERIES FOR VIEW BUTTON//////////////////////////////////////////////////////////////
+'*******************************************************************************************
+'THIS IS FOR FETCH DATA FROM DTRACK BASED ON ALL OPTION
+str = "SELECT * FROM DISLIB.DTRACK WHERE RECDT BETWEEN ? AND ?"
+Set SELDTRACK_QR = rdb.CreateQuery("DTRACK", str)
+
+'THIS IS FOR FETCH DATA FROM DTRACK BASED ON PATHNO
+str = "SELECT * FROM DISLIB.DTRACK WHERE PATHNO=?"
+Set SELDPATH_QR = rdb.CreateQuery("DPATH", str)
+
+'THIS IS FOR FETCH DATA FROM DTRACK BASED ON SP
+str = "SELECT * FROM DISLIB.DTRACK WHERE RECDT BETWEEN ? AND ? AND MODALITYCD='SP'"
+Set SELSP1_QR = rdb.CreateQuery("SP1", str)
+
+'THIS IS FOR FETCH DATA FROM DTRACK BASED ON FA
+str = "SELECT * FROM DISLIB.DTRACK WHERE RECDT BETWEEN ? AND ? AND MODALITYCD='FA'"
+Set SELFA1_QR = rdb.CreateQuery("FA1", str)
+
+'THIS IS FOR UPDATE RECORDS IN DTRACK
+str = "UPDATE DISLIB.DTRACK SET GRODT=?,PRODT=?,EMBDT=?,CUTTDT=?,STAINDT=?,SUBDT=?,SUBDRNAME=?,HWDT=?,HWDESPDT=?,HWDESPTO=?,PENDINGFOR=?,PENDINGDRN=?,PREADYON=?,PSUBBY=?,EXFINALDT=?,FINALDT=?,TYPEDT=?,SIGNDT=?,SIGNBY=?,DISPDT=?,DISPTO=? WHERE PATHNO=?"
+Set UPDTRACK_QR = rdb.CreateQuery("updtrack", str)
+
+'THIS IS FOR DELETE RECORDS IN TO DTRACK
+str = "DELETE  FROM DISLIB.DTRACK WHERE CASENO=?"
+Set DEL_QR = rdb.CreateQuery("DEL", str)
+
+'THIS IS FOR SELECT PROCEDURE CODE
+
+str = "SELECT SER_DET FROM PATOOLSLIB.MA101 WHERE SER_CODE=?"
+Set SELCODENAME_QR = rdb.CreateQuery("CODENAME", str)
+
+End Sub
+
+
+Private Sub msk_caseno_GotFocus()
+Option2_Click
+End Sub
+
+Private Sub msk_caseno_LostFocus()
+CASENO = padzero(5, "C", Msk_caseno.Text, 3)
+Msk_caseno.Text = UCase(CASENO)
+SELPATH_QR(0) = UCase(CASENO)
+SELPATH_QR.Execute
+Set SELPATH_RS = SELPATH_QR.OpenResultset(1, 3)
+COMPATH.clear
+If SELPATH_RS.EOF = False Then
+    COMPATH.AddItem "ALL"
+End If
+Do Until SELPATH_RS.EOF
+    If Trim(SELPATH_RS!pathno) = "" Then
+    Else
+    COMPATH.AddItem SELPATH_RS!pathno
+    End If
+    SELPATH_RS.MoveNext
+Loop
+
+COMPATH.SetFocus
+
+End Sub
+
+Private Sub Msk_fromdt_GotFocus()
+ msk_fromdt.Text = Format(DATE11, "DD/MM/YYYY")
+End Sub
+
+Private Sub Msk_todt_GotFocus()
+msk_todt.Text = Format(DATE11, "DD/MM/YYYY")
+End Sub
+
+Private Sub Opt_patient_Click()
+If opt_patient.Value = True Then
+    Option2.Visible = True
+    Option4.Visible = False
+End If
+End Sub
+
+Private Sub opt_staff_Click()
+If opt_staff.Value = True Then
+    Option4.Visible = True
+    Option2.Visible = False
+    Msk_caseno.Mask = ""
+    Msk_caseno.Mask = "########"
+End If
+End Sub
+
+Private Sub Option1_Click()
+    cbo_modality.Enabled = True
+    FRAMEALL.Enabled = True
+    Option4.Enabled = False
+    Option2.Enabled = False
+    Option3.Enabled = False
+    Text1.Enabled = False
+    Msk_caseno.Enabled = False
+    msk_fromdt.SetFocus
+End Sub
+
+Private Sub Option2_Click()
+
+    cbo_modality.Enabled = False
+    FRAMEALL.Enabled = False
+    Option1.Enabled = False
+    Option3.Enabled = False
+    Option4.Enabled = False
+    Text1.Enabled = False
+    Label7.Visible = True
+    COMPATH.Visible = True
+    Option3.Visible = False
+    Text1.Visible = False
+    Msk_caseno.Enabled = True
+    Msk_caseno.SetFocus
+End Sub
+
+Private Sub Option3_Click()
+
+    cbo_modality.Enabled = False
+    FRAMEALL.Enabled = False
+    Option1.Enabled = False
+    Option4.Enabled = False
+    Option2.Enabled = False
+    Msk_caseno.Enabled = False
+    Text1.Enabled = True
+    Text1.SetFocus
+
+End Sub
+
+Private Sub Option4_Click()
+
+    Option1.Enabled = False
+    cbo_modality.Enabled = False
+    FRAMEALL.Enabled = False
+    Option3.Enabled = False
+    Text1.Enabled = False
+    Label7.Visible = True
+    COMPATH.Visible = True
+    Option3.Visible = False
+    Text1.Visible = False
+End Sub
+
+Private Sub Timer1_Timer()
+   If Label3.Left > -7000 Then
+        Label3.Left = Label3.Left - 200
+        If Label3.Left = -7000 Then
+            Label3.Left = 11000
+        End If
+   End If
+End Sub

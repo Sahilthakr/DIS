@@ -1,0 +1,44 @@
+# DIS Backend Logic - Login & Logout API
+
+Based on the VB6 codebase (`DIS.bas`, `Frm_xShell.frm`, `DIS_MAIN.frm`), here is the exact logic for how Login and Logout works, which you can use to build your API:
+
+## 1. Login Logic
+In the legacy system, users do not authenticate against a custom `Users` table with hashed passwords. Instead, they authenticate **directly against the ODBC Database** (DB2/Oracle). 
+
+### Legacy Flow:
+1. The user launches the app (`Frm_xShell.frm`), which checks for EXE updates.
+2. It shows the login screen (`logonfrm.show`).
+3. The user enters their `UID` and `PWD`.
+4. The system attempts an ODBC connection (`DIS.bas`, `Sub Main`):
+   `Set rdb = renv.OpenConnection("UID=" & UID & ";PWD=" & UID & ";Database = DISLIB")`
+   *(Note: The legacy system passes `UID` as both UID and PWD in some places, or uses the actual password).*
+5. If the connection fails, the login is rejected ("User doesn't exist on server").
+6. If successful, it opens the Main Menu (`DIS_MAIN.frm`) and checks permissions:
+   - Hardcoded roles: `DISCLK` (limited access), `DISADM` (admin access).
+   - Dynamic roles: If not admin/clerk, it queries: 
+     `SELECT DEPT_CODE FROM DISLIB.DISUSERS WHERE USER_ID = ?`
+   - It then loads the allowed screens by querying:
+     `SELECT * FROM DISLIB.DISSCRNS WHERE TRIM(USR_GRP) = ? AND DEPT_CODE=?`
+
+### Recommended API Implementation:
+* **Endpoint:** `POST /api/auth/login`
+* **Request Body:** `{ "username": "...", "password": "..." }`
+* **Logic:** 
+  1. Validate credentials. (You can either test the DB connection with these credentials like legacy, or ideally migrate users to a proper `Users` table with hashed passwords).
+  2. Query `DISLIB.DISUSERS` to fetch the user's `DEPT_CODE`.
+  3. Query `DISLIB.DISSCRNS` to fetch their allowed screens/menus.
+  4. Generate a JWT (JSON Web Token) or Session ID containing the user's `UID`, `DEPT_CODE`, and roles.
+* **Response:** `{ "token": "jwt_token_here", "menus": [...] }`
+
+---
+
+## 2. Logout Logic
+In the legacy system, there is no explicit "logout" function. The application just calls `End` when the user clicks EXIT (`DIS_MAIN.frm`, `LBL_EXIT_Click`), which forcefully drops the database connection and closes the app.
+
+### Recommended API Implementation:
+* **Endpoint:** `POST /api/auth/logout`
+* **Headers:** `Authorization: Bearer <token>`
+* **Logic:**
+  1. Invalidate the user's session token/JWT.
+  2. Clean up any server-side session data or cached DB connections for this user.
+* **Response:** `{ "message": "Logged out successfully" }`

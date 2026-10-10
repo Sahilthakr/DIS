@@ -1,0 +1,37 @@
+Line 16: Class Crystal.CrystalReport of control CrystalReport1 was not a loaded control class.
+Line 319: Class MSFlexGridLib.MSFlexGrid of control MSFlexGrid1 was not a loaded control class.
+Line 391: Class MSMask.MaskEdBox of control msk_caseno was not a loaded control class.
+Line 528: Class MSMask.MaskEdBox of control msk_todt was not a loaded control class.
+Line 551: Class MSMask.MaskEdBox of control msk_fromdt was not a loaded control class.
+Line 19: The property name _ExtentX in CrystalReport1 is invalid.
+Line 20: The property name _ExtentY in CrystalReport1 is invalid.
+Line 21: The property name _Version in CrystalReport1 is invalid.
+Line 22: The property name PrintFileLinesPerPage in CrystalReport1 is invalid.
+Line 325: The property name _ExtentX in MSFlexGrid1 is invalid.
+Line 326: The property name _ExtentY in MSFlexGrid1 is invalid.
+Line 327: The property name _Version in MSFlexGrid1 is invalid.
+Line 328: The property name Rows in MSFlexGrid1 is invalid.
+Line 329: The property name Cols in MSFlexGrid1 is invalid.
+Line 330: The property name FixedCols in MSFlexGrid1 is invalid.
+Line 333: The property name ForeColorFixed in MSFlexGrid1 is invalid.
+Line 334: The property name AllowUserResizing in MSFlexGrid1 is invalid.
+Line 335: The property name FormatString in MSFlexGrid1 is invalid.
+Line 397: The property name _ExtentX in msk_caseno is invalid.
+Line 398: The property name _ExtentY in msk_caseno is invalid.
+Line 399: The property name _Version in msk_caseno is invalid.
+Line 401: The property name PromptInclude in msk_caseno is invalid.
+Line 402: The property name MaxLength in msk_caseno is invalid.
+Line 412: The property name Mask in msk_caseno is invalid.
+Line 413: The property name PromptChar in msk_caseno is invalid.
+Line 534: The property name _ExtentX in msk_todt is invalid.
+Line 535: The property name _ExtentY in msk_todt is invalid.
+Line 536: The property name _Version in msk_todt is invalid.
+Line 538: The property name MaxLength in msk_todt is invalid.
+Line 548: The property name Mask in msk_todt is invalid.
+Line 549: The property name PromptChar in msk_todt is invalid.
+Line 557: The property name _ExtentX in msk_fromdt is invalid.
+Line 558: The property name _ExtentY in msk_fromdt is invalid.
+Line 559: The property name _Version in msk_fromdt is invalid.
+Line 561: The property name MaxLength in msk_fromdt is invalid.
+Line 571: The property name Mask in msk_fromdt is invalid.
+Line 572: The property name PromptChar in msk_fromdt is invalid.

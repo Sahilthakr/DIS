@@ -1,0 +1,1412 @@
+VERSION 5.00
+Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
+Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
+Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
+Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "crystl32.ocx"
+Begin VB.Form tumour_marker_rpt 
+   Caption         =   "tumour marker services report(WITHOUT INTERFACE UPDATE)"
+   ClientHeight    =   8340
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   10230
+   BeginProperty Font 
+      Name            =   "MS Sans Serif"
+      Size            =   8.25
+      Charset         =   0
+      Weight          =   700
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   8340
+   ScaleWidth      =   10230
+   StartUpPosition =   3  'Windows Default
+   WindowState     =   2  'Maximized
+   Begin Crystal.CrystalReport CrystalReport1 
+      Left            =   1440
+      Top             =   120
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   348160
+      PrintFileLinesPerPage=   60
+   End
+   Begin VB.Timer Timer3 
+      Interval        =   1000
+      Left            =   2760
+      Top             =   120
+   End
+   Begin VB.Timer Timer2 
+      Interval        =   1000
+      Left            =   2400
+      Top             =   120
+   End
+   Begin VB.Timer Timer1 
+      Interval        =   1000
+      Left            =   2040
+      Top             =   120
+   End
+   Begin VB.Frame Frame3 
+      Height          =   855
+      Left            =   120
+      TabIndex        =   54
+      Top             =   7200
+      Width           =   11685
+      Begin VB.ComboBox cmb_addendumby 
+         Height          =   315
+         Left            =   8670
+         TabIndex        =   89
+         Top             =   480
+         Width           =   2895
+      End
+      Begin VB.TextBox txt_addendum 
+         Appearance      =   0  'Flat
+         Height          =   285
+         Left            =   7800
+         TabIndex        =   87
+         Top             =   150
+         Width           =   3735
+      End
+      Begin VB.TextBox TXT_COMMENTS 
+         Appearance      =   0  'Flat
+         Height          =   285
+         Left            =   1320
+         TabIndex        =   51
+         Top             =   165
+         Width           =   5235
+      End
+      Begin VB.ComboBox cmb_finalby 
+         Height          =   315
+         Left            =   5055
+         TabIndex        =   53
+         Top             =   480
+         Width           =   2010
+      End
+      Begin VB.ComboBox cmb_enterby 
+         Height          =   315
+         Left            =   1320
+         TabIndex        =   52
+         Top             =   480
+         Width           =   1935
+      End
+      Begin VB.Label Label3 
+         Caption         =   "Addendum by"
+         Height          =   240
+         Left            =   7440
+         TabIndex        =   88
+         Top             =   510
+         Width           =   1200
+      End
+      Begin VB.Label Label2 
+         Caption         =   "Addendum"
+         Height          =   255
+         Left            =   6840
+         TabIndex        =   86
+         Top             =   180
+         Width           =   975
+      End
+      Begin VB.Label LBL_COMM 
+         AutoSize        =   -1  'True
+         Caption         =   "Comments"
+         Height          =   195
+         Left            =   360
+         TabIndex        =   57
+         Top             =   210
+         Width           =   870
+      End
+      Begin VB.Label lbl_finby 
+         AutoSize        =   -1  'True
+         Caption         =   "Finalized by"
+         Height          =   195
+         Left            =   3945
+         TabIndex        =   56
+         Top             =   600
+         Width           =   1140
+      End
+      Begin VB.Label lbl_enter 
+         AutoSize        =   -1  'True
+         Caption         =   "Enter by"
+         Height          =   195
+         Left            =   480
+         TabIndex        =   55
+         Top             =   600
+         Width           =   720
+      End
+   End
+   Begin VB.Frame common 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   2565
+      Left            =   0
+      TabIndex        =   15
+      Top             =   840
+      Width           =   11790
+      Begin VB.CommandButton CMD_EMR 
+         BackColor       =   &H00FFFF80&
+         Caption         =   "&EMR"
+         BeginProperty Font 
+            Name            =   "Courier"
+            Size            =   12
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   7920
+         Style           =   1  'Graphical
+         TabIndex        =   93
+         Top             =   2160
+         Width           =   975
+      End
+      Begin VB.Frame Frame1 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   975
+         Left            =   0
+         TabIndex        =   48
+         Top             =   720
+         Width           =   1335
+         Begin VB.OptionButton Opt_patient 
+            Caption         =   "Patient"
+            ForeColor       =   &H00000000&
+            Height          =   255
+            Left            =   120
+            TabIndex        =   50
+            Top             =   240
+            Width           =   1095
+         End
+         Begin VB.OptionButton opt_staff 
+            Caption         =   "Staff"
+            ForeColor       =   &H00000000&
+            Height          =   255
+            Left            =   120
+            TabIndex        =   49
+            Top             =   600
+            Width           =   1095
+         End
+      End
+      Begin VB.ComboBox cmb_modality 
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   6240
+         TabIndex        =   1
+         Top             =   240
+         Width           =   2175
+      End
+      Begin VB.TextBox txt_refdoc 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   2400
+         TabIndex        =   27
+         Top             =   2160
+         Width           =   3855
+      End
+      Begin VB.TextBox txt_modcode 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   10440
+         TabIndex        =   26
+         Top             =   1800
+         Width           =   1095
+      End
+      Begin VB.TextBox txt_bedno 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   7920
+         TabIndex        =   25
+         Top             =   1815
+         Width           =   975
+      End
+      Begin VB.TextBox txt_ward 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   4920
+         TabIndex        =   24
+         Top             =   1800
+         Width           =   1335
+      End
+      Begin VB.TextBox txt_pridoc 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   2400
+         TabIndex        =   23
+         Top             =   1800
+         Width           =   1575
+      End
+      Begin VB.TextBox txt_status 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   10440
+         TabIndex        =   22
+         Top             =   1440
+         Width           =   1095
+      End
+      Begin VB.TextBox txt_category 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   7920
+         TabIndex        =   21
+         Top             =   1440
+         Width           =   975
+      End
+      Begin VB.TextBox txt_age 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   5520
+         TabIndex        =   20
+         Top             =   1455
+         Width           =   735
+      End
+      Begin VB.TextBox txt_sex 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   2400
+         TabIndex        =   19
+         Top             =   1440
+         Width           =   855
+      End
+      Begin VB.TextBox txt_name 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   2400
+         TabIndex        =   18
+         Top             =   1080
+         Width           =   9135
+      End
+      Begin VB.TextBox txt_pathno 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   10200
+         TabIndex        =   17
+         Top             =   600
+         Width           =   1335
+      End
+      Begin VB.ComboBox cmb_reqno 
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   6240
+         TabIndex        =   3
+         Top             =   615
+         Width           =   2175
+      End
+      Begin VB.TextBox txt_deptcode 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   10200
+         TabIndex        =   16
+         Top             =   240
+         Width           =   1335
+      End
+      Begin VB.ComboBox cmb_dept 
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   2400
+         TabIndex        =   0
+         Top             =   240
+         Width           =   2415
+      End
+      Begin MSMask.MaskEdBox MaskEdBox1 
+         Height          =   375
+         Left            =   2400
+         TabIndex        =   2
+         Top             =   600
+         Width           =   1455
+         _ExtentX        =   2566
+         _ExtentY        =   661
+         _Version        =   393216
+         BackColor       =   -2147483634
+         ForeColor       =   0
+         PromptInclude   =   0   'False
+         MaxLength       =   8
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Mask            =   "??>/#####"
+         PromptChar      =   "_"
+      End
+      Begin VB.Label lbl_refdoc 
+         AutoSize        =   -1  'True
+         Caption         =   "Referring Doctor/service"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   120
+         TabIndex        =   43
+         Top             =   2160
+         Width           =   2130
+      End
+      Begin VB.Label lbl_Modalitycode 
+         AutoSize        =   -1  'True
+         Caption         =   "Modality Code"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   9120
+         TabIndex        =   42
+         Top             =   1800
+         Width           =   1215
+      End
+      Begin VB.Label lbl_modality 
+         AutoSize        =   -1  'True
+         Caption         =   "Modality"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   5400
+         TabIndex        =   41
+         Top             =   360
+         Width           =   720
+      End
+      Begin VB.Label lbl_bed 
+         AutoSize        =   -1  'True
+         Caption         =   "Bed No."
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   6960
+         TabIndex        =   40
+         Top             =   1800
+         Width           =   705
+      End
+      Begin VB.Label lbl_ward 
+         Caption         =   "Ward"
+         ForeColor       =   &H00000000&
+         Height          =   255
+         Left            =   4320
+         TabIndex        =   39
+         Top             =   1800
+         Width           =   495
+      End
+      Begin VB.Label lbl_primarydoc 
+         AutoSize        =   -1  'True
+         Caption         =   "Primary Doctor/Service"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   240
+         TabIndex        =   38
+         Top             =   1800
+         Width           =   1995
+      End
+      Begin VB.Label lbl_status 
+         AutoSize        =   -1  'True
+         Caption         =   "Status"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   9720
+         TabIndex        =   37
+         Top             =   1440
+         Width           =   555
+      End
+      Begin VB.Label lbl_category 
+         AutoSize        =   -1  'True
+         Caption         =   "Category"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   6960
+         TabIndex        =   36
+         Top             =   1440
+         Width           =   765
+      End
+      Begin VB.Label lbl_age 
+         AutoSize        =   -1  'True
+         Caption         =   "Age"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   5040
+         TabIndex        =   35
+         Top             =   1440
+         Width           =   345
+      End
+      Begin VB.Label lbl_sex 
+         AutoSize        =   -1  'True
+         Caption         =   "Sex"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   1920
+         TabIndex        =   34
+         Top             =   1440
+         Width           =   330
+      End
+      Begin VB.Label lbl_name 
+         AutoSize        =   -1  'True
+         Caption         =   "Name"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   1680
+         TabIndex        =   33
+         Top             =   1080
+         Width           =   495
+      End
+      Begin VB.Label lbl_pathno 
+         AutoSize        =   -1  'True
+         Caption         =   "Lab No."
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   9360
+         TabIndex        =   32
+         Top             =   600
+         Width           =   690
+      End
+      Begin VB.Label lbl_reqno 
+         AutoSize        =   -1  'True
+         Caption         =   "Requisition No."
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   4920
+         TabIndex        =   31
+         Top             =   720
+         Width           =   1320
+      End
+      Begin VB.Label lbl_caseno 
+         AutoSize        =   -1  'True
+         Caption         =   "Case No."
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   1440
+         TabIndex        =   30
+         Top             =   720
+         Width           =   795
+      End
+      Begin VB.Label lbl_deptcode 
+         AutoSize        =   -1  'True
+         Caption         =   "Dept. Code"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   9120
+         TabIndex        =   29
+         Top             =   240
+         Width           =   975
+      End
+      Begin VB.Label lbl_dept 
+         AutoSize        =   -1  'True
+         Caption         =   "Requisition Placed to"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   360
+         TabIndex        =   28
+         Top             =   360
+         Width           =   1830
+      End
+   End
+   Begin VB.TextBox txt_time 
+      Appearance      =   0  'Flat
+      Enabled         =   0   'False
+      ForeColor       =   &H00000000&
+      Height          =   285
+      Left            =   10440
+      TabIndex        =   14
+      Top             =   600
+      Width           =   1095
+   End
+   Begin VB.TextBox txt_date 
+      Appearance      =   0  'Flat
+      Enabled         =   0   'False
+      ForeColor       =   &H00000000&
+      Height          =   285
+      Left            =   10425
+      TabIndex        =   13
+      Top             =   240
+      Width           =   1095
+   End
+   Begin VB.Frame COMMAND 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   735
+      Left            =   0
+      TabIndex        =   4
+      Top             =   7935
+      Width           =   11775
+      Begin VB.CommandButton cmd_addendum 
+         Caption         =   "&Addendum"
+         Height          =   375
+         Left            =   10455
+         TabIndex        =   90
+         Top             =   240
+         Width           =   1065
+      End
+      Begin VB.CommandButton cmd_commit 
+         Caption         =   "&Commit"
+         Height          =   375
+         Left            =   6600
+         MouseIcon       =   "tumour_marker_rpt.frx":0000
+         MousePointer    =   99  'Custom
+         TabIndex        =   12
+         Top             =   240
+         Width           =   1215
+      End
+      Begin VB.CommandButton cmd_back 
+         Caption         =   "&Back"
+         Height          =   375
+         Left            =   9240
+         MouseIcon       =   "tumour_marker_rpt.frx":030A
+         MousePointer    =   99  'Custom
+         TabIndex        =   11
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmd_print 
+         Caption         =   "&Print"
+         Height          =   375
+         Left            =   7995
+         MouseIcon       =   "tumour_marker_rpt.frx":0614
+         MousePointer    =   99  'Custom
+         TabIndex        =   10
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmd_cancel 
+         Caption         =   "&Cancel"
+         Height          =   375
+         Left            =   5340
+         MouseIcon       =   "tumour_marker_rpt.frx":091E
+         MousePointer    =   99  'Custom
+         TabIndex        =   9
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmd_save 
+         Caption         =   "&Save"
+         Height          =   375
+         Left            =   4080
+         MouseIcon       =   "tumour_marker_rpt.frx":0C28
+         MousePointer    =   99  'Custom
+         TabIndex        =   8
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmd_modify 
+         Caption         =   "&Modify"
+         Height          =   375
+         Left            =   2850
+         MouseIcon       =   "tumour_marker_rpt.frx":0F32
+         MousePointer    =   99  'Custom
+         TabIndex        =   7
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmd_view 
+         Caption         =   "&View"
+         Height          =   375
+         Left            =   1620
+         MouseIcon       =   "tumour_marker_rpt.frx":123C
+         MousePointer    =   99  'Custom
+         TabIndex        =   6
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton CMD_NEW 
+         Caption         =   "&New"
+         Height          =   375
+         Left            =   360
+         MouseIcon       =   "tumour_marker_rpt.frx":1546
+         MousePointer    =   99  'Custom
+         TabIndex        =   5
+         Top             =   240
+         Width           =   1095
+      End
+   End
+   Begin TabDlg.SSTab SSTab1 
+      Height          =   3855
+      Left            =   -30
+      TabIndex        =   58
+      Top             =   3375
+      Width           =   11805
+      _ExtentX        =   20823
+      _ExtentY        =   6800
+      _Version        =   393216
+      Tabs            =   2
+      Tab             =   1
+      TabHeight       =   520
+      ForeColor       =   3030703
+      TabCaption(0)   =   "Markers"
+      TabPicture(0)   =   "tumour_marker_rpt.frx":1850
+      Tab(0).ControlEnabled=   0   'False
+      Tab(0).Control(0)=   "REPORT"
+      Tab(0).ControlCount=   1
+      TabCaption(1)   =   "Serum electrophoresis "
+      TabPicture(1)   =   "tumour_marker_rpt.frx":186C
+      Tab(1).ControlEnabled=   -1  'True
+      Tab(1).Control(0)=   "FRMIMM"
+      Tab(1).Control(0).Enabled=   0   'False
+      Tab(1).ControlCount=   1
+      Begin VB.Frame REPORT 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   3135
+         Left            =   -74880
+         TabIndex        =   80
+         Top             =   360
+         Width           =   11535
+         Begin VB.ComboBox cmb_machine 
+            Height          =   315
+            ItemData        =   "tumour_marker_rpt.frx":1888
+            Left            =   10320
+            List            =   "tumour_marker_rpt.frx":18A1
+            TabIndex        =   91
+            Top             =   480
+            Width           =   1095
+         End
+         Begin VB.TextBox txt_observed 
+            Appearance      =   0  'Flat
+            BackColor       =   &H00C0C0FF&
+            Height          =   285
+            Left            =   3480
+            TabIndex        =   81
+            Top             =   480
+            Visible         =   0   'False
+            Width           =   1935
+         End
+         Begin MSFlexGridLib.MSFlexGrid MSFlexGrid1 
+            Height          =   2895
+            Left            =   120
+            TabIndex        =   82
+            Top             =   120
+            Width           =   11415
+            _ExtentX        =   20135
+            _ExtentY        =   5106
+            _Version        =   393216
+            Cols            =   8
+            FixedCols       =   0
+            ForeColorFixed  =   192
+            FormatString    =   "S.No.|^Procedure Name                   |^Observed Value|^Normal Range of the Procedure |^ Panic Value|^Source|^Preval|^MachineNo."
+         End
+      End
+      Begin VB.Frame FRMIMM 
+         Caption         =   "Complete Serum Protein Electrophoresis (SPE) Profile "
+         ForeColor       =   &H000000C0&
+         Height          =   3375
+         Left            =   120
+         TabIndex        =   59
+         Top             =   360
+         Width           =   11655
+         Begin VB.Frame Frame5 
+            Caption         =   "Urine ( 24 Hours )"
+            ForeColor       =   &H000000C0&
+            Height          =   3375
+            Left            =   0
+            TabIndex        =   106
+            Top             =   0
+            Visible         =   0   'False
+            Width           =   10575
+            Begin VB.TextBox txt_urlambda 
+               Height          =   285
+               Left            =   3360
+               TabIndex        =   125
+               Top             =   2040
+               Width           =   2055
+            End
+            Begin VB.TextBox txt_urkappa 
+               Height          =   285
+               Left            =   3360
+               TabIndex        =   124
+               Top             =   1440
+               Width           =   2055
+            End
+            Begin VB.TextBox txt_urrate 
+               Height          =   285
+               Left            =   3360
+               TabIndex        =   121
+               Top             =   960
+               Width           =   6975
+            End
+            Begin VB.ComboBox CMB_BJPBJP 
+               Height          =   315
+               ItemData        =   "tumour_marker_rpt.frx":18CF
+               Left            =   3360
+               List            =   "tumour_marker_rpt.frx":18D9
+               TabIndex        =   107
+               Top             =   480
+               Width           =   2295
+            End
+            Begin VB.Label Label18 
+               AutoSize        =   -1  'True
+               Caption         =   "0.81 - 10.1   mg/l"
+               Height          =   195
+               Left            =   5640
+               TabIndex        =   129
+               Top             =   2040
+               Width           =   1500
+            End
+            Begin VB.Label Label17 
+               AutoSize        =   -1  'True
+               Caption         =   "5.71 - 26.3   mg/l"
+               Height          =   195
+               Left            =   5640
+               TabIndex        =   128
+               Top             =   1440
+               Width           =   1500
+            End
+            Begin VB.Label Label14 
+               AutoSize        =   -1  'True
+               Caption         =   "Urine Free Light Chains Lambda"
+               Height          =   195
+               Left            =   480
+               TabIndex        =   123
+               Top             =   2040
+               Width           =   2730
+            End
+            Begin VB.Label Label13 
+               AutoSize        =   -1  'True
+               Caption         =   "Urine Free Light Chains Kappa"
+               Height          =   195
+               Left            =   480
+               TabIndex        =   122
+               Top             =   1440
+               Width           =   2610
+            End
+            Begin VB.Label Label12 
+               AutoSize        =   -1  'True
+               Caption         =   "Urine Excretion Rate"
+               Height          =   195
+               Left            =   480
+               TabIndex        =   120
+               Top             =   960
+               Width           =   1785
+            End
+            Begin VB.Label lbl_benjone 
+               AutoSize        =   -1  'True
+               Caption         =   "Bence Jones Protein BJP"
+               Height          =   195
+               Left            =   480
+               TabIndex        =   108
+               Top             =   480
+               Width           =   2160
+            End
+         End
+         Begin VB.Frame Frame4 
+            Caption         =   "Serum Protein Electrophoresis"
+            ForeColor       =   &H000000C0&
+            Height          =   2655
+            Left            =   6840
+            TabIndex        =   95
+            Top             =   240
+            Width           =   4695
+            Begin VB.TextBox txt_remmbond 
+               Appearance      =   0  'Flat
+               Height          =   285
+               Left            =   2280
+               TabIndex        =   104
+               Top             =   2160
+               Width           =   2295
+            End
+            Begin VB.TextBox txt_connband 
+               Appearance      =   0  'Flat
+               Height          =   285
+               Left            =   2280
+               TabIndex        =   102
+               Top             =   1635
+               Width           =   2295
+            End
+            Begin VB.ComboBox cmb_monband 
+               Height          =   315
+               ItemData        =   "tumour_marker_rpt.frx":18F1
+               Left            =   2280
+               List            =   "tumour_marker_rpt.frx":18F3
+               TabIndex        =   100
+               Top             =   1215
+               Width           =   2055
+            End
+            Begin VB.ComboBox cmb_locationnband 
+               Height          =   315
+               Left            =   2280
+               TabIndex        =   98
+               Top             =   780
+               Width           =   1815
+            End
+            Begin VB.ComboBox cmb_elepattern 
+               Height          =   315
+               ItemData        =   "tumour_marker_rpt.frx":18F5
+               Left            =   2280
+               List            =   "tumour_marker_rpt.frx":18F7
+               TabIndex        =   96
+               Top             =   360
+               Width           =   1815
+            End
+            Begin VB.Label lbl_remmbond 
+               AutoSize        =   -1  'True
+               Caption         =   "Remarks "
+               Height          =   195
+               Left            =   120
+               TabIndex        =   105
+               Top             =   2160
+               Width           =   810
+            End
+            Begin VB.Label lbl_conmband 
+               AutoSize        =   -1  'True
+               Caption         =   "Concentration of M band"
+               Height          =   195
+               Left            =   120
+               TabIndex        =   103
+               Top             =   1710
+               Width           =   2115
+            End
+            Begin VB.Label lbl_monoband1 
+               AutoSize        =   -1  'True
+               Caption         =   "Monoclonal Band"
+               Height          =   195
+               Left            =   120
+               TabIndex        =   101
+               Top             =   1260
+               Width           =   1485
+            End
+            Begin VB.Label lbl_monband 
+               AutoSize        =   -1  'True
+               Caption         =   "Location of M band"
+               Height          =   195
+               Left            =   120
+               TabIndex        =   99
+               Top             =   810
+               Width           =   1665
+            End
+            Begin VB.Label lbl_elepattern 
+               AutoSize        =   -1  'True
+               Caption         =   "Electrophoretic pattern"
+               Height          =   195
+               Left            =   120
+               TabIndex        =   97
+               Top             =   360
+               Width           =   1965
+            End
+         End
+         Begin VB.Frame Frame2 
+            Caption         =   "Serum Immunoglobulins"
+            ForeColor       =   &H000000C0&
+            Height          =   2655
+            Left            =   120
+            TabIndex        =   60
+            Top             =   240
+            Width           =   3375
+            Begin VB.TextBox txt_iga 
+               Appearance      =   0  'Flat
+               Enabled         =   0   'False
+               Height          =   285
+               Left            =   1200
+               TabIndex        =   61
+               Top             =   480
+               Width           =   975
+            End
+            Begin VB.TextBox txt_igg 
+               Appearance      =   0  'Flat
+               Height          =   285
+               Left            =   1320
+               TabIndex        =   63
+               Top             =   1560
+               Width           =   975
+            End
+            Begin VB.TextBox txt_igm 
+               Appearance      =   0  'Flat
+               Height          =   285
+               Left            =   1200
+               TabIndex        =   62
+               Top             =   1020
+               Width           =   975
+            End
+            Begin VB.TextBox TXT_IGG1 
+               Appearance      =   0  'Flat
+               Enabled         =   0   'False
+               Height          =   285
+               Left            =   1200
+               TabIndex        =   70
+               Top             =   1560
+               Width           =   975
+            End
+            Begin VB.TextBox TXT_TM 
+               Appearance      =   0  'Flat
+               Enabled         =   0   'False
+               Height          =   195
+               Left            =   1200
+               TabIndex        =   69
+               Top             =   1080
+               Width           =   975
+            End
+            Begin VB.TextBox TXT_IG 
+               Appearance      =   0  'Flat
+               Height          =   285
+               Left            =   1200
+               TabIndex        =   68
+               Top             =   480
+               Width           =   975
+            End
+            Begin VB.Label LBL_IGGR 
+               Caption         =   "751 - 1560"
+               Height          =   255
+               Left            =   2280
+               TabIndex        =   76
+               Top             =   1560
+               Width           =   975
+            End
+            Begin VB.Label LBL_IGMR 
+               Caption         =   "46 - 304"
+               Height          =   255
+               Left            =   2280
+               TabIndex        =   75
+               Top             =   1020
+               Width           =   735
+            End
+            Begin VB.Label LBL_RANGE 
+               Caption         =   "82 - 453"
+               Height          =   255
+               Left            =   2280
+               TabIndex        =   74
+               Top             =   480
+               Width           =   855
+            End
+            Begin VB.Label lbl_igg 
+               AutoSize        =   -1  'True
+               Caption         =   "IgG  mg/dl "
+               Height          =   195
+               Left            =   120
+               TabIndex        =   73
+               Top             =   1560
+               Width           =   975
+            End
+            Begin VB.Label lbl_igm 
+               AutoSize        =   -1  'True
+               Caption         =   "IgM  mg/dl "
+               Height          =   195
+               Left            =   120
+               TabIndex        =   72
+               Top             =   1020
+               Width           =   990
+            End
+            Begin VB.Label lbl_iga 
+               AutoSize        =   -1  'True
+               Caption         =   "IgA  mg/dl "
+               Height          =   195
+               Left            =   120
+               TabIndex        =   71
+               Top             =   480
+               Width           =   960
+            End
+         End
+         Begin VB.ComboBox cmb_ka 
+            Height          =   315
+            Left            =   10320
+            TabIndex        =   65
+            Top             =   2400
+            Visible         =   0   'False
+            Width           =   1335
+         End
+         Begin VB.ComboBox cmb_urineimm 
+            Height          =   315
+            Left            =   10560
+            TabIndex        =   64
+            Top             =   2040
+            Visible         =   0   'False
+            Width           =   855
+         End
+         Begin VB.TextBox txt_monoclonal 
+            Appearance      =   0  'Flat
+            Height          =   285
+            Left            =   1560
+            TabIndex        =   66
+            Top             =   3000
+            Width           =   9975
+         End
+         Begin VB.ComboBox cmb_polyclonal 
+            Height          =   315
+            Left            =   7920
+            TabIndex        =   67
+            Top             =   2880
+            Visible         =   0   'False
+            Width           =   1695
+         End
+         Begin VB.Frame Frame6 
+            Caption         =   "Serum Light Chains"
+            ForeColor       =   &H000000C0&
+            Height          =   2655
+            Left            =   3480
+            TabIndex        =   109
+            Top             =   240
+            Width           =   3375
+            Begin VB.TextBox txt_lambdafree 
+               Appearance      =   0  'Flat
+               Height          =   285
+               Left            =   1200
+               TabIndex        =   119
+               Top             =   2160
+               Width           =   975
+            End
+            Begin VB.TextBox txt_kappafree 
+               Appearance      =   0  'Flat
+               Height          =   285
+               Left            =   1200
+               TabIndex        =   118
+               Top             =   1560
+               Width           =   975
+            End
+            Begin VB.TextBox txt_kappa 
+               Appearance      =   0  'Flat
+               Height          =   285
+               Left            =   1200
+               TabIndex        =   111
+               Top             =   360
+               Width           =   975
+            End
+            Begin VB.TextBox txt_lambda 
+               Appearance      =   0  'Flat
+               Height          =   285
+               Left            =   1200
+               TabIndex        =   110
+               Top             =   960
+               Width           =   975
+            End
+            Begin VB.Label Label16 
+               Caption         =   "5.71 - 26.3"
+               Height          =   255
+               Left            =   2280
+               TabIndex        =   127
+               Top             =   2160
+               Width           =   975
+            End
+            Begin VB.Label Label15 
+               Caption         =   "3.3 - 19.4"
+               Height          =   255
+               Left            =   2280
+               TabIndex        =   126
+               Top             =   1560
+               Width           =   855
+            End
+            Begin VB.Label Label11 
+               Caption         =   "Lambda Free mg/l"
+               Height          =   435
+               Left            =   120
+               TabIndex        =   117
+               Top             =   1920
+               Width           =   1170
+            End
+            Begin VB.Label Label10 
+               Caption         =   "Kappa Free mg/l"
+               Height          =   435
+               Left            =   120
+               TabIndex        =   116
+               Top             =   1440
+               Width           =   1050
+            End
+            Begin VB.Label Label5 
+               Caption         =   "Kappa Total mg/dl"
+               Height          =   435
+               Left            =   120
+               TabIndex        =   115
+               Top             =   360
+               Width           =   1095
+            End
+            Begin VB.Label Label6 
+               Caption         =   "Lambda Total mg/dl"
+               Height          =   435
+               Left            =   120
+               TabIndex        =   114
+               Top             =   840
+               Width           =   1095
+            End
+            Begin VB.Label Label8 
+               Caption         =   "574 - 1276"
+               Height          =   255
+               Left            =   2280
+               TabIndex        =   113
+               Top             =   360
+               Width           =   975
+            End
+            Begin VB.Label Label9 
+               Caption         =   "269 - 638"
+               Height          =   255
+               Left            =   2280
+               TabIndex        =   112
+               Top             =   960
+               Width           =   855
+            End
+         End
+         Begin VB.Label lbl_polyclonal 
+            AutoSize        =   -1  'True
+            Caption         =   "Polyclonal"
+            Height          =   195
+            Left            =   6960
+            TabIndex        =   83
+            Top             =   3000
+            Visible         =   0   'False
+            Width           =   885
+         End
+         Begin VB.Label lbl_kp 
+            AutoSize        =   -1  'True
+            Caption         =   "Kappa / Lamda"
+            Height          =   195
+            Left            =   9000
+            TabIndex        =   79
+            Top             =   2520
+            Visible         =   0   'False
+            Width           =   1560
+         End
+         Begin VB.Label lbl_typmono 
+            AutoSize        =   -1  'True
+            Caption         =   "Immunofixation"
+            Height          =   195
+            Left            =   120
+            TabIndex        =   78
+            Top             =   3000
+            Width           =   1275
+         End
+         Begin VB.Label lbl_urineimm 
+            AutoSize        =   -1  'True
+            Caption         =   "Urine Immunoelectropho."
+            Height          =   195
+            Left            =   9120
+            TabIndex        =   77
+            Top             =   2160
+            Visible         =   0   'False
+            Width           =   1410
+         End
+      End
+   End
+   Begin Crystal.CrystalReport CR_SubTM 
+      Left            =   0
+      Top             =   0
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   348160
+      PrintFileLinesPerPage=   60
+   End
+   Begin VB.Label Label19 
+      Caption         =   "08/12/09"
+      Height          =   255
+      Left            =   480
+      TabIndex        =   130
+      Top             =   120
+      Visible         =   0   'False
+      Width           =   975
+   End
+   Begin VB.Label Label4 
+      AutoSize        =   -1  'True
+      Caption         =   "Immunofixation"
+      Height          =   195
+      Left            =   360
+      TabIndex        =   94
+      Top             =   6000
+      Width           =   1275
+   End
+   Begin VB.Label Label7 
+      Alignment       =   2  'Center
+      Caption         =   "TATA MEMORIAL HOSPITAL"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FF0000&
+      Height          =   375
+      Left            =   2865
+      TabIndex        =   85
+      Top             =   30
+      Width           =   6150
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      Caption         =   "Location"
+      ForeColor       =   &H00FF0000&
+      Height          =   195
+      Left            =   6600
+      TabIndex        =   47
+      Top             =   3120
+      Width           =   750
+   End
+   Begin VB.Label lbl_biochemlab 
+      AutoSize        =   -1  'True
+      Caption         =   "REPORT - TUMOUR MARKER SERVICES "
+      BeginProperty Font 
+         Name            =   "Times New Roman"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H000000C0&
+      Height          =   330
+      Left            =   3120
+      TabIndex        =   46
+      Top             =   480
+      Width           =   5700
+   End
+   Begin VB.Label lbl_time 
+      AutoSize        =   -1  'True
+      Caption         =   "Time"
+      ForeColor       =   &H00000000&
+      Height          =   195
+      Left            =   9840
+      TabIndex        =   45
+      Top             =   600
+      Width           =   420
+   End
+   Begin VB.Label lbl_date 
+      AutoSize        =   -1  'True
+      Caption         =   "Date"
+      ForeColor       =   &H00000000&
+      Height          =   225
+      Left            =   9870
+      TabIndex        =   44
+      Top             =   315
+      Width           =   420
+   End
+   Begin VB.Label lbl_rwd 
+      Caption         =   "RECOVERY WARD"
+      ForeColor       =   &H000000C0&
+      Height          =   255
+      Left            =   120
+      TabIndex        =   92
+      Top             =   600
+      Visible         =   0   'False
+      Width           =   1815
+   End
+   Begin VB.Label lblicu 
+      Caption         =   "ICU Patient"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   13.5
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H000000C0&
+      Height          =   375
+      Left            =   120
+      TabIndex        =   84
+      Top             =   600
+      Visible         =   0   'False
+      Width           =   1815
+   End
+End
+Attribute VB_Name = "tumour_marker_rpt"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+ 'ADDED BY MILIND DT. 03/03/06
+Dim userid_qr As rdoQuery
+Dim userid_rs As rdoResultset
+Dim userdesc_qr As rdoQuery
+Dim userdesc_rs As rdoResultset
+'upto here
+'txt_kappa txt_lambda
+'ADDED BY SHRIKANT FOR BINTERFACE
+Dim rs_binterface As rdoResultset
+'******** Shraddha 11/02/09 *********
+Dim chk_var As Boolean
+
+'***** Shraddha 05/01/11 *****
+Dim SELDBCALKPHSQR As rdoQuery
+Dim SELDBCALKPHSRS As rdoResultset
+'************************************
+Dim ADDENDUMFALG As Boolean
+Dim IMFLAG As Boolean
+Dim j As Integer
+Dim K As Integer
+Dim l As Integer
+Dim tmflag As Boolean
+Dim str As String
+'Dim FSFLAG As Boolean
+Dim sel_deptqr As rdoQuery
+'Dim UPDSPREPORT_QR As rdoQuery
+Dim sel_deptrs As rdoResultset
+Dim SEL_DEPTRSFLAG As Boolean
+Dim SEL_DEPTFLAG As Boolean
+Dim sel_moadlityqr As rdoQuery
+Dim sel_modalityrs As rdoResultset
+Dim SEL_MODALITYFLAG As Boolean
+'Dim sel_casno As rdoQuery
+Dim req_qr As rdoQuery
+Dim req_rs As rdoResultset
+Dim REQFLAG As Boolean
+Dim SELTA101_QR As rdoQuery
+Dim SELTA101_RS As rdoResultset
+Dim SELTA101FLAG As Boolean
+'Dim repdr_qr As rdoQuery
+'Dim repdr_rs As rdoResultset
+'Dim REPDRFLAG As Boolean
+Dim REFDR_QR As rdoQuery
+Dim REFDR_RS As rdoResultset
+Dim REFDRFLAG As Boolean
+Dim selma104_qr As rdoQuery
+Dim selma104_rs As rdoResultset
+Dim selma104flag As Boolean
+Dim SELPATHDREQUISITN_QR As rdoQuery
+Dim selpathdrequisitn_rs As rdoResultset
+Dim SELPATHDREQUISITNFALG1 As Boolean
+
+
+'Dim SELEMPLIB_QR As rdoQuery
+'Dim SELEMPLIB_RS As rdoResultset
+
+Dim i As Integer
+'Dim insdfsrep_qr As rdoQuery
+'Dim insdgrossdesc_qr As rdoQuery
+Dim INSDPRO As rdoQuery
+
+Dim SELRREQUISITN_QR As rdoQuery
+Dim SELRREQUISITN_RS As rdoResultset
+Dim SELRREQUISITNFLAG As Boolean
+'Dim selempbasinfo1_qr As rdoQuery
+'Dim selempbasinfo1_rs As rdoResultset
+'Dim SELEMPBASINFO1FLAG As Boolean
+Dim updrrequ

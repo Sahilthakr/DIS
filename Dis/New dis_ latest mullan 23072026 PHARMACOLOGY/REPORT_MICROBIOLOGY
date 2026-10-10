@@ -1,0 +1,4331 @@
+VERSION 5.00
+Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
+Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
+Object = "{9B8DFCFF-6726-11D6-99D4-000244193CE4}#1.0#0"; "PROJECT1.OCX"
+Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "CRYSTL32.OCX"
+Begin VB.Form Report_microbiology 
+   Caption         =   "Microbiology"
+   ClientHeight    =   8595
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   11880
+   ControlBox      =   0   'False
+   BeginProperty Font 
+      Name            =   "MS Sans Serif"
+      Size            =   8.25
+      Charset         =   0
+      Weight          =   700
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   ForeColor       =   &H00000000&
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   8595
+   ScaleWidth      =   11880
+   StartUpPosition =   3  'Windows Default
+   WindowState     =   2  'Maximized
+   Begin Project1.UserControl1 UserControl12 
+      Height          =   495
+      Left            =   3240
+      TabIndex        =   162
+      Top             =   0
+      Width           =   5535
+      _ExtentX        =   9763
+      _ExtentY        =   873
+   End
+   Begin Crystal.CrystalReport CRYSTALREPORT1 
+      Left            =   840
+      Top             =   240
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   348160
+      WindowControlBox=   -1  'True
+      WindowMaxButton =   -1  'True
+      WindowMinButton =   -1  'True
+      PrintFileLinesPerPage=   60
+   End
+   Begin VB.Frame frm_enter 
+      ForeColor       =   &H00C00000&
+      Height          =   615
+      Left            =   0
+      TabIndex        =   100
+      Top             =   7200
+      Width           =   11775
+      Begin VB.ComboBox cmb_final 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   8880
+         Sorted          =   -1  'True
+         TabIndex        =   71
+         Top             =   240
+         Width           =   2775
+      End
+      Begin VB.ComboBox cmb_consult 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   4680
+         Sorted          =   -1  'True
+         TabIndex        =   70
+         Top             =   240
+         Visible         =   0   'False
+         Width           =   2775
+      End
+      Begin VB.ComboBox cmb_enteryby 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   1065
+         Sorted          =   -1  'True
+         TabIndex        =   69
+         Top             =   240
+         Width           =   2295
+      End
+      Begin VB.Label Label1 
+         AutoSize        =   -1  'True
+         Caption         =   "Finalised By"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   7680
+         TabIndex        =   173
+         Top             =   240
+         Width           =   1035
+      End
+      Begin VB.Label lbl_con 
+         AutoSize        =   -1  'True
+         Caption         =   "Reported By"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   3480
+         TabIndex        =   102
+         Top             =   240
+         Visible         =   0   'False
+         Width           =   1065
+      End
+      Begin VB.Label lbl_enterby 
+         AutoSize        =   -1  'True
+         Caption         =   "Entered By"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   120
+         TabIndex        =   101
+         Top             =   240
+         Width           =   945
+      End
+   End
+   Begin VB.Frame COMMAND 
+      Height          =   855
+      Left            =   -120
+      TabIndex        =   73
+      Top             =   7800
+      Width           =   11895
+      Begin VB.CommandButton CMD_NEW 
+         Caption         =   "&New"
+         Height          =   375
+         Left            =   600
+         MouseIcon       =   "Report_microbiology.frx":0000
+         MousePointer    =   99  'Custom
+         TabIndex        =   0
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmd_view 
+         Caption         =   "&View"
+         Height          =   375
+         Left            =   1800
+         MouseIcon       =   "Report_microbiology.frx":030A
+         MousePointer    =   99  'Custom
+         TabIndex        =   1
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmd_modify 
+         Caption         =   "&Modify"
+         Height          =   375
+         Left            =   3000
+         MouseIcon       =   "Report_microbiology.frx":0614
+         MousePointer    =   99  'Custom
+         TabIndex        =   2
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmd_save 
+         Caption         =   "&Save"
+         Height          =   375
+         Left            =   4200
+         MouseIcon       =   "Report_microbiology.frx":091E
+         MousePointer    =   99  'Custom
+         TabIndex        =   3
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmd_cancel 
+         Caption         =   "&Cancel"
+         Height          =   375
+         Left            =   5400
+         MouseIcon       =   "Report_microbiology.frx":0C28
+         MousePointer    =   99  'Custom
+         TabIndex        =   4
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmd_print 
+         Caption         =   "&Print"
+         Height          =   375
+         Left            =   7920
+         MouseIcon       =   "Report_microbiology.frx":0F32
+         MousePointer    =   99  'Custom
+         TabIndex        =   6
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmd_back 
+         Caption         =   "&Back"
+         Height          =   375
+         Left            =   9120
+         MouseIcon       =   "Report_microbiology.frx":123C
+         MousePointer    =   99  'Custom
+         TabIndex        =   7
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.CommandButton cmd_commit 
+         Caption         =   "&Commit"
+         Height          =   375
+         Left            =   6600
+         MouseIcon       =   "Report_microbiology.frx":1546
+         MousePointer    =   99  'Custom
+         TabIndex        =   5
+         Top             =   240
+         Width           =   1215
+      End
+      Begin VB.CommandButton cmd_fullreport 
+         Caption         =   "Full&Report"
+         Height          =   375
+         Left            =   10320
+         MouseIcon       =   "Report_microbiology.frx":1850
+         MousePointer    =   99  'Custom
+         TabIndex        =   8
+         Top             =   240
+         Width           =   1095
+      End
+   End
+   Begin VB.TextBox txt_time 
+      Appearance      =   0  'Flat
+      Enabled         =   0   'False
+      ForeColor       =   &H00000000&
+      Height          =   285
+      Left            =   9720
+      TabIndex        =   91
+      Top             =   480
+      Width           =   1335
+   End
+   Begin VB.TextBox txt_date 
+      Appearance      =   0  'Flat
+      Enabled         =   0   'False
+      ForeColor       =   &H00000000&
+      Height          =   285
+      Left            =   9720
+      TabIndex        =   90
+      Top             =   120
+      Width           =   1335
+   End
+   Begin VB.Frame common 
+      Height          =   2295
+      Left            =   0
+      TabIndex        =   74
+      Top             =   840
+      Width           =   11775
+      Begin VB.ComboBox CMB_PROC 
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   9720
+         Sorted          =   -1  'True
+         Style           =   2  'Dropdown List
+         TabIndex        =   72
+         Top             =   1800
+         Visible         =   0   'False
+         Width           =   1935
+      End
+      Begin VB.TextBox txt_modcode 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00FF0000&
+         Height          =   285
+         Left            =   6240
+         TabIndex        =   22
+         Top             =   1800
+         Width           =   855
+      End
+      Begin VB.Frame Frame1 
+         Height          =   975
+         Left            =   0
+         TabIndex        =   103
+         Top             =   720
+         Width           =   1335
+         Begin VB.OptionButton Opt_patient 
+            Caption         =   "Patient"
+            ForeColor       =   &H00000000&
+            Height          =   255
+            Left            =   120
+            TabIndex        =   105
+            Top             =   240
+            Width           =   1095
+         End
+         Begin VB.OptionButton opt_staff 
+            Caption         =   "Staff"
+            ForeColor       =   &H00000000&
+            Height          =   255
+            Left            =   120
+            TabIndex        =   104
+            Top             =   600
+            Width           =   1095
+         End
+      End
+      Begin VB.TextBox txt_sex 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00FF0000&
+         Height          =   285
+         Left            =   9720
+         TabIndex        =   15
+         Top             =   960
+         Width           =   975
+      End
+      Begin VB.ComboBox cmb_modality 
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   6360
+         Sorted          =   -1  'True
+         Style           =   2  'Dropdown List
+         TabIndex        =   10
+         Top             =   240
+         Width           =   2295
+      End
+      Begin VB.TextBox txt_bedno 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00FF0000&
+         Height          =   285
+         Left            =   9720
+         TabIndex        =   20
+         Top             =   1440
+         Width           =   975
+      End
+      Begin VB.TextBox txt_ward 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00FF0000&
+         Height          =   285
+         Left            =   7920
+         TabIndex        =   19
+         Top             =   1440
+         Width           =   735
+      End
+      Begin VB.TextBox txt_pridoc 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00FF0000&
+         Height          =   285
+         Left            =   2400
+         TabIndex        =   21
+         Top             =   1800
+         Width           =   1455
+      End
+      Begin VB.TextBox txt_status 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00FF0000&
+         Height          =   285
+         Left            =   6240
+         TabIndex        =   18
+         Top             =   1440
+         Width           =   855
+      End
+      Begin VB.TextBox txt_category 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00FF0000&
+         Height          =   285
+         Left            =   4440
+         TabIndex        =   17
+         Top             =   1440
+         Width           =   975
+      End
+      Begin VB.TextBox txt_age 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00FF0000&
+         Height          =   285
+         Left            =   2400
+         TabIndex        =   16
+         Top             =   1440
+         Width           =   735
+      End
+      Begin VB.TextBox txt_name 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00FF0000&
+         Height          =   285
+         Left            =   2400
+         TabIndex        =   14
+         Top             =   1080
+         Width           =   6255
+      End
+      Begin VB.ComboBox cmb_reqno 
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   6360
+         Style           =   2  'Dropdown List
+         TabIndex        =   12
+         Top             =   600
+         Width           =   2295
+      End
+      Begin VB.TextBox txt_deptcode 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00FF0000&
+         Height          =   285
+         Left            =   9720
+         TabIndex        =   75
+         Top             =   240
+         Width           =   1335
+      End
+      Begin VB.ComboBox cmb_dept 
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   2400
+         Sorted          =   -1  'True
+         Style           =   2  'Dropdown List
+         TabIndex        =   9
+         Top             =   240
+         Width           =   2295
+      End
+      Begin VB.TextBox txt_microno 
+         Appearance      =   0  'Flat
+         Enabled         =   0   'False
+         ForeColor       =   &H00FF0000&
+         Height          =   285
+         Left            =   9720
+         TabIndex        =   13
+         Top             =   600
+         Width           =   1335
+      End
+      Begin MSMask.MaskEdBox MaskEdBox1 
+         Height          =   375
+         Left            =   2400
+         TabIndex        =   11
+         Top             =   600
+         Width           =   1455
+         _ExtentX        =   2566
+         _ExtentY        =   661
+         _Version        =   393216
+         ForeColor       =   0
+         PromptInclude   =   0   'False
+         MaxLength       =   8
+         Mask            =   "??>/#####"
+         PromptChar      =   "_"
+      End
+      Begin VB.Label lbl_Modalitycode 
+         AutoSize        =   -1  'True
+         Caption         =   "Modality Code"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   4920
+         TabIndex        =   106
+         Top             =   1800
+         Width           =   1215
+      End
+      Begin VB.Label lbl_proc 
+         AutoSize        =   -1  'True
+         Caption         =   "Procedure"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   8760
+         TabIndex        =   95
+         Top             =   1920
+         Visible         =   0   'False
+         Width           =   885
+      End
+      Begin VB.Label lbl_modality 
+         AutoSize        =   -1  'True
+         Caption         =   "Modality"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   5520
+         TabIndex        =   89
+         Top             =   240
+         Width           =   720
+      End
+      Begin VB.Label lbl_bed 
+         AutoSize        =   -1  'True
+         Caption         =   "Bed No."
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   9000
+         TabIndex        =   88
+         Top             =   1440
+         Width           =   705
+      End
+      Begin VB.Label lbl_ward 
+         AutoSize        =   -1  'True
+         Caption         =   "Ward"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   7440
+         TabIndex        =   87
+         Top             =   1440
+         Width           =   465
+      End
+      Begin VB.Label lbl_primarydoc 
+         AutoSize        =   -1  'True
+         Caption         =   "Primary Doctor/Service"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   360
+         TabIndex        =   86
+         Top             =   1800
+         Width           =   1995
+      End
+      Begin VB.Label lbl_status 
+         AutoSize        =   -1  'True
+         Caption         =   "Status"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   5640
+         TabIndex        =   85
+         Top             =   1440
+         Width           =   555
+      End
+      Begin VB.Label lbl_category 
+         AutoSize        =   -1  'True
+         Caption         =   "Category"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   3600
+         TabIndex        =   84
+         Top             =   1440
+         Width           =   765
+      End
+      Begin VB.Label lbl_age 
+         AutoSize        =   -1  'True
+         Caption         =   "Age "
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   1920
+         TabIndex        =   83
+         Top             =   1440
+         Width           =   405
+      End
+      Begin VB.Label lbl_sex 
+         AutoSize        =   -1  'True
+         Caption         =   "Sex"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   9240
+         TabIndex        =   82
+         Top             =   960
+         Width           =   330
+      End
+      Begin VB.Label lbl_name 
+         AutoSize        =   -1  'True
+         Caption         =   "Name"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   1800
+         TabIndex        =   81
+         Top             =   1080
+         Width           =   495
+      End
+      Begin VB.Label lbl_reqno 
+         AutoSize        =   -1  'True
+         Caption         =   "Requisition No."
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   5040
+         TabIndex        =   80
+         Top             =   720
+         Width           =   1320
+      End
+      Begin VB.Label lbl_caseno 
+         AutoSize        =   -1  'True
+         Caption         =   "Case No."
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   1560
+         TabIndex        =   79
+         Top             =   720
+         Width           =   795
+      End
+      Begin VB.Label lbl_deptcode 
+         AutoSize        =   -1  'True
+         Caption         =   "Dept. Code"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   8760
+         TabIndex        =   78
+         Top             =   240
+         Width           =   975
+      End
+      Begin VB.Label lbl_dept 
+         AutoSize        =   -1  'True
+         Caption         =   "Requisition Placed to"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   480
+         TabIndex        =   77
+         Top             =   360
+         Width           =   1830
+      End
+      Begin VB.Label lbl_LABID 
+         AutoSize        =   -1  'True
+         Caption         =   "Micro No."
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   8880
+         TabIndex        =   76
+         Top             =   600
+         Width           =   840
+      End
+   End
+   Begin VB.Frame frm_clinic 
+      Height          =   4095
+      Left            =   0
+      TabIndex        =   124
+      Top             =   3120
+      Width           =   11775
+      Begin VB.Frame frm_urineexam 
+         Caption         =   "URINE ROUTINE EXAMINATION"
+         ForeColor       =   &H00000000&
+         Height          =   2055
+         Left            =   0
+         TabIndex        =   142
+         Top             =   0
+         Width           =   11775
+         Begin VB.TextBox txt_urinecomment 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   6600
+            MaxLength       =   50
+            TabIndex        =   62
+            Top             =   1680
+            Width           =   4695
+         End
+         Begin VB.TextBox txt_urinother 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   1080
+            MaxLength       =   30
+            TabIndex        =   61
+            Top             =   1680
+            Width           =   4575
+         End
+         Begin VB.TextBox txt_casts 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   1080
+            MaxLength       =   15
+            TabIndex        =   58
+            Top             =   1320
+            Width           =   1455
+         End
+         Begin VB.TextBox txt_bacteria 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   4200
+            MaxLength       =   20
+            TabIndex        =   59
+            Top             =   1320
+            Width           =   1455
+         End
+         Begin VB.TextBox txt_squamous 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   9600
+            MaxLength       =   10
+            TabIndex        =   57
+            Top             =   960
+            Width           =   1695
+         End
+         Begin VB.TextBox txt_rbc 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   6480
+            MaxLength       =   10
+            TabIndex        =   56
+            Top             =   960
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_wbc 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   4200
+            MaxLength       =   10
+            TabIndex        =   55
+            Top             =   960
+            Width           =   1455
+         End
+         Begin VB.TextBox txt_MicroExam 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   7920
+            MaxLength       =   20
+            TabIndex        =   60
+            Top             =   1320
+            Width           =   3375
+         End
+         Begin VB.TextBox txt_blood 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   1080
+            MaxLength       =   15
+            TabIndex        =   54
+            Top             =   960
+            Width           =   1455
+         End
+         Begin VB.TextBox txt_uro 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   9600
+            MaxLength       =   15
+            TabIndex        =   53
+            Top             =   600
+            Width           =   1695
+         End
+         Begin VB.TextBox txt_glucose 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   1080
+            MaxLength       =   15
+            TabIndex        =   50
+            Top             =   600
+            Width           =   1455
+         End
+         Begin VB.TextBox txt_ketones 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   4200
+            MaxLength       =   15
+            TabIndex        =   51
+            Top             =   600
+            Width           =   1455
+         End
+         Begin VB.TextBox txt_bilirubin 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   6480
+            MaxLength       =   15
+            TabIndex        =   52
+            Top             =   600
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_protins 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   9600
+            MaxLength       =   15
+            TabIndex        =   49
+            Top             =   240
+            Width           =   1695
+         End
+         Begin VB.TextBox txt_ph 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   6480
+            MaxLength       =   4
+            TabIndex        =   48
+            Top             =   240
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_gravity 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   4200
+            MaxLength       =   4
+            TabIndex        =   47
+            Top             =   240
+            Width           =   1455
+         End
+         Begin VB.TextBox txt_urinecolour 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   1080
+            MaxLength       =   25
+            TabIndex        =   46
+            Top             =   240
+            Width           =   1455
+         End
+         Begin VB.Label lbl_urincomment 
+            AutoSize        =   -1  'True
+            Caption         =   "Comments"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   5760
+            TabIndex        =   159
+            Top             =   1680
+            Width           =   870
+         End
+         Begin VB.Label lbl_urinother 
+            AutoSize        =   -1  'True
+            Caption         =   "Others"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   480
+            TabIndex        =   158
+            Top             =   1680
+            Width           =   570
+         End
+         Begin VB.Label lbl_casts 
+            AutoSize        =   -1  'True
+            Caption         =   "Casts"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   480
+            TabIndex        =   157
+            Top             =   1320
+            Width           =   480
+         End
+         Begin VB.Label lbl_bacteria 
+            AutoSize        =   -1  'True
+            Caption         =   "Bacteria"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   3480
+            TabIndex        =   156
+            Top             =   1320
+            Width           =   720
+         End
+         Begin VB.Label lbl_squamous 
+            AutoSize        =   -1  'True
+            Caption         =   "S. E. cells"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   8640
+            TabIndex        =   155
+            Top             =   960
+            Width           =   885
+         End
+         Begin VB.Label lbl_rbc 
+            AutoSize        =   -1  'True
+            Caption         =   "RBC"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   6000
+            TabIndex        =   154
+            Top             =   960
+            Width           =   390
+         End
+         Begin VB.Label lbl_wbc 
+            AutoSize        =   -1  'True
+            Caption         =   "WBC"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   3720
+            TabIndex        =   153
+            Top             =   960
+            Width           =   435
+         End
+         Begin VB.Label lbl_Microexam 
+            AutoSize        =   -1  'True
+            Caption         =   "Microscopic Examination"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   5760
+            TabIndex        =   152
+            Top             =   1320
+            Width           =   2115
+         End
+         Begin VB.Label lbl_blood 
+            AutoSize        =   -1  'True
+            Caption         =   "Blood"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   480
+            TabIndex        =   151
+            Top             =   960
+            Width           =   495
+         End
+         Begin VB.Label lbl_uro 
+            AutoSize        =   -1  'True
+            Caption         =   "Urobilinogen"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   8400
+            TabIndex        =   150
+            Top             =   600
+            Width           =   1080
+         End
+         Begin VB.Label lbl_glucose 
+            AutoSize        =   -1  'True
+            Caption         =   "Glucose"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   360
+            TabIndex        =   149
+            Top             =   600
+            Width           =   705
+         End
+         Begin VB.Label lbl_ketones 
+            AutoSize        =   -1  'True
+            Caption         =   "Ketones"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   3480
+            TabIndex        =   148
+            Top             =   600
+            Width           =   705
+         End
+         Begin VB.Label lbl_bilirubin 
+            AutoSize        =   -1  'True
+            Caption         =   "Bilirubin "
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   5760
+            TabIndex        =   147
+            Top             =   600
+            Width           =   750
+         End
+         Begin VB.Label lbl_protins 
+            AutoSize        =   -1  'True
+            Caption         =   "Protiens"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   8760
+            TabIndex        =   146
+            Top             =   240
+            Width           =   705
+         End
+         Begin VB.Label lbl_ph 
+            AutoSize        =   -1  'True
+            Caption         =   "pH"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   6120
+            TabIndex        =   145
+            Top             =   240
+            Width           =   255
+         End
+         Begin VB.Label lbl_gravity 
+            AutoSize        =   -1  'True
+            Caption         =   "Specific Gravity"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   2760
+            TabIndex        =   144
+            Top             =   240
+            Width           =   1365
+         End
+         Begin VB.Label lbl_urinecolour 
+            AutoSize        =   -1  'True
+            Caption         =   "Colour"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   480
+            TabIndex        =   143
+            Top             =   240
+            Width           =   555
+         End
+      End
+      Begin VB.Frame frm_stoolexam 
+         Caption         =   "STOOL ROUTINE EXAMINATION"
+         ForeColor       =   &H00000000&
+         Height          =   2055
+         Left            =   0
+         TabIndex        =   125
+         Top             =   2040
+         Width           =   11775
+         Begin VB.TextBox txt_starch 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   1080
+            MaxLength       =   30
+            TabIndex        =   172
+            Top             =   1320
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_larvae 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   1080
+            MaxLength       =   30
+            TabIndex        =   171
+            Top             =   960
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_fat 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   4200
+            MaxLength       =   30
+            TabIndex        =   170
+            Top             =   1320
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_microphages 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   9720
+            MaxLength       =   30
+            TabIndex        =   169
+            Top             =   960
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_cysts 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   9720
+            MaxLength       =   30
+            TabIndex        =   168
+            Top             =   600
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_sblood 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   9720
+            MaxLength       =   30
+            TabIndex        =   167
+            Top             =   240
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_Ova 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   6720
+            MaxLength       =   30
+            TabIndex        =   166
+            Top             =   600
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_mucus 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   6720
+            MaxLength       =   30
+            TabIndex        =   165
+            Top             =   240
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_parasties 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   1080
+            MaxLength       =   30
+            TabIndex        =   164
+            Top             =   600
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_occult 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   4200
+            MaxLength       =   30
+            TabIndex        =   163
+            Top             =   600
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_stoolcolour 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   1080
+            MaxLength       =   25
+            TabIndex        =   63
+            Top             =   240
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_consistency 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   4200
+            MaxLength       =   20
+            TabIndex        =   64
+            Top             =   240
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_puscells 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   4200
+            MaxLength       =   10
+            TabIndex        =   65
+            Top             =   960
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_stoolrbc 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   6720
+            MaxLength       =   4
+            TabIndex        =   66
+            Top             =   960
+            Width           =   1575
+         End
+         Begin VB.TextBox txt_stoolother 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   6720
+            MaxLength       =   20
+            TabIndex        =   67
+            Top             =   1320
+            Width           =   4575
+         End
+         Begin VB.TextBox txt_stoolcomments 
+            Appearance      =   0  'Flat
+            ForeColor       =   &H00000000&
+            Height          =   285
+            Left            =   1080
+            MaxLength       =   50
+            TabIndex        =   68
+            Top             =   1680
+            Width           =   7335
+         End
+         Begin VB.Label lbl_stoolcolour 
+            AutoSize        =   -1  'True
+            Caption         =   "Colour"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   480
+            TabIndex        =   141
+            Top             =   240
+            Width           =   555
+         End
+         Begin VB.Label lbl_consistency 
+            AutoSize        =   -1  'True
+            Caption         =   "Consistency"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   3120
+            TabIndex        =   140
+            Top             =   240
+            Width           =   1035
+         End
+         Begin VB.Label lbl_mucus 
+            AutoSize        =   -1  'True
+            Caption         =   "Mucus"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   6120
+            TabIndex        =   139
+            Top             =   240
+            Width           =   570
+         End
+         Begin VB.Label lbl_stoolblood 
+            AutoSize        =   -1  'True
+            Caption         =   "Blood"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   9120
+            TabIndex        =   138
+            Top             =   240
+            Width           =   495
+         End
+         Begin VB.Label lbl_occult 
+            AutoSize        =   -1  'True
+            Caption         =   "Occult blood"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   3000
+            TabIndex        =   137
+            Top             =   600
+            Width           =   1095
+         End
+         Begin VB.Label lbl_parasties 
+            AutoSize        =   -1  'True
+            Caption         =   "Parasties"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   240
+            TabIndex        =   136
+            Top             =   600
+            Width           =   795
+         End
+         Begin VB.Label lbl_Ova 
+            AutoSize        =   -1  'True
+            Caption         =   "Ova"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   6240
+            TabIndex        =   135
+            Top             =   600
+            Width           =   360
+         End
+         Begin VB.Label lbl_cysts 
+            AutoSize        =   -1  'True
+            Caption         =   "Cysts"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   9120
+            TabIndex        =   134
+            Top             =   600
+            Width           =   465
+         End
+         Begin VB.Label lbl_larvae 
+            AutoSize        =   -1  'True
+            Caption         =   "Larvae"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   360
+            TabIndex        =   133
+            Top             =   960
+            Width           =   600
+         End
+         Begin VB.Label lbl_puscells 
+            AutoSize        =   -1  'True
+            Caption         =   "Pus cells"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   3360
+            TabIndex        =   132
+            Top             =   960
+            Width           =   780
+         End
+         Begin VB.Label lbl_stoolrbc 
+            AutoSize        =   -1  'True
+            Caption         =   "RBC"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   6240
+            TabIndex        =   131
+            Top             =   960
+            Width           =   390
+         End
+         Begin VB.Label lbl_macrophages 
+            AutoSize        =   -1  'True
+            Caption         =   "Microphages"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   8520
+            TabIndex        =   130
+            Top             =   960
+            Width           =   1095
+         End
+         Begin VB.Label lbl_starch 
+            AutoSize        =   -1  'True
+            Caption         =   "Starch"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   360
+            TabIndex        =   129
+            Top             =   1320
+            Width           =   570
+         End
+         Begin VB.Label lbl_fat 
+            AutoSize        =   -1  'True
+            Caption         =   "Fat "
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   3840
+            TabIndex        =   128
+            Top             =   1320
+            Width           =   345
+         End
+         Begin VB.Label lbl_stoolother 
+            AutoSize        =   -1  'True
+            Caption         =   "Others"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   6120
+            TabIndex        =   127
+            Top             =   1320
+            Width           =   570
+         End
+         Begin VB.Label lbl_stoolcomments 
+            AutoSize        =   -1  'True
+            Caption         =   "Comments"
+            ForeColor       =   &H00000000&
+            Height          =   195
+            Left            =   120
+            TabIndex        =   126
+            Top             =   1680
+            Width           =   870
+         End
+      End
+   End
+   Begin VB.Frame frm_bacteria 
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000004&
+      ForeColor       =   &H80000008&
+      Height          =   4095
+      Left            =   0
+      TabIndex        =   107
+      Top             =   3120
+      Width           =   11775
+      Begin VB.TextBox TXT_ORGAN3 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   7080
+         MaxLength       =   20
+         TabIndex        =   40
+         Top             =   1680
+         Width           =   2295
+      End
+      Begin VB.TextBox TXT_ORGAN2 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   4560
+         MaxLength       =   20
+         TabIndex        =   39
+         Top             =   1680
+         Width           =   2295
+      End
+      Begin VB.TextBox txt_organ1 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   2040
+         MaxLength       =   20
+         TabIndex        =   38
+         Top             =   1680
+         Width           =   2295
+      End
+      Begin VB.TextBox txt_3 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0FF&
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   8040
+         MaxLength       =   30
+         TabIndex        =   43
+         Top             =   2280
+         Visible         =   0   'False
+         Width           =   1260
+      End
+      Begin VB.TextBox txt_2 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0FF&
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   6600
+         MaxLength       =   30
+         TabIndex        =   42
+         Top             =   2280
+         Visible         =   0   'False
+         Width           =   1500
+      End
+      Begin VB.TextBox txt_report 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00000000&
+         Height          =   525
+         Left            =   1560
+         MaxLength       =   200
+         MultiLine       =   -1  'True
+         TabIndex        =   44
+         Top             =   3120
+         Visible         =   0   'False
+         Width           =   7575
+      End
+      Begin VB.ComboBox cmb_patho 
+         ForeColor       =   &H00000000&
+         Height          =   315
+         ItemData        =   "Report_microbiology.frx":1B5A
+         Left            =   1560
+         List            =   "Report_microbiology.frx":1B64
+         Style           =   2  'Dropdown List
+         TabIndex        =   37
+         Top             =   1320
+         Width           =   1575
+      End
+      Begin VB.ComboBox cmb_ziehl 
+         ForeColor       =   &H00000000&
+         Height          =   315
+         ItemData        =   "Report_microbiology.frx":1B71
+         Left            =   10080
+         List            =   "Report_microbiology.frx":1B84
+         Style           =   2  'Dropdown List
+         TabIndex        =   29
+         Top             =   240
+         Width           =   1575
+      End
+      Begin VB.ComboBox cmb_india 
+         ForeColor       =   &H00000000&
+         Height          =   315
+         ItemData        =   "Report_microbiology.frx":1B9B
+         Left            =   7320
+         List            =   "Report_microbiology.frx":1BA5
+         Style           =   2  'Dropdown List
+         TabIndex        =   36
+         Top             =   960
+         Width           =   1575
+      End
+      Begin VB.ComboBox cmb_gnb 
+         ForeColor       =   &H00000000&
+         Height          =   315
+         ItemData        =   "Report_microbiology.frx":1BBD
+         Left            =   1560
+         List            =   "Report_microbiology.frx":1BC7
+         Style           =   2  'Dropdown List
+         TabIndex        =   35
+         Top             =   960
+         Width           =   1575
+      End
+      Begin VB.ComboBox cmb_gpb 
+         ForeColor       =   &H00000000&
+         Height          =   315
+         ItemData        =   "Report_microbiology.frx":1BDB
+         Left            =   10080
+         List            =   "Report_microbiology.frx":1BE5
+         Style           =   2  'Dropdown List
+         TabIndex        =   34
+         Top             =   600
+         Width           =   1575
+      End
+      Begin VB.ComboBox cmb_gnc 
+         ForeColor       =   &H00000000&
+         Height          =   315
+         ItemData        =   "Report_microbiology.frx":1BF9
+         Left            =   7320
+         List            =   "Report_microbiology.frx":1C03
+         Style           =   2  'Dropdown List
+         TabIndex        =   33
+         Top             =   600
+         Width           =   1575
+      End
+      Begin VB.ComboBox cmb_gpc 
+         ForeColor       =   &H00000000&
+         Height          =   315
+         ItemData        =   "Report_microbiology.frx":1C17
+         Left            =   4200
+         List            =   "Report_microbiology.frx":1C21
+         Style           =   2  'Dropdown List
+         TabIndex        =   32
+         Top             =   600
+         Width           =   1575
+      End
+      Begin VB.TextBox txt_koh 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   1560
+         MaxLength       =   30
+         TabIndex        =   31
+         Top             =   600
+         Width           =   1575
+      End
+      Begin VB.TextBox txt_ziehl 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   10080
+         MaxLength       =   15
+         TabIndex        =   30
+         Top             =   240
+         Visible         =   0   'False
+         Width           =   1575
+      End
+      Begin VB.TextBox txt_other 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   7320
+         MaxLength       =   30
+         TabIndex        =   28
+         Top             =   240
+         Width           =   1575
+      End
+      Begin VB.TextBox txt_pus 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   4200
+         MaxLength       =   20
+         TabIndex        =   27
+         Top             =   240
+         Width           =   1575
+      End
+      Begin VB.TextBox txt_epith 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   1560
+         MaxLength       =   20
+         TabIndex        =   26
+         Top             =   240
+         Width           =   1575
+      End
+      Begin VB.TextBox txt_comment 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   1560
+         MaxLength       =   50
+         TabIndex        =   45
+         Top             =   3720
+         Width           =   7575
+      End
+      Begin VB.TextBox txt_1 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0FF&
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   5280
+         MaxLength       =   30
+         TabIndex        =   41
+         Top             =   2280
+         Visible         =   0   'False
+         Width           =   1380
+      End
+      Begin MSFlexGridLib.MSFlexGrid grid_anti 
+         Height          =   1575
+         Left            =   2040
+         TabIndex        =   108
+         Top             =   2040
+         Width           =   8655
+         _ExtentX        =   15266
+         _ExtentY        =   2778
+         _Version        =   393216
+         Rows            =   1
+         Cols            =   4
+         FixedCols       =   0
+         ForeColor       =   0
+         ForeColorFixed  =   128
+         AllowBigSelection=   0   'False
+         Enabled         =   -1  'True
+         Appearance      =   0
+         FormatString    =   "   ANTIBIOTIC                               |^         1           |^          2         |^              3    "
+      End
+      Begin VB.Label lbl_report 
+         AutoSize        =   -1  'True
+         Caption         =   "Report"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   960
+         TabIndex        =   161
+         Top             =   3240
+         Visible         =   0   'False
+         Width           =   585
+      End
+      Begin VB.Label Label6 
+         AutoSize        =   -1  'True
+         Caption         =   "Pathogen Grown"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   120
+         TabIndex        =   160
+         Top             =   1320
+         Width           =   1425
+      End
+      Begin VB.Label lbl_india 
+         Caption         =   "India Ink Preparation for Cryptococcus"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   3960
+         TabIndex        =   123
+         Top             =   1080
+         Width           =   3375
+      End
+      Begin VB.Label lbl_GNB 
+         AutoSize        =   -1  'True
+         Caption         =   "GNB"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   1080
+         TabIndex        =   122
+         Top             =   960
+         Width           =   405
+      End
+      Begin VB.Label lbl_gpb 
+         AutoSize        =   -1  'True
+         Caption         =   "GPB"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   9600
+         TabIndex        =   121
+         Top             =   600
+         Width           =   390
+      End
+      Begin VB.Label lbl_gnc 
+         AutoSize        =   -1  'True
+         Caption         =   "GNC"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   6840
+         TabIndex        =   120
+         Top             =   600
+         Width           =   405
+      End
+      Begin VB.Label lbl_gpc 
+         AutoSize        =   -1  'True
+         Caption         =   "GPC"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   3720
+         TabIndex        =   119
+         Top             =   600
+         Width           =   390
+      End
+      Begin VB.Label lbl_koh 
+         AutoSize        =   -1  'True
+         Caption         =   "K O H"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   960
+         TabIndex        =   118
+         Top             =   600
+         Width           =   525
+      End
+      Begin VB.Label lbl_ziehl 
+         AutoSize        =   -1  'True
+         Caption         =   "Z. N. Stain"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   9120
+         TabIndex        =   117
+         Top             =   240
+         Width           =   945
+      End
+      Begin VB.Label lbl_other 
+         AutoSize        =   -1  'True
+         Caption         =   "Other Findings"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   6000
+         TabIndex        =   116
+         Top             =   240
+         Width           =   1245
+      End
+      Begin VB.Label lbl_pus 
+         AutoSize        =   -1  'True
+         Caption         =   "Pus Cells"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   3360
+         TabIndex        =   115
+         Top             =   240
+         Width           =   795
+      End
+      Begin VB.Label lbl_Epith 
+         AutoSize        =   -1  'True
+         Caption         =   "Epithelial Cells"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   240
+         TabIndex        =   114
+         Top             =   240
+         Width           =   1260
+      End
+      Begin VB.Label lbl_bcomments 
+         Caption         =   "Comments"
+         ForeColor       =   &H00000000&
+         Height          =   255
+         Left            =   600
+         TabIndex        =   113
+         Top             =   3720
+         Width           =   855
+      End
+      Begin VB.Label lbl_organisms 
+         AutoSize        =   -1  'True
+         Caption         =   "Organisms Isolated"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   120
+         TabIndex        =   112
+         Top             =   1680
+         Width           =   1620
+      End
+      Begin VB.Label lbl_1 
+         AutoSize        =   -1  'True
+         Caption         =   "1"
+         DragMode        =   1  'Automatic
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   1920
+         TabIndex        =   111
+         Top             =   1680
+         Width           =   120
+      End
+      Begin VB.Label lbl_2 
+         AutoSize        =   -1  'True
+         Caption         =   "2"
+         DragMode        =   1  'Automatic
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   4440
+         TabIndex        =   110
+         Top             =   1680
+         Width           =   120
+      End
+      Begin VB.Label lbl_3 
+         AutoSize        =   -1  'True
+         Caption         =   "3"
+         DragMode        =   1  'Automatic
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   6960
+         TabIndex        =   109
+         Top             =   1680
+         Width           =   120
+      End
+   End
+   Begin VB.Frame frm_others 
+      ForeColor       =   &H00C00000&
+      Height          =   4095
+      Left            =   0
+      TabIndex        =   96
+      Top             =   3120
+      Width           =   11775
+      Begin VB.TextBox txt_refer_service 
+         Appearance      =   0  'Flat
+         Height          =   435
+         Left            =   1920
+         TabIndex        =   23
+         Top             =   480
+         Width           =   9255
+      End
+      Begin VB.TextBox txt_test_perform 
+         Appearance      =   0  'Flat
+         Height          =   435
+         Left            =   1920
+         TabIndex        =   24
+         Top             =   1320
+         Width           =   9255
+      End
+      Begin VB.TextBox txt_result 
+         Appearance      =   0  'Flat
+         Height          =   1005
+         Left            =   1920
+         MultiLine       =   -1  'True
+         TabIndex        =   25
+         Top             =   2400
+         Width           =   9255
+      End
+      Begin VB.Label lbl_Refer 
+         AutoSize        =   -1  'True
+         Caption         =   "Referring Services"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   240
+         TabIndex        =   99
+         Top             =   600
+         Width           =   1590
+      End
+      Begin VB.Label lbl_test 
+         AutoSize        =   -1  'True
+         Caption         =   "Test Performed"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   480
+         TabIndex        =   98
+         Top             =   1440
+         Width           =   1305
+      End
+      Begin VB.Label lbl_result 
+         AutoSize        =   -1  'True
+         Caption         =   "Result"
+         ForeColor       =   &H000000C0&
+         Height          =   195
+         Left            =   1200
+         TabIndex        =   97
+         Top             =   2760
+         Width           =   555
+      End
+   End
+   Begin VB.Frame frm_myco 
+      Caption         =   "MYCOBACTERIOLOGY"
+      Height          =   4095
+      Left            =   0
+      TabIndex        =   174
+      Top             =   3120
+      Width           =   11775
+      Begin VB.TextBox txt_c_1 
+         Appearance      =   0  'Flat
+         Height          =   285
+         Left            =   4800
+         TabIndex        =   178
+         Top             =   2160
+         Visible         =   0   'False
+         Width           =   1335
+      End
+      Begin VB.TextBox txt_c_report 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00000000&
+         Height          =   525
+         Left            =   1200
+         MaxLength       =   200
+         MultiLine       =   -1  'True
+         TabIndex        =   177
+         Top             =   1200
+         Width           =   8655
+      End
+      Begin VB.ComboBox cmb_organisms 
+         ForeColor       =   &H00000000&
+         Height          =   315
+         ItemData        =   "Report_microbiology.frx":1C35
+         Left            =   5040
+         List            =   "Report_microbiology.frx":1C37
+         TabIndex        =   176
+         Text            =   "cmb_organisms"
+         Top             =   480
+         Width           =   3495
+      End
+      Begin VB.ComboBox cmb_stain 
+         ForeColor       =   &H00000000&
+         Height          =   315
+         ItemData        =   "Report_microbiology.frx":1C39
+         Left            =   1200
+         List            =   "Report_microbiology.frx":1C3B
+         TabIndex        =   175
+         Text            =   "cmb_stain"
+         Top             =   480
+         Width           =   1815
+      End
+      Begin VB.TextBox txt_c_comment 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00000000&
+         Height          =   285
+         Left            =   1200
+         MaxLength       =   50
+         TabIndex        =   180
+         Top             =   3720
+         Width           =   8655
+      End
+      Begin MSFlexGridLib.MSFlexGrid grid_c_anti 
+         Height          =   1575
+         Left            =   1200
+         TabIndex        =   179
+         Top             =   1920
+         Width           =   8655
+         _ExtentX        =   15266
+         _ExtentY        =   2778
+         _Version        =   393216
+         Rows            =   1
+         FixedCols       =   0
+         ForeColor       =   0
+         ForeColorFixed  =   128
+         AllowBigSelection=   0   'False
+         Enabled         =   -1  'True
+         Appearance      =   0
+         FormatString    =   "   ANTIMICROBIAL                               |^         1           "
+      End
+      Begin VB.Label lbl_c_report 
+         Caption         =   " Provisional            Culture            Report"
+         ForeColor       =   &H00000000&
+         Height          =   675
+         Left            =   120
+         TabIndex        =   184
+         Top             =   1200
+         Width           =   1275
+      End
+      Begin VB.Label Label2 
+         AutoSize        =   -1  'True
+         Caption         =   "Organism Isolated"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   3480
+         TabIndex        =   183
+         Top             =   480
+         Width           =   1530
+      End
+      Begin VB.Label lbl_stain 
+         AutoSize        =   -1  'True
+         Caption         =   "Z. N. Stain"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   120
+         TabIndex        =   182
+         Top             =   480
+         Width           =   945
+      End
+      Begin VB.Label lbl_c_comments 
+         Caption         =   "Comments"
+         ForeColor       =   &H00000000&
+         Height          =   255
+         Left            =   120
+         TabIndex        =   181
+         Top             =   3720
+         Width           =   855
+      End
+   End
+   Begin VB.Label lbl_microbiology 
+      AutoSize        =   -1  'True
+      Caption         =   "REPORT - MICROBIOLOGY "
+      BeginProperty Font 
+         Name            =   "Times New Roman"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000080&
+      Height          =   330
+      Left            =   3960
+      TabIndex        =   94
+      Top             =   480
+      Width           =   3900
+   End
+   Begin VB.Label lbl_time 
+      AutoSize        =   -1  'True
+      Caption         =   "Time"
+      ForeColor       =   &H00000000&
+      Height          =   195
+      Left            =   9120
+      TabIndex        =   93
+      Top             =   480
+      Width           =   420
+   End
+   Begin VB.Label lbl_date 
+      AutoSize        =   -1  'True
+      Caption         =   "Date"
+      ForeColor       =   &H00000000&
+      Height          =   195
+      Left            =   9120
+      TabIndex        =   92
+      Top             =   120
+      Width           =   420
+   End
+End
+Attribute VB_Name = "Report_microbiology"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Dim SRNO                As Integer
+Dim objWord             As Word.Application
+Dim objDoc              As Word.Document
+'for selecting antibiotics
+Dim sel_antiqr          As RDO.rdoQuery
+Dim sel_moadlityqr      As RDO.rdoQuery
+Dim sel_deptqr          As RDO.rdoQuery
+Dim req_qr              As RDO.rdoQuery
+Dim SEL_detail_qr       As RDO.rdoQuery 'for selecting details of patient
+Dim SELRREQUISITN_QR    As RDO.rdoQuery
+Dim sel_proccode_qr     As RDO.rdoQuery 'for selecting procedure code
+Dim sel_submodali_qr     As RDO.rdoQuery 'for selecting submodality
+'Dim REFDR_QR            As rdo.rdoQuery 'for refered by doctor not in used
+Dim sel_bed_qr          As RDO.rdoQuery 'to select bed and ward
+Dim SEL_MODALITY_QR     As RDO.rdoQuery
+Dim sel_forupd2_qr      As RDO.rdoQuery 'for antibiotic
+Dim sel_forupd1_qr      As RDO.rdoQuery ' toget data from table for bactriology
+Dim sel_forupd3_qr      As RDO.rdoQuery ' to get data from table for urine
+Dim sel_forupd4_qr      As RDO.rdoQuery ' to get data from table for stool
+Dim sel_forupd5_qr      As RDO.rdoQuery ' to get data from table for other
+Dim sel_forupd6_qr      As RDO.rdoQuery 'to get data from mycobacteriology table
+Dim sel_micro_qr        As RDO.rdoQuery ' to  get micro number
+Dim sel_RIS_qr       As RDO.rdoQuery ' to get status of commit flag
+Dim sel_FINAL_qr        As RDO.rdoQuery ' to get status of commit flag
+Dim sel_ENTER_qr        As RDO.rdoQuery ' to get ENTER BY USER LIST
+Dim ins_0_qr            As RDO.rdoQuery ' insert query
+Dim ins_1_qr            As RDO.rdoQuery
+Dim ins_2_qr            As RDO.rdoQuery
+Dim ins_4_qr            As RDO.rdoQuery
+Dim ins_5_qr            As RDO.rdoQuery
+Dim ins_6_qr            As RDO.rdoQuery 'insert in mycobacteriology table
+Dim upd_0_qr            As RDO.rdoQuery 'update query
+Dim upd_1_qr            As RDO.rdoQuery
+Dim upd_2_qr            As RDO.rdoQuery
+Dim upd_4_qr            As RDO.rdoQuery
+Dim upd_5_qr            As RDO.rdoQuery
+Dim upd_6_qr            As RDO.rdoQuery
+Dim upd_7_qr            As RDO.rdoQuery 'for updating mycobacteriology
+Dim upd_8_qr            As RDO.rdoQuery 'for updating rislib about enterby
+Dim upd_11_qr           As RDO.rdoQuery 'for setting requistion status
+Dim i As Integer  'USE FOR SELECTING INDEX OF MICROBIOLOGY in combo
+Dim sel_antirs          As RDO.rdoResultset
+Dim sel_modalityrs      As RDO.rdoResultset
+Dim sel_deptrs          As RDO.rdoResultset
+Dim SEL_MODALITY_RS     As RDO.rdoResultset
+Dim req_rs              As RDO.rdoResultset
+Dim SEL_detail_rs       As RDO.rdoResultset
+Dim SELRREQUISITN_RS    As RDO.rdoResultset
+Dim sel_proccode_rs     As RDO.rdoResultset  'for selecting procedure code
+Dim sel_submodali_rs    As RDO.rdoResultset 'for selecting submodality
+'Dim REFDR_RS            As rdo.rdoResultset 'not in used
+Dim sel_bed_rs          As RDO.rdoResultset
+Dim sel_forupd1_rs      As RDO.rdoResultset
+Dim sel_forupd2_rs      As RDO.rdoResultset
+Dim sel_forupd3_rs      As RDO.rdoResultset
+Dim sel_forupd4_rs      As RDO.rdoResultset
+Dim sel_forupd5_rs      As RDO.rdoResultset
+Dim sel_forupd6_rs      As RDO.rdoResultset
+Dim sel_micro_rs        As RDO.rdoResultset ' to  get micro number
+Dim sel_RIS_RS       As RDO.rdoResultset ' to  get micro number
+Dim sel_ENTER_rs        As RDO.rdoResultset ' to  get ENTER BY USER LIST
+Dim sel_FINAL_rs        As RDO.rdoResultset ' to  get FINAL BY USER LIST
+Dim S1                  As String ' FOR DEPTCODE
+Dim S2                  As String ' FOR MODALITYCODE
+Dim mod_reqno           As String 'used to store reqno by calling req_chglen method
+Dim new_flag            As Boolean
+Dim mod_flag            As Boolean
+Dim view_flag           As Boolean
+Dim no_req              As Boolean 'to check before printing report whether req is existing or not
+'here
+
+Private Sub cmb_dept_GotFocus()
+'ON ERROR GoTo msg:
+    If Trim(cmb_dept) = "" Then
+        Exit Sub
+    End If
+    i = InStr(cmb_dept.Text, "$")
+    txt_deptcode.Text = Mid(cmb_dept.Text, i + 1, 3)
+    sel_moadlityqr(0) = Trim(txt_deptcode.Text)
+    Set sel_modalityrs = sel_moadlityqr.OpenResultset(1, 3)
+    If sel_modalityrs.RowCount > 0 Then
+        cmb_modality.clear
+        While Not sel_modalityrs.EOF
+            cmb_modality.AddItem Trim(sel_modalityrs("modlitydes")) & "$" & Trim(sel_modalityrs("modalitycd"))
+            sel_modalityrs.MoveNext
+        Wend
+        sel_modalityrs.Close
+    Else
+        sel_modalityrs.Close
+        Exit Sub
+    End If
+    cmb_modality.SetFocus
+    SendKeys "^{f4}"
+Exit Sub
+msg:
+    MsgBox Error(Err)
+End Sub
+
+Private Sub cmb_modality_Click()
+    i = InStr(cmb_modality.Text, "$")
+    txt_modcode.Text = Mid(cmb_modality.Text, i + 1, 2)
+End Sub
+
+Private Sub cmb_organisms_LOSTFOCUS()
+On Error GoTo msg
+    If new_flag Then
+        sel_antiqr(0) = Trim(Mid(cmb_modality.Text, 1, InStr(cmb_modality.Text, "$") - 1))
+        sel_antiqr(1) = Trim(cmb_organisms.Text)
+        Set sel_antirs = sel_antiqr.OpenResultset(1, 3)
+        If Not sel_antirs.EOF Then
+                grid_c_anti.Rows = 1
+                grid_c_anti.Cols = 2
+                grid_c_anti.FormatString = "   ANTIMICROBIAL                               |^         1           "
+                While Not sel_antirs.EOF
+                  grid_c_anti.AddItem sel_antirs("antibdesc")
+                  sel_antirs.MoveNext
+                Wend
+                    grid_c_anti.Row = 1
+                    grid_c_anti.Col = 1
+                    txt_c_1.Width = grid_c_anti.CellWidth
+                    txt_c_1.Height = grid_c_anti.CellHeight
+                    txt_c_1.Left = grid_c_anti.CellLeft + grid_c_anti.Left
+                    txt_c_1.Top = grid_c_anti.CellTop + grid_c_anti.Top
+                    txt_c_1.Visible = True
+                    sel_antirs.Close
+        Else
+            MsgBox "Use Master Screen to Enter Antimicrobial", vbOKOnly
+            sel_antirs.Close
+            Exit Sub
+        End If
+     ElseIf mod_flag Then
+        If Not sel_forupd2_rs.EOF Then
+                grid_c_anti.Rows = 1
+                grid_c_anti.FormatString = "   ANTIMICROBIAL                               |^         1           "
+                While Not sel_forupd2_rs.EOF
+                    grid_c_anti.AddItem sel_forupd2_rs("antibiotic") & vbTab & sel_forupd2_rs("antibio1")
+                    sel_forupd2_rs.MoveNext
+                Wend
+                sel_forupd2_rs.Close
+         Else
+                sel_forupd2_rs.Close
+         End If
+     End If
+     Exit Sub
+msg:
+    MsgBox Err.Description
+End Sub
+
+Private Sub cmb_patho_lostfocus()
+If cmb_patho.ItemData(cmb_patho.ListIndex) = 0 Then 'selected yes then
+    lbl_report.Visible = False
+    txt_report.Visible = False
+    lbl_organisms.Visible = True
+    txt_organ1.Visible = True
+    TXT_ORGAN2.Visible = True
+    TXT_ORGAN3.Visible = True
+    lbl_1.Visible = True
+    lbl_2.Visible = True
+    lbl_3.Visible = True
+    grid_anti.Visible = True
+    lbl_bcomments.Left = 600
+    lbl_bcomments.Top = 3720
+    txt_comment.Left = 1560
+    txt_comment.Top = 3720
+Else 'if selected no then
+    lbl_report.Visible = True
+    txt_report.Visible = True
+    lbl_organisms.Visible = False
+    txt_organ1.Visible = False
+    TXT_ORGAN2.Visible = False
+    TXT_ORGAN3.Visible = False
+    txt_1.Visible = False
+    txt_2.Visible = False
+    txt_3.Visible = False
+    lbl_1.Visible = False
+    lbl_2.Visible = False
+    lbl_3.Visible = False
+    grid_anti.Visible = False
+    lbl_report.Left = 960
+    lbl_report.Top = 2040
+    txt_report.Left = 1560
+    txt_report.Top = 1920
+    txt_comment.Left = 1560
+    txt_comment.Top = 2640
+    lbl_bcomments.Left = 600
+    lbl_bcomments.Top = 2640
+End If
+End Sub
+
+Private Sub cmb_reqno_lostfocus()
+'ON ERROR GoTo msg
+'get what req is selected and depending on that change lower frame.
+'FIRST GET MODALITY
+' get detail of patient
+If cmb_reqno.ListIndex > 0 And (cmb_reqno.Text) = "" Or Len(cmb_reqno.Text) < 1 Then
+    MsgBox "Select Requisition First", vbOKOnly
+    btnenabl "INI"
+    Exit Sub
+End If
+mod_reqno = req_chglen(cmb_reqno) 'put change value to this var so that it used later on
+GETUSERLIST
+GETFINALLIST
+If Opt_patient.Value Then
+    If new_flag Then
+        enable_field
+        getupperpanel
+        If Trim(txt_modcode.Text) = "BA" Then 'for case no. 1(bacteriology)
+            set_visible "frm_bacteria"
+        ElseIf Trim(txt_modcode.Text) = "CM" Then ' for case no. 5(clinical micro)
+            If Trim(CMB_PROC.Text) = "URINE EXAMINATION" Then
+                set_visible "frm_urineexam"
+                frm_urineexam.Enabled = True
+                frm_stoolexam.Enabled = False
+                        
+            ElseIf Trim(CMB_PROC.Text) = "STOOL EXAMINATION" Then
+                set_visible "frm_stoolexam"
+                frm_urineexam.Enabled = False
+                frm_stoolexam.Enabled = True
+            Else
+                set_visible "frm_stoolexam"
+            End If
+        ElseIf Trim(txt_modcode.Text) = "MB" Then
+                set_visible "frm_myco"
+                get_myco
+                cmb_stain.clear
+                cmb_stain.AddItem "0"
+                cmb_stain.AddItem "1+"
+                cmb_stain.AddItem "2+"
+                cmb_stain.AddItem "3+"
+                cmb_stain.AddItem "4+"
+        Else
+        ' for other case
+                set_visible "frm_others"
+        End If
+    ElseIf view_flag Then
+        getupperpanel
+        GET_ENTER_BY
+        If S2 = "BA" Then
+            set_visible "frm_bacteria"
+            getresult_bacteriology
+        ElseIf S2 = "CM" Then
+            If Trim(CMB_PROC.Text) = "URINE EXAMINATION" Then
+                set_visible "frm_urineexam"
+                frm_stoolexam.Enabled = False
+                frm_urineexam.Enabled = True
+                getresult_urine
+                'now feeling all combo of stool routine to null
+                'cmb_starch.ListIndex = -1
+                'cmb_larvae.ListIndex = -1
+                'cmb_parasties.ListIndex = -1
+                'cmb_occult.ListIndex = -1
+                'cmb_fat.ListIndex = -1
+                'cmb_mucus.ListIndex = -1
+                'cmb_Ova.ListIndex = -1
+                'cmb_cysts.ListIndex = -1
+                'cmb_blood.ListIndex = -1
+                'cmb_microphages.ListIndex = -1
+                
+            ElseIf Trim(CMB_PROC.Text) = "STOOL EXAMINATION" Then
+                set_visible "frm_stoolexam"
+                frm_urineexam.Enabled = False
+                frm_stoolexam.Enabled = True
+                getresult_stool
+                
+            Else
+                set_visible "frm_stoolexam"
+                getresult_urine
+                getresult_stool
+            End If
+        ElseIf S2 = "MB" Then
+                set_visible "frm_myco"
+                cmb_stain.clear
+                cmb_stain.AddItem "0"
+                cmb_stain.AddItem "1+"
+                cmb_stain.AddItem "2+"
+                cmb_stain.AddItem "3+"
+                cmb_stain.AddItem "4+"
+                getresult_myco
+        Else
+            set_visible "frm_others"
+            getresult_other
+        End If
+      disable_field 'disable all fields
+    End If
+ElseIf opt_staff.Value Then 'FOR STAFF MEMBER
+
+End If 'END OF TOP IF
+Exit Sub
+msg:
+    MsgBox Error(Err)
+End Sub
+
+Private Sub cmd_back_Click()
+btnenabl ("INI")
+clearlowerpanel1
+clearlowerpanel2
+clearlowerpanel3
+clearlowerpanel4
+clearupperpanel
+set_visible "All"
+DIS_MAIN.Show
+Me.Hide
+End Sub
+
+Private Sub cmd_cancel_Click()
+btnenabl ("INI")
+clearupperpanel
+clearlowerpanel1
+clearlowerpanel2
+clearlowerpanel3
+clearlowerpanel4
+set_flag "ALL"
+txt_1.Visible = False
+txt_2.Visible = False
+txt_3.Visible = False
+CMD_NEW.SetFocus
+set_visible "All"
+lbl_bcomments.Left = 120
+lbl_bcomments.Top = 3720
+txt_comment.Left = 1080
+txt_comment.Top = 3720
+cmb_dept.Enabled = True
+cmb_modality.Enabled = True
+cmb_dept.Enabled = True
+cmb_reqno.Enabled = True
+MaskEdBox1.Enabled = True
+
+End Sub
+
+Private Sub cmd_commit_Click()
+On Error GoTo msg
+Dim i As Integer
+i = MsgBox(" Do you want to Commit the Record?", vbYesNo, vbInformation)
+If i = vbYes Then
+On Error GoTo msg:
+ rdb.BeginTrans
+    upd_6_qr(0) = Left(cmb_final.Text, 30)
+    upd_6_qr(1) = GET_REVDATE(Format(DATE11, "DD/MM/YYYY"))
+    upd_6_qr(2) = "F"
+    upd_6_qr(3) = "Y"
+    upd_6_qr(4) = req_chglen(cmb_reqno.Text)
+    upd_6_qr.Execute
+    End If
+rdb.CommitTrans
+btnenabl ("INI")
+MsgBox "Record is Committed Successfully."
+cmd_print.Enabled = True
+Exit Sub
+msg:
+    rdb.RollbackTrans
+    MsgBox Err.Description
+End Sub
+
+Private Sub cmd_modify_Click()
+btnenabl ("NEW")
+If Len(Trim(MaskEdBox1.Text)) = 0 Then
+    MsgBox "Case Number should not be empty!", vbCritical
+    MaskEdBox1.SetFocus
+    Exit Sub
+End If
+
+If Len(Trim(cmb_reqno.Text)) = 0 Then
+    MsgBox "Requisition Number should not be empty!", vbCritical
+    If cmb_reqno.Enabled = True Then
+        cmb_reqno.SetFocus
+        SendKeys "^{f4}"
+    End If
+    Exit Sub
+End If
+'check for commit flag status
+sel_RIS_qr(0) = mod_reqno
+Set sel_RIS_RS = sel_RIS_qr.OpenResultset(1, 3)
+While Not sel_RIS_RS.EOF
+    If Trim(sel_RIS_RS(0)) = "Y" Then
+        MsgBox "Sorry Record is Already Commited", vbOKOnly
+        Exit Sub
+    Else
+        set_flag "MOD"
+    End If
+    sel_RIS_RS.MoveNext
+Wend
+enable_field
+End Sub
+
+Private Sub cmd_new_Click()
+btnenabl ("NEW")
+    Set sel_deptrs = sel_deptqr.OpenResultset(1, 3)
+    While Not sel_deptrs.EOF
+        cmb_dept.AddItem Trim(sel_deptrs("dept_name")) & "$" & Trim(sel_deptrs("dept_code"))
+        sel_deptrs.MoveNext
+    Wend
+    For i = 0 To (cmb_dept.ListCount - 1)
+        If Trim(cmb_dept.List(i)) = "MICROBIOLOGY$GZZ" Then
+                cmb_dept.ListIndex = i
+        End If
+        Next i
+sel_deptrs.Close
+set_flag "NEW"
+Opt_patient.Value = True
+cmb_dept.SetFocus
+End Sub
+
+Private Sub cmd_print_Click()
+'ON ERROR GoTo msg
+Dim prepath As String
+DoEvents
+'check
+If no_req Then 'check for entered selected req no.
+    sel_micro_qr(0) = mod_reqno
+    Set sel_micro_rs = sel_micro_qr.OpenResultset(1, 3)
+    While Not sel_micro_rs.EOF
+        If Trim(sel_micro_rs("pathno")) <> Trim(txt_microno.Text) Then
+             prepath = prepath & sel_micro_rs("pathno")
+        End If
+        sel_micro_rs.MoveNext
+    Wend
+    STR = usr_name & " " & ipadd & " " & Format(DATE11, "DD/MM/YYYY") & " " & time1
+    
+    If Trim(txt_modcode.Text) = "BA" Then 'for case no. 1(bacteriology)
+    CRYSTALREPORT1.ReportFileName = "d:\amar\micro_report\bacteriology_report.rpt"
+    CRYSTALREPORT1.SelectionFormula = "{RREQUISITN.REQNNO} = '" & mod_reqno & "'"
+    CRYSTALREPORT1.Formulas(0) = "REQNO = '" & Trim(cmb_reqno.Text) & "'"
+    CRYSTALREPORT1.Formulas(1) = "proc_name = '" & Trim(CMB_PROC.Text) & "'"
+    'CRYSTALREPORT1.Formulas(1) = "PREPATH = '" & "Previous Path No." & Left(txt_prepathreqno, 200) & "'"
+    'CRYSTALREPORT1.Formulas(2) = "PROVDIA = '" & txt_procedure & "'"
+    
+    ElseIf Trim(txt_modcode.Text) = "CM" Then ' for case no. 5(clinical micro)
+          ' CRYSTALREPORT1.ReportFileName = "d:\amar\micro_report\urine_report.rpt"
+          ' CRYSTALREPORT1.Formulas(10) = "stool_flag=" & Null
+        If Trim(CMB_PROC.Text) = "URINE EXAMINATION" Then 'print upper portion
+            CRYSTALREPORT1.ReportFileName = "d:\amar\micro_report\urine_report.rpt"
+            CRYSTALREPORT1.SelectionFormula = "{RREQUISITN.REQNNO} = '" & mod_reqno & "'"
+            CRYSTALREPORT1.Formulas(0) = "REQNO = '" & Trim(cmb_reqno.Text) & "'"
+            CRYSTALREPORT1.Formulas(1) = "proc_name = '" & Trim(CMB_PROC.Text) & "'"
+            'CrystalReport1.Formulas(2) = "PROFIN = '" & " Bacteriology Report " & "'"
+        ElseIf Trim(CMB_PROC.Text) = "STOOL EXAMINATION" Then 'print lower portion
+            CRYSTALREPORT1.ReportFileName = "d:\amar\micro_report\stool_report.rpt"
+            CRYSTALREPORT1.Formulas(0) = "REQNO = '" & Trim(cmb_reqno.Text) & "'"
+            CRYSTALREPORT1.Formulas(1) = "proc_name = '" & Trim(CMB_PROC.Text) & "'"
+            'CRYSTALREPORT1.Formulas(10) = "stool_flag= print"
+        Else
+            'print both portion
+            CRYSTALREPORT1.Formulas(0) = "REQNO = '" & Trim(cmb_reqno.Text) & "'"
+            CRYSTALREPORT1.Formulas(1) = "proc_name = '" & Trim(CMB_PROC.Text) & "'"
+            CRYSTALREPORT1.Formulas(2) = "stool_flag= print"
+        End If
+    Else  ' for other case
+           CRYSTALREPORT1.ReportFileName = "d:\amar\micro_report\other_report.rpt"
+           CRYSTALREPORT1.SelectionFormula = "{RREQUISITN.REQNNO} = '" & mod_reqno & "'"
+           CRYSTALREPORT1.Formulas(0) = "REQNO = '" & Trim(cmb_reqno.Text) & "'"
+          ' CRYSTALREPORT1.Formulas(1) = "proc_name = '" & Trim(CMB_PROC.Text) & "'"
+    End If
+    
+ Else
+    MsgBox "Please select valid Requisition No.", vbOKOnly
+    Exit Sub
+ End If
+ CRYSTALREPORT1.Action = 1
+            
+ Exit Sub
+msg:
+    MsgBox Error(Err)
+End Sub
+
+Private Sub cmd_save_Click()
+If new_flag Then    'if new record then use insert query
+    new_flag = False
+    btnenabl "SAVE"
+    If Len(Trim(cmb_enteryby)) = 0 Then
+        MsgBox "The Enter by field is EMPTY.", vbCritical
+        cmb_enteryby.SetFocus
+    Exit Sub
+    End If
+
+    If Len(Trim(cmb_final)) = 0 Then
+        MsgBox "The Finalized by field is EMPTY.", vbCritical
+        cmb_final.SetFocus
+        Exit Sub
+    End If
+    If Len(Trim(txt_c_report.Text)) >= 200 Then
+         MsgBox "The Report Description Max. length is 200 Characters Only"
+         txt_c_report.SetFocus
+         Exit Sub
+    End If
+    'check which test is performed
+        If frm_bacteria.Visible Then 'for Bacteriology
+            'insert in DMSPONANIB AND DMPRISMER
+            insert_bacteriology
+            clearlowerpanel1
+            frm_bacteria.Visible = False
+            Exit Sub
+        ElseIf frm_clinic.Visible Then 'for Clinical Microbiology
+            'now in this check for stool or urine
+            If frm_urineexam.Enabled Then
+                insert_urine
+                clearlowerpanel2
+                frm_clinic.Visible = False
+                Exit Sub
+            ElseIf frm_stoolexam.Enabled Then
+                'insert in stool table  DMSRE
+                insert_stool
+                clearlowerpanel2
+                frm_clinic.Visible = False
+                Exit Sub
+             Else
+                insert_stool
+                insert_urine
+                clearlowerpanel2
+                frm_clinic.Visible = False
+                Exit Sub
+            End If
+        ElseIf frm_myco.Visible Then
+            'insert into table dmycobacte
+            insert_myco
+            clearlowerpanel4
+            frm_myco.Visible = False
+            btnenabl "SAVE"
+            Exit Sub
+        ElseIf frm_others.Visible Then
+            'insert in free text table DMBSEMCMO
+            insert_other
+            clearlowerpanel3
+            frm_others.Visible = False
+            Exit Sub
+        End If
+ElseIf mod_flag Then 'else if modifying a record then use update query
+    mod_flag = False
+   If Len(Trim(cmb_enteryby)) = 0 Then
+        MsgBox "The Enter by field is EMPTY.", vbCritical
+        cmb_enteryby.SetFocus
+    Exit Sub
+    End If
+
+    If Len(Trim(cmb_final)) = 0 Then
+        MsgBox "The Finalized by field is EMPTY.", vbCritical
+        cmb_final.SetFocus
+        Exit Sub
+    End If
+    If Len(Trim(txt_c_report.Text)) >= 200 Then
+         MsgBox "The Report Description Max. length is 200 Characters Only"
+         txt_c_report.SetFocus
+         Exit Sub
+    End If
+
+    'check which test is performed
+        If frm_bacteria.Visible Then 'for Bacteriology
+            'update in DMSPONANIB AND DMPRISMER
+            'before update get result from database server and assign them to fields by calling getresult
+            upd_1_qr(0) = txt_epith.Text
+            upd_1_qr(1) = txt_pus.Text
+            upd_1_qr(2) = txt_other.Text
+            'upd_1_qr(3) = txt_ziehl.Text
+            upd_1_qr(3) = cmb_ziehl.Text
+            upd_1_qr(4) = txt_koh.Text
+            upd_1_qr(5) = cmb_gpc.Text
+            upd_1_qr(6) = cmb_gnc.Text
+            upd_1_qr(7) = cmb_gpb.Text
+            upd_1_qr(8) = cmb_gnb.Text
+            upd_1_qr(9) = cmb_india.Text
+            If Len(txt_organ1.Text) > 0 Then
+                upd_1_qr(10) = Null
+                upd_1_qr(10) = txt_organ1.Text
+            Else
+                upd_1_qr(10) = Null
+                upd_1_qr(10) = " "
+            End If
+            If Len(TXT_ORGAN2.Text) > 0 Then
+                upd_1_qr(11) = Null
+                upd_1_qr(11) = TXT_ORGAN2.Text
+            Else
+                upd_1_qr(11) = Null
+                upd_1_qr(11) = " "
+            End If
+            If Len(TXT_ORGAN3.Text) > 0 Then
+                upd_1_qr(12) = Null
+                upd_1_qr(12) = TXT_ORGAN3.Text
+            Else
+                upd_1_qr(12) = Null
+                upd_1_qr(12) = " "
+            End If
+            If Len(txt_comment.Text) > 0 Then
+                upd_1_qr(13) = Null
+                upd_1_qr(13) = txt_comment.Text
+            Else
+                upd_1_qr(13) = Null
+                upd_1_qr(13) = " "
+            End If
+            upd_1_qr(14) = mod_reqno
+            upd_1_qr.Execute
+            
+            i = grid_anti.Rows
+            SRNO = 1
+            While Not SRNO = i
+                upd_2_qr(0) = grid_anti.TextMatrix(SRNO, 1) 'get first value and insert
+                upd_2_qr(1) = grid_anti.TextMatrix(SRNO, 2) 'get second value and insert"
+                upd_2_qr(2) = grid_anti.TextMatrix(SRNO, 3) 'get third value and insert
+                upd_2_qr(3) = mod_reqno
+                upd_2_qr(4) = Trim(grid_anti.TextMatrix(SRNO, 0)) 'first get name of antibiotic and insert
+                upd_2_qr.Execute
+                SRNO = SRNO + 1
+            Wend
+            update_rislib
+            MsgBox "Record Updated Successfully", vbOKOnly
+            Exit Sub
+        ElseIf frm_clinic.Visible Then 'for Clinical Microbiology
+            'now in this check for stool or urine
+            If frm_urineexam.Enabled Then
+                'update in urine table DMURE
+                    upd_4_qr(0) = txt_urinecolour.Text
+                    upd_4_qr(1) = txt_gravity.Text
+                    upd_4_qr(2) = txt_ph.Text
+                    upd_4_qr(3) = txt_protins.Text
+                    upd_4_qr(4) = txt_glucose.Text
+                    upd_4_qr(5) = txt_ketones.Text
+                    upd_4_qr(6) = txt_bilirubin.Text
+                    upd_4_qr(7) = txt_uro.Text
+                    upd_4_qr(8) = txt_blood.Text
+                    upd_4_qr(9) = txt_MicroExam.Text
+                    upd_4_qr(10) = txt_wbc.Text
+                    upd_4_qr(11) = txt_rbc.Text
+                    upd_4_qr(12) = txt_squamous.Text
+                    upd_4_qr(13) = txt_bacteria.Text
+                    upd_4_qr(14) = txt_casts.Text
+                    If Len(txt_urinother.Text) > 0 Then
+                        upd_4_qr(15) = Null
+                        upd_4_qr(15) = txt_urinother.Text
+                    Else
+                        upd_4_qr(15) = Null
+                        upd_4_qr(15) = " "
+                    End If
+                    If Len(txt_urinecomment.Text) > 0 Then
+                        upd_4_qr(17) = Null
+                        upd_4_qr(16) = txt_urinecomment.Text
+                    Else
+                        upd_4_qr(17) = Null
+                        upd_4_qr(17) = " "
+                    End If
+                    upd_4_qr(17) = mod_reqno
+                    upd_4_qr.Execute
+                    update_rislib
+                    MsgBox "Record Updated Successfully", vbOKOnly
+                    Exit Sub
+            ElseIf frm_stoolexam.Enabled Then
+                'update in stool table  DMSRE
+                    upd_5_qr(0) = txt_stoolcolour.Text
+                    upd_5_qr(1) = txt_consistency.Text
+                    upd_5_qr(2) = txt_mucus.Text
+                    upd_5_qr(3) = txt_sblood.Text
+                    upd_5_qr(4) = txt_parasties.Text
+                    upd_5_qr(5) = txt_occult.Text
+                    upd_5_qr(6) = txt_Ova.Text
+                    upd_5_qr(7) = txt_cysts.Text
+                    upd_5_qr(8) = txt_larvae.Text
+                    upd_5_qr(9) = txt_MicroExam.Text
+                    upd_5_qr(10) = txt_puscells.Text
+                    upd_5_qr(11) = txt_stoolrbc.Text
+                    upd_5_qr(12) = txt_starch.Text
+                    upd_5_qr(13) = txt_fat.Text
+                    upd_5_qr(14) = txt_stoolother.Text
+                    If Len(txt_stoolcomments.Text) > 0 Then
+                        upd_5_qr(15) = Null
+                        upd_5_qr(15) = txt_stoolcomments.Text
+                    Else
+                        upd_5_qr(15) = Null
+                        upd_5_qr(15) = " "
+                    End If
+                    upd_5_qr(16) = mod_reqno
+                    upd_5_qr.Execute
+                    update_rislib
+                    MsgBox "Record Updated Successfully", vbOKOnly
+                    Exit Sub
+                
+            End If
+        ElseIf frm_others.Visible Then
+            'update in free text table DMBSEMCMO
+            If Len(txt_refer_service.Text) > 0 Then
+                upd_0_qr(0) = Null
+                upd_0_qr(0) = txt_refer_service.Text
+            Else
+                upd_0_qr(0) = Null
+                upd_0_qr(0) = " "
+            End If
+            If Len(txt_test_perform.Text) > 0 Then
+                upd_0_qr(1) = Null
+                upd_0_qr(1) = txt_test_perform.Text
+            Else
+                upd_0_qr(1) = Null
+                upd_0_qr(1) = " "
+            End If
+            If Len(txt_result.Text) > 0 Then
+                upd_0_qr(2) = Null
+                upd_0_qr(2) = txt_result.Text
+            Else
+                upd_0_qr(2) = Null
+                upd_0_qr(2) = " "
+            End If
+            upd_0_qr(3) = mod_reqno
+            upd_0_qr.Execute
+            update_rislib
+            MsgBox "Record Updated Successfully", vbOKOnly
+            Exit Sub
+        ElseIf frm_myco.Visible Then
+            'update in free text table Dmycobacte
+            upd_7_qr(0) = cmb_stain.Text
+            upd_7_qr(1) = cmb_organisms.Text
+            If Len(txt_c_report.Text) > 0 Then
+                upd_7_qr(2) = Null
+                upd_7_qr(2) = txt_c_report.Text
+            Else
+                upd_7_qr(2) = Null
+                upd_7_qr(2) = " "
+            End If
+            If Len(txt_c_comment.Text) > 0 Then
+                upd_7_qr(3) = Null
+                upd_7_qr(3) = txt_c_comment.Text
+            Else
+                upd_7_qr(3) = Null
+                upd_7_qr(3) = " "
+            End If
+            upd_7_qr(4) = mod_reqno
+            upd_7_qr.Execute
+            update_rislib
+            MsgBox "Record Updated Successfully", vbOKOnly
+        End If
+End If
+'once inserted or modified then clear all field
+
+     
+End Sub
+
+Private Sub cmd_view_Click()
+'ON ERROR GoTo msg:
+btnenabl ("VIEW")
+Set sel_deptrs = sel_deptqr.OpenResultset(1, 3)
+    'get the result
+    While Not sel_deptrs.EOF
+            cmb_dept.AddItem Trim(sel_deptrs("dept_name")) & "$" & Trim(sel_deptrs("dept_code"))
+            sel_deptrs.MoveNext
+    Wend
+sel_deptrs.Close
+If Trim(cmb_dept) = "" Then
+        For i = 0 To (cmb_dept.ListCount - 1)
+            If Trim(cmb_dept.List(i)) = "MICROBIOLOGY$GZZ" Then
+                cmb_dept.ListIndex = i
+            End If
+        Next i
+    End If
+set_flag "VIEW"
+Opt_patient.Value = True
+cmd_print.Enabled = True
+cmb_dept.SetFocus
+Exit Sub
+msg:
+    MsgBox Err.Description
+End Sub
+
+
+Private Sub Form_Load()
+Main
+datetime
+txt_date.Text = Format(DATE11, "DD/MM/YYYY")
+txt_time.Text = time1
+set_visible "All"
+no_req = False
+btnenabl ("INI")
+'initialize all combo with default value
+initialize_combo
+'***************************************************************************************
+'                       QUERY DEFINITION
+'***************************************************************************************
+'FOR ANTIBIOTICS
+STR = "select antibcode,antibdesc from dislib.dmicbantib WHERE MODALITY=? AND SUBMODALI=?"
+Set sel_antiqr = rdb.CreateQuery("micro_select1", STR)
+
+'for dept selection
+STR = "select dept_name, dept_code from PATOOLSLIB.ma106"
+Set sel_deptqr = rdb.CreateQuery("micro_select2", STR)
+
+'FOR MODALITY SELECTION
+STR = "select modlitydes,modalitycd from rislib.rmodality WHERE DEPT_CODE=? "
+Set sel_moadlityqr = rdb.CreateQuery("micro_SELECT3", STR)
+
+'select requisition no.
+'STR = "select * from Rislib.RREQUISITN where caseno=? AND MODALITYCD=? ORDER BY REQNDT DESC"
+'ADDEDD (REQNSTAT=? OR REQNSTAT=?) TO STOP REENTRY OF DATA FOR ALREADY ENTERED RECORD
+'STR = "select * from Rislib.RREQUISITN where caseno=? AND MODALITYCD=? and DEPT_CODE=? AND REQNSTAT='E' ORDER BY REQNDT DESC"
+STR = "select * from Rislib.RREQUISITN where caseno=? AND MODALITYCD=? and DEPT_CODE=? AND REQNSTAT IS NULL ORDER BY REQNDT DESC"
+Set req_qr = rdb.CreateQuery("micro_select4", STR)
+
+'select
+'STR = "SELECT * FROM RISLIB.RREQUISITN WHERE CASENO=? AND MODALITYCD=? AND DEPT_CODE=? AND (REQNSTAT=? OR REQNSTAT=?)ORDER BY REQNDT DESC "
+STR = "SELECT * FROM RISLIB.RREQUISITN WHERE CASENO=? AND MODALITYCD=? AND  DEPT_CODE=? AND (REQNSTAT=? OR REQNSTAT=?)ORDER BY REQNDT DESC "
+Set SELRREQUISITN_QR = rdb.CreateQuery("micro_SELECT5", STR)
+
+'select other detail for patient
+STR = "select * from PATOOLSLIB.ta101 where case_no =?"
+Set SEL_detail_qr = rdb.CreateQuery("micro_select6", STR)
+
+'for bed and ward retriving
+STR = "select * from PATOOLSLIB.ma104 where case_no =?"
+Set sel_bed_qr = rdb.CreateQuery("micro_select7", STR)
+
+'for referred by dr.
+'str = "SELECT * FROM RISLIB.RREQUISITN WHERE CASENO=? AND REQNNO=? ORDER BY REQNDT DESC"
+'Set REFDR_QR = rdb.CreateQuery("select8", str)
+
+'FOR SELECTING WHICH PROCEDURE HE HAS SELECTED
+STR = "SELECT SER_CODE,SER_DET FROM DISLIB.MA101 WHERE SER_CODE IN(SELECT PRO_CODE FROM DISLIB.DMULPROCE WHERE REQNO= ?)"
+Set sel_proccode_qr = rdb.CreateQuery("micro_select9", STR)
+
+'TO GET MODALITY DESC.
+STR = "SELECT MODLITYDES,MODALITYCD FROM RISLIB.RMODALITY WHERE DEPT_CODE=? AND MODALITYCD=?"
+Set SEL_MODALITY_QR = rdb.CreateQuery("micro_SELECT10", STR)
+
+'to get submodality under mycobacteriology
+STR = "select DISTINCT(submodali) from dislib.dmicbantib where trim(modality)=?"
+Set sel_submodali_qr = rdb.CreateQuery("micro_select11", STR)
+
+'to get result before modify
+STR = "SELECT * from  DISLIB.DMOPRISMER where reqno=?"
+Set sel_forupd1_qr = rdb.CreateQuery("micro_SELECT12", STR)
+ 
+'to get antibiotic with values
+STR = "SELECT * from  DISLIB.DMBAANTI where reqno=?"
+Set sel_forupd2_qr = rdb.CreateQuery("micro_SELECT13", STR)
+
+'TO GET FOR VIEW OF URINE RESULT
+STR = "SELECT * from  DISLIB.DMURE where reqno=?"
+Set sel_forupd3_qr = rdb.CreateQuery("micro_SELECT14", STR)
+
+'TO GET FOR VIEW OF URINE RESULT
+STR = "SELECT * from  DISLIB.DMSRE where reqno=?"
+Set sel_forupd4_qr = rdb.CreateQuery("micro_SELECT15", STR)
+
+'TO GET FOR VIEW OF other RESULT
+STR = "SELECT * from  DISLIB.dmbsemcmo where reqno=?"
+Set sel_forupd5_qr = rdb.CreateQuery("micro_SELECT16", STR)
+
+'to get result of myco
+STR = "SELECT * from  DISLIB.dmycobacte where reqno=?"
+Set sel_forupd6_qr = rdb.CreateQuery("micro_SELECT17", STR)
+
+'to get micro no which is path no. and previous micro no. in report
+STR = "SELECT pathno from  DISLIB.Drequisitn where reqno=?"
+Set sel_micro_qr = rdb.CreateQuery("micro_SELECT18", STR)
+
+'to check status of commitflag
+STR = "select * from rislib.rrequisitn where reqnno=?"
+Set sel_RIS_qr = rdb.CreateQuery("micro_select19", STR)
+
+STR = "select * from dislib.dissec where enterby='YES'AND MODALITY='BA'"
+Set sel_ENTER_qr = rdb.CreateQuery("seldissecentr_qr1", STR)
+
+STR = "select * from dislib.dissec where FINALby='YES' AND MODALITY='BA'"
+Set sel_FINAL_qr = rdb.CreateQuery("seldissecFIN_qr1", STR)
+
+
+
+'STR = "select * from dislib.dissec where PROVby='YES' AND MODALITY='BA'"
+'Set seldissecprov_qr = rdb.CreateQuery("seldissecPROV_qr1", STR)
+
+'STR = "select * from dislib.dissec where ADDENDUMby='YES'AND MODALITY='BA'"
+'Set seldissecadd_qr = rdb.CreateQuery("seldissecADD_qr1", STR)
+
+'STR = "select * from dislib.dissec where GROSSby='YES'AND MODALITY='BA'"
+'Set seldissecgross_qr = rdb.CreateQuery("seldissecGROSS_qr1", STR)
+
+'###################################    INSERT QUERY    ##############################
+'insert into table for modality except 1 and 5 record
+'OVER
+STR = "insert into DISLIB.dmbsemcmo(reqno,refserv,testperfor,result)values(?,?,?,?)"
+Set ins_0_qr = rdb.CreateQuery("micro_insert0", STR)
+'insert record for madality 1
+'over
+STR = "insert into DISLIB.dmoprismer(reqno,epithecell,puscell,ofinding,znstain,kohamt,gpc,gnc,gpb,gnb,iipc,orgso1,orgso2,orgso3,REPORT,comments) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+Set ins_1_qr = rdb.CreateQuery("micro_insert1", STR)
+'for inserting effect of antibiotics for modality 1
+'over
+STR = "insert into DISLIB.dmbaanti(reqno,antibiotic,antibio1,antibio2,antibio3) values(?,?,?,?,?)"
+Set ins_2_qr = rdb.CreateQuery("micro_insert2", STR)
+
+'insert urine result
+'over
+STR = "insert into DISLIB.dmure (reqno,color,sp,ph,protein,glucose,ketones,bulirubin,urobilinog,blood,micexam,wbc,rbc,sqepcell,bacteria,casts,others,comments)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+Set ins_4_qr = rdb.CreateQuery("micro_insert4", STR)
+'insert stool result
+'over
+STR = "insert into DISLIB.dmsre (reqno,color,consistenc,mucus,blood,parasties,occuttblod,ova,cysts,larvae,puscell,rbc,macophages,starch,fat,others,comments) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+Set ins_5_qr = rdb.CreateQuery("micro_insert5", STR)
+
+'insert into mycobacteriology table
+STR = "insert into DISLIB.dmycobacte (reqno,stain,organism,report,comment) values(?,?,?,?,?)"
+Set ins_6_qr = rdb.CreateQuery("micro_insert6", STR)
+
+'###################################    UPDATE QUERY    ##############################
+'update queries
+'update reqstat if he/she successfully entered data
+STR = "update rislib.rrequisitn set reqnstat='T' where caseno=? and reqnno=?"
+Set upd_11_qr = rdb.CreateQuery("micro_update0", STR)
+
+STR = "update dislib.dmbsemcmo set refserv=? ,testperfor=?,result=? where reqno=?"
+Set upd_0_qr = rdb.CreateQuery("micro_update1", STR)
+
+'UPDATE record for madality 1
+STR = "update dislib.dmoprismer set epithecell=? ,puscell=?,ofinding=?,znstain=?,kohamt=?,gpc=?,gnc=?,gpb=?,gnb=?,iipc=?,orgso1=?,orgso2=?,orgso3=?,comments=? where reqno=? "
+Set upd_1_qr = rdb.CreateQuery("micro_update2", STR)
+
+'for UPDATE effect of antibiotics for modality 1
+STR = "update dislib.dmbaanti set antibio1=?,antibio2=?,antibio3=? where reqno=? and antibiotic=? "
+Set upd_2_qr = rdb.CreateQuery("micro_update3", STR)
+
+'update urine result
+STR = "update dislib.dmure set color=?,sp=?,ph=?,protein=?,glucose=?,ketones=?,bulirubin=?,urobilinog=?,blood=?,micexam=?,wbc=?,rbc=?,sqepcell=?,bacteria=?,casts=?,others=?,comments=? where reqno=? "
+Set upd_4_qr = rdb.CreateQuery("micro_update4", STR)
+
+'update stool result
+STR = "update dislib.dmsre set color=?,consistenc=?,mucus=?,blood=?,parasties=?,occuttblod=?,ova=?,cysts=?,larvae=?,puscell=?,rbc=?,macophages=?,starch=?,fat=?,others=?,comments=?  where reqno=? "
+Set upd_5_qr = rdb.CreateQuery("micro_update5", STR)
+
+'update commit flag
+STR = "UPDATE RISLIB.RREQUISITN SET FREPORTBY=?, FREPORTDT=?, REQNSTAT=?, COMMITFLAG=? WHERE REQNNO=?"
+Set upd_6_qr = rdb.CreateQuery("micro_update6", STR)
+
+'update mycobacteriology table
+STR = "update DISLIB.dmycobacte set stain=? ,organism=?,report=? ,comment=? where reqno=?"
+Set upd_7_qr = rdb.CreateQuery("micro_update7", STR)
+
+'to update rislib for enterby and enter by
+STR = "update Rislib.rrequisitn set ENTERBY=?, PREPORTDT=?,PREPORTBY=?,REQNSTAT=?,freportby=?,freportdt=? WHERE REQNNO=?"
+Set upd_8_qr = rdb.CreateQuery("micro_update_8", STR)
+
+'grid_anti.AddItem
+new_flag = False
+view_flag = False
+mod_flag = False
+'set_position 'to set the position of text_field on grid.
+End Sub
+
+Private Sub set_visible(frame_name As String)
+If frame_name = "All" Then
+    frm_bacteria.Visible = False
+    frm_others.Visible = False
+    frm_clinic.Visible = False
+    frm_myco.Visible = False
+ElseIf frame_name = "frm_bacteria" Then
+    frm_bacteria.Visible = True
+    frm_others.Visible = False
+    frm_clinic.Visible = False
+    frm_myco.Visible = False
+ElseIf frame_name = "frm_others" Then
+    frm_others.Visible = True
+    frm_bacteria.Visible = False
+    frm_clinic.Visible = False
+    frm_myco.Visible = False
+ElseIf frame_name = "frm_myco" Then
+    frm_others.Visible = False
+    frm_bacteria.Visible = False
+    frm_clinic.Visible = False
+    frm_myco.Visible = True
+Else
+    frm_clinic.Visible = True
+    frm_bacteria.Visible = False
+    frm_others.Visible = False
+    frm_myco.Visible = False
+End If
+End Sub
+
+Private Sub grid_anti_Click()
+If grid_anti.Col = 1 Or grid_anti.Col = 2 Or grid_anti.Col = 3 Then
+    'If new_flag Then
+       If Len(txt_organ1.Text) > 1 Then
+          If Len(TXT_ORGAN2.Text) > 1 Then
+               If Len(TXT_ORGAN3.Text) > 1 Then
+                    'three organisms
+                    txt_1 = CStr(grid_anti.TextMatrix(grid_anti.Row, 1))
+                    txt_2 = CStr(grid_anti.TextMatrix(grid_anti.Row, 2))
+                    txt_3 = CStr(grid_anti.TextMatrix(grid_anti.Row, 3))
+                    grid_anti.Col = 1
+                    txt_1.Top = grid_anti.CellTop + grid_anti.Top
+                    grid_anti.Col = 2
+                    txt_2.Top = grid_anti.CellTop + grid_anti.Top
+                    grid_anti.Col = 3
+                    txt_3.Top = grid_anti.CellTop + grid_anti.Top
+               Else
+                    'two organisms
+                     txt_1.Text = CStr(grid_anti.TextMatrix(grid_anti.Row, 1))
+                     txt_2.Text = CStr(grid_anti.TextMatrix(grid_anti.Row, 2))
+                     grid_anti.Col = 1
+                     txt_1.Top = grid_anti.CellTop + grid_anti.Top
+                     grid_anti.Col = 2
+                     txt_2.Top = grid_anti.CellTop + grid_anti.Top
+                     txt_3.Visible = False
+               End If
+          Else
+            'only one organisms
+            txt_1.Text = CStr(grid_anti.TextMatrix(grid_anti.Row, 1))
+            grid_anti.Col = 1
+            txt_1.Top = grid_anti.CellTop + grid_anti.Top
+          End If
+       End If
+   End If
+'End If
+End Sub
+
+Private Sub grid_c_anti_Click()
+    If grid_c_anti.Col = 1 Or grid_c_anti.Col = 2 Then
+        txt_c_1.Text = CStr(grid_c_anti.TextMatrix(grid_c_anti.Row, 1))
+        grid_c_anti.Col = 1
+        txt_1.Top = grid_c_anti.CellTop + grid_c_anti.Top
+    End If
+End Sub
+
+Private Sub MaskEdBox1_GotFocus()
+    If cmb_modality.Text = "" Then
+        MsgBox "Select Modality First", vbOKOnly
+        'cmb_modality.SetFocus
+    End If
+End Sub
+
+Private Sub MaskEdBox1_LostFocus()
+Dim CASENO As String
+'ON ERROR GoTo msg:
+If Trim(MaskEdBox1.Text) = "" Then
+    btnenabl "INI"
+    Exit Sub
+End If
+If Opt_patient.Value Then
+    CASENO = MaskEdBox1.Text
+    MaskEdBox1.Text = UCase(padzero(5, "C", CASENO, 3))
+    If new_flag Then
+            cmb_reqno.clear
+            req_qr(0) = MaskEdBox1.FormattedText
+            req_qr(1) = Trim(txt_modcode.Text)
+            req_qr(2) = Trim(txt_deptcode.Text)
+            Set req_rs = req_qr.OpenResultset(1, 3)
+        If req_rs.RowCount > 0 Then
+            no_req = True
+            While Not req_rs.EOF
+                cmb_reqno.AddItem req_chglen(req_rs("reqNno"))
+                req_rs.MoveNext
+            Wend
+            req_rs.Close
+        Else
+            no_req = False
+            req_rs.Close
+            cmb_reqno.clear
+            MsgBox "Sorry No Requisition", vbOKOnly
+            btnenabl "cancel"
+            set_flag "asd"
+            set_visible "All"
+            Exit Sub
+            
+        End If 'end of rowcount
+        cmb_reqno.SetFocus
+        SendKeys "^{f4}"
+    End If  'end of new_flag
+        If view_flag Then
+            new_flag = False
+                SELRREQUISITN_QR(0) = MaskEdBox1.FormattedText
+                SELRREQUISITN_QR(1) = Trim(txt_modcode.Text)
+                SELRREQUISITN_QR(2) = Trim(txt_deptcode.Text)
+                SELRREQUISITN_QR(3) = "T"
+                SELRREQUISITN_QR(4) = "F"
+                Set SELRREQUISITN_RS = SELRREQUISITN_QR.OpenResultset(1, 3)
+            If SELRREQUISITN_RS.RowCount > 0 Then
+                no_req = True
+                cmb_reqno.clear
+                While Not SELRREQUISITN_RS.EOF
+                    cmb_reqno.AddItem req_chglen(SELRREQUISITN_RS("REQNNO"))
+                    SELRREQUISITN_RS.MoveNext
+                Wend
+                SELRREQUISITN_RS.Close
+            Else
+                no_req = False
+                SELRREQUISITN_RS.Close
+                MsgBox "Sorry No Requisition", vbOKOnly
+                btnenabl "cancel"
+                set_flag "asd"
+                set_visible "All"
+                
+                Exit Sub
+            End If
+        End If
+ElseIf opt_staff.Value = True Then
+    If new_flag Then
+                req_qr(0) = MaskEdBox1.FormattedText
+                req_qr(1) = Trim(txt_modcode.Text)
+                req_qr(2) = Trim(txt_deptcode.Text)
+                Set req_rs = req_qr.OpenResultset(1, 3)
+            If req_rs.RowCount > 0 Then
+                  cmb_reqno.clear
+                  While Not req_rs.EOF
+                    cmb_reqno.AddItem req_chglen(req_rs("reqNno"))
+                    req_rs.MoveNext
+                  Wend
+            Else
+                cmb_reqno.clear
+                MsgBox "Sorry No Requisition", vbOKOnly
+                Exit Sub
+            End If
+    End If
+    If view_flag Then
+                   
+                SELRREQUISITN_QR(0) = MaskEdBox1.FormattedText
+                SELRREQUISITN_QR(1) = Trim(txt_modcode.Text)
+                SELRREQUISITN_QR(2) = Trim(txt_deptcode.Text)
+                SELRREQUISITN_QR(3) = "T"
+                SELRREQUISITN_QR(4) = "F"
+                Set SELRREQUISITN_RS = SELRREQUISITN_QR.OpenResultset(1, 3)
+            End If
+            If SELRREQUISITN_RS.RowCount > 0 Then
+                cmb_reqno.clear
+                
+                While Not SELRREQUISITN_RS.EOF
+                    cmb_reqno.AddItem req_chglen(SELRREQUISITN_RS("REQNNO"))
+                    SELRREQUISITN_RS.MoveNext
+                Wend
+                SELRREQUISITN_RS.Close
+             Else
+                MsgBox " No  Requisition for this Modality"
+                SELRREQUISITN_RS.Close
+                btnenabl ("INI")
+                Exit Sub
+             End If
+        End If
+'End If
+ Exit Sub
+msg:
+    MsgBox Error(Err)
+End Sub
+
+Private Sub Opt_patient_Click()
+    If Opt_patient.Value = True Then
+       lbl_caseno.Caption = "Case No."
+        MaskEdBox1.Mask = "??>/#####"
+    End If
+    
+End Sub
+
+Private Sub opt_staff_Click()
+If opt_staff.Value = True Then
+    lbl_caseno.Caption = "CC No."
+    MaskEdBox1.Mask = "#######"
+End If
+End Sub
+
+
+Private Sub txt_1_lostfocus()
+txt_1.Text = Trim(UCase(txt_1.Text))
+If Len(txt_1.Text) > 1 Or Not (txt_1.Text = "S" Or txt_1.Text = "I" Or txt_1.Text = "R") Then
+    MsgBox "Please Enter S,I or R Only", vbOKOnly
+    txt_1.Text = ""
+    Exit Sub
+ElseIf Len(TXT_ORGAN2.Text) > 1 Then
+    grid_anti.TextMatrix(grid_anti.Row, 1) = txt_1.Text
+    txt_2.Text = CStr(grid_anti.TextMatrix(grid_anti.Row, 2))
+    txt_2.SetFocus
+Else
+    grid_anti.TextMatrix(grid_anti.Row, 1) = txt_1.Text
+'    grid_anti.Row = grid_anti.Row + 1
+'    txt_1.Text = CStr(grid_anti.TextMatrix(grid_anti.Row, 1))
+'    grid_anti.Col = 1
+'    txt_1.Left = grid_anti.CellLeft + grid_anti.Left
+'    txt_1.Top = grid_anti.CellTop + grid_anti.Top
+'    txt_1.SetFocus
+End If
+
+End Sub
+
+Private Sub txt_2_lostfocus()
+   txt_2.Text = Trim(UCase(txt_2.Text))
+If Len(txt_2.Text) > 1 Or Not (txt_2.Text = "S" Or txt_2.Text = "I" Or txt_2.Text = "R") Then
+    MsgBox "Please Enter S,I or R Only", vbOKOnly
+    txt_2.Text = ""
+    Exit Sub
+ElseIf Len(TXT_ORGAN3.Text) > 1 Then
+    grid_anti.TextMatrix(grid_anti.Row, 2) = txt_2.Text
+    txt_3.Text = CStr(grid_anti.TextMatrix(grid_anti.Row, 3))
+    txt_3.SetFocus
+Else
+    grid_anti.TextMatrix(grid_anti.Row, 2) = txt_2.Text
+End If
+End Sub
+
+Private Sub txt_3_lostfocus()
+    txt_3.Text = Trim(UCase(txt_3.Text))
+If Len(txt_3.Text) > 1 Or Not (txt_3.Text = "S" Or txt_3.Text = "I" Or txt_3.Text = "R") Then
+    MsgBox "Please Enter S,I or R Only", vbOKOnly
+    txt_3.Text = ""
+    Exit Sub
+Else
+    grid_anti.TextMatrix(grid_anti.Row, 3) = txt_3.Text
+    i = grid_anti.Rows - 1
+    If i = grid_anti.Row Then
+        Exit Sub
+    Else
+        grid_anti.Row = grid_anti.Row + 1
+        'check for next value and assign to textfield
+        txt_1.Text = CStr(grid_anti.TextMatrix(grid_anti.Row, 1))
+        txt_2.Text = CStr(grid_anti.TextMatrix(grid_anti.Row, 2))
+        txt_3.Text = CStr(grid_anti.TextMatrix(grid_anti.Row, 3))
+        'reassign the positioning
+        grid_anti.Col = 1
+        txt_1.Left = grid_anti.CellLeft + grid_anti.Left
+        txt_1.Top = grid_anti.CellTop + grid_anti.Top
+        grid_anti.Col = 2
+        txt_2.Left = grid_anti.CellLeft + grid_anti.Left
+        txt_2.Top = grid_anti.CellTop + grid_anti.Top
+        grid_anti.Col = 3
+        txt_3.Left = grid_anti.CellLeft + grid_anti.Left
+        txt_3.Top = grid_anti.CellTop + grid_anti.Top
+    End If
+ End If
+End Sub
+
+Private Sub txt_c_1_LOSTFOCUS()
+txt_c_1.Text = Trim(UCase(txt_c_1.Text))
+If Len(txt_c_1.Text) > 1 Or Not (txt_c_1.Text = "S" Or txt_c_1.Text = "R") Then
+    MsgBox "Please Enter S or R Only", vbOKOnly
+    txt_c_1.Text = ""
+    Exit Sub
+Else
+    grid_c_anti.TextMatrix(grid_c_anti.Row, 1) = txt_c_1.Text
+    i = grid_c_anti.Rows - 1
+    If i = grid_c_anti.Row Then
+        txt_c_1.Visible = False
+        Exit Sub
+    Else
+        grid_c_anti.Row = grid_c_anti.Row + 1
+        'check for next value and assign to textfield
+        txt_c_1.Text = CStr(grid_c_anti.TextMatrix(grid_c_anti.Row, 1))
+        'reassign the positioning
+        'grid_c_anti.Col = 1
+        txt_c_1.Left = grid_c_anti.CellLeft + grid_c_anti.Left
+        txt_c_1.Top = grid_c_anti.CellTop + grid_c_anti.Top
+        txt_c_1.SetFocus
+     End If
+End If
+End Sub
+
+
+
+
+Private Sub txt_organ1_LOSTFOCUS()
+   txt_organ1.Text = UCase(txt_organ1.Text)
+End Sub
+
+Private Sub txt_organ2_LOSTFOCUS()
+   TXT_ORGAN2.Text = UCase(TXT_ORGAN2.Text)
+End Sub
+
+Private Sub txt_organ3_lostfocus()
+'ON ERROR GoTo msg
+    TXT_ORGAN3.Text = UCase(TXT_ORGAN3.Text)
+    LOAD_ANTIBIOTIC
+    Exit Sub
+msg:
+    MsgBox Error(Err)
+End Sub
+Private Sub txt_result_gotfocus()
+'ON ERROR GoTo msg
+    Set objWord = CreateObject("word.application")
+    objWord.Visible = False
+    objWord.WindowState = wdWindowStateMaximize
+    Set objDoc = objWord.Documents.add
+    objDoc.Content = txt_result.Text
+    objWord.Visible = True
+    Exit Sub
+msg:
+    'objWord.Repeat
+    If Not Err.Number = -2147023174 Then
+        MsgBox "error" & Err.Number
+    End If
+    
+End Sub
+Private Sub txt_result_lostfocus()
+'ON ERROR GoTo msg
+    txt_result.Text = objDoc.Content
+    objDoc.Content = ""
+    objDoc.SaveAs "c:\windows\system\frozen.doc"
+    objDoc.Close
+    objWord.Quit
+    Exit Sub
+msg:
+    If Not Err.Number = -2147023174 Then
+        MsgBox "error" & Err.Number
+    End If
+End Sub
+
+Private Sub LOAD_ANTIBIOTIC()
+'ON ERROR GoTo msg
+    'check all organisms has been entered or not
+    If new_flag Then
+        If Len(txt_organ1.Text) >= 1 Then
+        sel_antiqr(0) = Trim(Mid(cmb_modality.Text, 1, InStr(cmb_modality.Text, "$") - 1))
+        sel_antiqr(1) = Trim(Mid(cmb_modality.Text, 1, InStr(cmb_modality.Text, "$") - 1))
+        Set sel_antirs = sel_antiqr.OpenResultset(1, 3)
+            If Len(TXT_ORGAN2.Text) >= 1 Then
+                If Len(TXT_ORGAN3.Text) >= 1 Then
+                'three organisms
+                grid_anti.Rows = 1
+                grid_anti.Cols = 2
+                grid_anti.FormatString = "    ANTIBIOTIC                               |^         1           |^          2         |^              3      "
+                While Not sel_antirs.EOF
+                    grid_anti.AddItem sel_antirs("antibdesc")
+                    sel_antirs.MoveNext
+                Wend
+                    grid_anti.Row = 1
+                    grid_anti.Col = 1
+                    txt_1.Width = grid_anti.CellWidth
+                    txt_1.Height = grid_anti.CellHeight
+                    txt_1.Left = grid_anti.CellLeft + grid_anti.Left
+                    txt_1.Top = grid_anti.CellTop + grid_anti.Top
+                    grid_anti.Row = 1
+                    grid_anti.Col = 2
+                    txt_2.Width = grid_anti.CellWidth
+                    txt_2.Height = grid_anti.CellHeight
+                    txt_2.Left = grid_anti.CellLeft + grid_anti.Left
+                    txt_2.Top = grid_anti.CellTop + grid_anti.Top
+                    grid_anti.Row = 1
+                    grid_anti.Col = 3
+                    txt_3.Width = grid_anti.CellWidth
+                    txt_3.Height = grid_anti.CellHeight
+                    txt_3.Left = grid_anti.CellLeft + grid_anti.Left
+                    txt_3.Top = grid_anti.CellTop + grid_anti.Top
+                    txt_3.Visible = True
+                    txt_2.Visible = True
+                    txt_1.Visible = True
+                Else
+                'two organisms
+                grid_anti.Rows = 1
+                grid_anti.Cols = 2
+                grid_anti.FormatString = "    ANTIBIOTIC                               |^         1           |^          2         "
+                While Not sel_antirs.EOF
+                    grid_anti.AddItem sel_antirs("antibdesc")
+                    sel_antirs.MoveNext
+                Wend
+                    grid_anti.Row = 1
+                    grid_anti.Col = 1
+                    txt_1.Width = grid_anti.CellWidth
+                    txt_1.Height = grid_anti.CellHeight
+                    txt_1.Left = grid_anti.CellLeft + grid_anti.Left
+                    txt_1.Top = grid_anti.CellTop + grid_anti.Top
+                    grid_anti.Row = 1
+                    grid_anti.Col = 2
+                    txt_2.Width = grid_anti.CellWidth
+                    txt_2.Height = grid_anti.CellHeight
+                    txt_2.Left = grid_anti.CellLeft + grid_anti.Left
+                    txt_2.Top = grid_anti.CellTop + grid_anti.Top
+                    txt_3.Visible = False
+                    txt_2.Visible = True
+                    txt_1.Visible = True
+                End If
+            Else
+            'only one organisms
+            grid_anti.Rows = 1
+            grid_anti.Cols = 2
+            grid_anti.FormatString = "    ANTIBIOTIC                               |^         1           "
+            While Not sel_antirs.EOF
+              grid_anti.AddItem sel_antirs("antibdesc")
+              sel_antirs.MoveNext
+            Wend
+                grid_anti.Row = 1
+                grid_anti.Col = 1
+                txt_1.Width = grid_anti.CellWidth
+                txt_1.Height = grid_anti.CellHeight
+                txt_1.Left = grid_anti.CellLeft + grid_anti.Left
+                txt_1.Top = grid_anti.CellTop + grid_anti.Top
+                txt_1.Visible = True
+                txt_2.Visible = False
+                txt_3.Visible = False
+            End If
+        Else
+            MsgBox "Atleast 1 organisms is needed", vbOKOnly
+            Exit Sub
+         End If
+    ElseIf mod_flag Then
+        sel_forupd2_qr(0) = mod_reqno
+        Set sel_forupd2_rs = sel_forupd2_qr.OpenResultset(1, 3)
+        If Not sel_forupd2_rs.EOF Then
+            If Len(Trim(sel_forupd2_rs("antibio3"))) > 0 Then
+                If Len(Trim(sel_forupd2_rs("antibio2"))) > 0 Then
+                    If Len(Trim(sel_forupd2_rs("antibio1"))) > 0 Then
+                       'three organisms
+                        grid_anti.Row = 1
+                        grid_anti.Col = 1
+                        txt_1.Text = grid_anti.TextMatrix(1, 1)
+                        txt_1.Width = grid_anti.CellWidth
+                        txt_1.Height = grid_anti.CellHeight
+                        txt_1.Left = grid_anti.CellLeft + grid_anti.Left
+                        txt_1.Top = grid_anti.CellTop + grid_anti.Top
+                        txt_1.Visible = True
+                        grid_anti.Row = 1
+                        grid_anti.Col = 2
+                        txt_2.Text = grid_anti.TextMatrix(1, 2)
+                        txt_2.Width = grid_anti.CellWidth
+                        txt_2.Height = grid_anti.CellHeight
+                        txt_2.Left = grid_anti.CellLeft + grid_anti.Left
+                        txt_2.Top = grid_anti.CellTop + grid_anti.Top
+                        txt_2.Visible = True
+                        grid_anti.Row = 1
+                        grid_anti.Col = 3
+                        txt_3.Text = grid_anti.TextMatrix(1, 3)
+                        txt_3.Width = grid_anti.CellWidth
+                        txt_3.Height = grid_anti.CellHeight
+                        txt_3.Left = grid_anti.CellLeft + grid_anti.Left
+                        txt_3.Top = grid_anti.CellTop + grid_anti.Top
+                        txt_3.Visible = True
+                    Else
+                        'two organisms
+                        grid_anti.Row = 1
+                        grid_anti.Col = 1
+                        txt_1.Text = grid_anti.TextMatrix(1, 1)
+                        txt_1.Width = grid_anti.CellWidth
+                        txt_1.Height = grid_anti.CellHeight
+                        txt_1.Left = grid_anti.CellLeft + grid_anti.Left
+                        txt_1.Top = grid_anti.CellTop + grid_anti.Top
+                        txt_1.Visible = True
+                        grid_anti.Row = 1
+                        grid_anti.Col = 2
+                        txt_2.Text = grid_anti.TextMatrix(1, 2)
+                        txt_2.Width = grid_anti.CellWidth
+                        txt_2.Height = grid_anti.CellHeight
+                        txt_2.Left = grid_anti.CellLeft + grid_anti.Left
+                        txt_2.Top = grid_anti.CellTop + grid_anti.Top
+                        txt_2.Visible = True
+                    End If
+                Else
+                    'only one organisms
+                    grid_anti.Row = 1
+                        grid_anti.Col = 1
+                        txt_1.Text = grid_anti.TextMatrix(1, 1)
+                        txt_1.Width = grid_anti.CellWidth
+                        txt_1.Height = grid_anti.CellHeight
+                        txt_1.Left = grid_anti.CellLeft + grid_anti.Left
+                        txt_1.Top = grid_anti.CellTop + grid_anti.Top
+                        txt_1.Visible = True
+              End If
+              txt_1.SetFocus
+            End If
+         End If
+    End If
+        
+    
+    Exit Sub
+msg:
+        MsgBox Error(Err)
+End Sub
+
+Public Sub btnenabl(cap As String)
+If cap = "NEW" Then
+    cmd_save.Enabled = True
+    cmd_cancel.Enabled = True
+    cmd_back.Enabled = True
+    CMD_NEW.Enabled = False
+    cmd_modify.Enabled = False
+    cmd_print.Enabled = False
+    cmd_commit.Enabled = False
+    cmd_view.Enabled = False
+    cmd_fullreport.Enabled = False
+ElseIf cap = "VIEW" Then
+    cmd_cancel.Enabled = True
+    cmd_back.Enabled = True
+    cmd_modify.Enabled = True
+    CMD_NEW.Enabled = False
+    cmd_save.Enabled = False
+    cmd_print.Enabled = True
+    cmd_commit.Enabled = False
+    cmd_view.Enabled = False
+    cmd_fullreport.Enabled = True
+ElseIf cap = "SAVE" Then
+    cmd_cancel.Enabled = True
+    cmd_back.Enabled = True
+    cmd_modify.Enabled = False
+    CMD_NEW.Enabled = True
+    cmd_save.Enabled = False
+    cmd_print.Enabled = True
+    cmd_commit.Enabled = False
+    cmd_view.Enabled = True
+    cmd_fullreport.Enabled = False
+ElseIf cap = "INI" Then
+    cmd_cancel.Enabled = False
+    cmd_back.Enabled = True
+    cmd_modify.Enabled = False
+    CMD_NEW.Enabled = True
+    cmd_save.Enabled = False
+    cmd_print.Enabled = False
+    cmd_commit.Enabled = False
+    cmd_view.Enabled = True
+    cmd_fullreport.Enabled = False
+ElseIf cap = "COMMIT" Then
+    cmd_save.Enabled = False
+    cmd_cancel.Enabled = False
+    cmd_back.Enabled = True
+    CMD_NEW.Enabled = True
+    cmd_modify.Enabled = False
+    cmd_print.Enabled = True
+    cmd_commit.Enabled = False
+    cmd_view.Enabled = True
+    cmd_fullreport.Enabled = False
+ElseIf cap = "print" Then
+    cmd_save.Enabled = False
+    cmd_back.Enabled = True
+    cmd_modify.Enabled = False
+    cmd_print.Enabled = False
+    cmd_cancel.Enabled = True
+    CMD_NEW.Enabled = False
+ElseIf cap = "cancel" Then
+    cmd_save.Enabled = False
+    cmd_back.Enabled = True
+    cmd_modify.Enabled = False
+    cmd_print.Enabled = False
+    cmd_cancel.Enabled = True
+    CMD_NEW.Enabled = False
+End If
+End Sub
+
+Private Sub initialize_combo()
+    'cmb_blood.ListIndex = 0
+    'cmb_cysts.ListIndex = 0
+    'cmb_fat.ListIndex = 0
+    cmb_gnb.ListIndex = 0
+    cmb_gnc.ListIndex = 0
+    cmb_gpb.ListIndex = 0
+    cmb_gpc.ListIndex = 0
+    cmb_india.ListIndex = 0
+    cmb_ziehl.ListIndex = 0
+    cmb_patho.ListIndex = 0
+    'cmb_larvae.ListIndex = 0
+    'cmb_microphages.ListIndex = 0
+    'cmb_mucus.ListIndex = 0
+    'cmb_occult.ListIndex = 0
+    'cmb_Ova.ListIndex = 0
+    'cmb_parasties.ListIndex = 0
+    'cmb_starch.ListIndex = 0
+    
+End Sub
+
+Private Sub clearupperpanel()
+'upper panel
+    MaskEdBox1.Text = ""
+    cmb_reqno.clear
+    cmb_modality.clear
+    txt_deptcode.Text = ""
+    cmb_dept.clear
+    txt_microno.Text = ""
+    txt_name.Text = ""
+    txt_age.Text = ""
+    txt_sex.Text = ""
+    txt_category.Text = ""
+    txt_status.Text = ""
+    txt_ward.Text = ""
+    txt_bedno.Text = ""
+    txt_pridoc.Text = ""
+    txt_modcode.Text = ""
+    CMB_PROC.clear
+    cmb_enteryby.clear
+    cmb_final.clear
+'   grid_anti.Row = 1
+    
+End Sub
+'for procdure bacteriology
+Private Sub clearlowerpanel1()
+    txt_epith.Text = ""
+    txt_pus.Text = ""
+    txt_other.Text = ""
+    'txt_ziehl.Text = ""
+    txt_koh.Text = ""
+    txt_organ1.Text = ""
+    TXT_ORGAN2.Text = ""
+    TXT_ORGAN3.Text = ""
+    txt_1.Text = ""
+    txt_2.Text = ""
+    txt_3.Text = ""
+    txt_report.Text = ""
+    txt_comment.Text = ""
+    initialize_combo
+    grid_anti.clear
+    cmb_final.clear
+    cmb_enteryby.clear
+End Sub
+'for procedure clinical microbiology
+Private Sub clearlowerpanel2()
+'ON ERROR GoTo msg
+    txt_urinecolour.Text = ""
+    txt_gravity.Text = ""
+    txt_ph.Text = ""
+    txt_glucose.Text = ""
+    txt_blood.Text = ""
+    txt_casts.Text = ""
+    txt_urinother.Text = ""
+    txt_urinecomment.Text = ""
+    txt_bacteria.Text = ""
+    txt_wbc.Text = ""
+    txt_ketones.Text = ""
+    txt_bilirubin.Text = ""
+    txt_rbc.Text = ""
+    txt_MicroExam.Text = ""
+    txt_protins.Text = ""
+    txt_uro.Text = ""
+    txt_squamous.Text = ""
+    txt_stoolcolour.Text = ""
+    txt_consistency.Text = ""
+    txt_puscells.Text = ""
+    txt_stoolrbc.Text = ""
+    txt_stoolother.Text = ""
+    txt_stoolcomments.Text = ""
+    cmb_final.clear
+    cmb_enteryby.clear
+    Exit Sub
+msg:
+    MsgBox Error(Err)
+End Sub
+'for other procedure
+Private Sub clearlowerpanel3()
+'ON ERROR GoTo msg
+    txt_refer_service.Text = ""
+    txt_test_perform.Text = ""
+    txt_result.Text = ""
+    cmb_final.clear
+    cmb_enteryby.clear
+    Exit Sub
+msg:
+    MsgBox Error(Err)
+End Sub
+Private Sub clearlowerpanel4()
+'ON ERROR GoTo msg
+    txt_c_report.Text = ""
+    txt_c_comment.Text = ""
+    'cmb_stain.ListIndex = 0
+    cmb_organisms.clear
+    cmb_final.clear
+    cmb_enteryby.clear
+    Exit Sub
+msg:
+    MsgBox Error(Err)
+End Sub
+
+'common procedure for new and view mode
+Private Sub getupperpanel()
+'ON ERROR GoTo msg
+        'THIS TO GET DEPTCODE AND MODALITYCODE
+        sel_micro_qr(0) = mod_reqno
+        Set sel_micro_rs = sel_micro_qr.OpenResultset(1, 3)
+        While Not sel_micro_rs.EOF
+            txt_microno.Text = sel_micro_rs(0)
+            sel_micro_rs.MoveNext
+        Wend
+        S1 = Mid(cmb_reqno.Text, 1, 3) 'TO GET DEPTCODE
+        S2 = Mid(cmb_reqno.Text, 5, 2) ' TO GET MODALITY CODE
+        SEL_MODALITY_QR(0) = S1
+        SEL_MODALITY_QR(1) = S2
+        Set SEL_MODALITY_RS = SEL_MODALITY_QR.OpenResultset(1, 3)
+        While Not SEL_MODALITY_RS.EOF
+            txt_modcode.Text = Trim(SEL_MODALITY_RS("MODLITYDES"))
+            SEL_MODALITY_RS.MoveNext
+        Wend
+        txt_deptcode.Text = S1
+        txt_modcode.Text = S2
+        SEL_detail_qr(0) = MaskEdBox1.FormattedText
+        Set SEL_detail_rs = SEL_detail_qr.OpenResultset(1, 3)
+        If SEL_detail_rs.RowCount = 0 Then
+            SEL_detail_rs.Close
+            Exit Sub
+        Else
+            txt_sex.Text = SEL_detail_rs("sex")
+            txt_name.Text = Trim(SEL_detail_rs("first_name")) & " " & Trim(SEL_detail_rs("mid_name")) & " " & Trim(SEL_detail_rs("last_name"))
+            txt_age = DateDiff("YYYY", SEL_detail_rs("BIRTH_DATE"), CStr(DATE11))
+            txt_pridoc.Text = SEL_detail_rs("ud_name")
+            txt_category.Text = SEL_detail_rs("pat_catg")
+            SEL_detail_rs.Close
+        End If
+            sel_bed_qr(0) = MaskEdBox1.FormattedText
+            Set sel_bed_rs = sel_bed_qr.OpenResultset(1, 3)
+        If sel_bed_rs.RowCount > 0 Then
+            txt_ward.Visible = True
+            txt_bedno.Visible = True
+            lbl_ward.Visible = True
+            lbl_bed.Visible = True
+            txt_ward.Text = sel_bed_rs("WARD_NAME")
+            txt_bedno.Text = sel_bed_rs("bed_no")
+            txt_status.Text = "IP"
+            sel_bed_rs.Close
+        Else
+            txt_status.Text = "OP"
+            txt_ward.Visible = False
+            txt_bedno.Visible = False
+            lbl_ward.Visible = False
+            lbl_bed.Visible = False
+            sel_bed_rs.Close
+        End If
+        'for procedure previously selected
+        sel_proccode_qr(0) = mod_reqno
+        Set sel_proccode_rs = sel_proccode_qr.OpenResultset(1, 3)
+        If Not sel_proccode_rs.EOF Then
+            While Not sel_proccode_rs.EOF
+                CMB_PROC.AddItem Trim(sel_proccode_rs(1))
+                sel_proccode_rs.MoveNext
+            Wend
+            CMB_PROC.ListIndex = 0
+            sel_proccode_rs.Close
+'        Else
+'            MsgBox "No Procedure Selected Previously", vbOKOnly
+'            sel_proccode_rs.Close
+'            Exit Sub
+        End If
+        Exit Sub
+msg:
+        MsgBox Error(Err)
+End Sub
+
+'for bacteriology get result from database
+Private Sub getresult_bacteriology()
+'ON ERROR GoTo msg
+sel_forupd1_qr(0) = req_chglen(cmb_reqno)
+Set sel_forupd1_rs = sel_forupd1_qr.OpenResultset(1, 3)
+While Not sel_forupd1_rs.EOF
+    txt_epith.Text = Trim(sel_forupd1_rs("epithecell"))
+    txt_pus.Text = Trim(sel_forupd1_rs("puscell"))
+    txt_other.Text = Trim(sel_forupd1_rs("ofinding"))
+    cmb_ziehl.AddItem (sel_forupd1_rs("znstain"))
+    txt_koh.Text = Trim(sel_forupd1_rs("kohamt"))
+    txt_organ1.Text = Trim(sel_forupd1_rs("orgso1"))
+    TXT_ORGAN2.Text = Trim(sel_forupd1_rs("orgso2"))
+    TXT_ORGAN3.Text = Trim(sel_forupd1_rs("orgso3"))
+    txt_comment.Text = Trim(sel_forupd1_rs("comments"))
+    sel_forupd1_rs.MoveNext
+Wend
+sel_forupd1_rs.Close
+'for loading antibiotics with values
+    sel_forupd2_qr(0) = mod_reqno
+    Set sel_forupd2_rs = sel_forupd2_qr.OpenResultset(1, 3)
+    While Not sel_forupd2_rs.EOF
+        If Len(Trim(sel_forupd2_rs("antibio3"))) > 0 Then
+            If Len(Trim(sel_forupd2_rs("antibio2"))) > 0 Then
+                If Len(Trim(sel_forupd2_rs("antibio1"))) > 0 Then
+                   'three organisms
+                    grid_anti.Rows = 1
+                    grid_anti.FormatString = "    ANTIBIOTIC                               |^         1           |^          2         |^              3      "
+                    While Not sel_forupd2_rs.EOF
+                        grid_anti.AddItem sel_forupd2_rs("antibiotic") & vbTab & sel_forupd2_rs("antibio1") & vbTab & sel_forupd2_rs("antibio2") & vbTab & sel_forupd2_rs("antibio3")
+                        sel_forupd2_rs.MoveNext
+                    Wend
+                Else
+                'two organisms
+                grid_anti.Rows = 1
+                grid_anti.FormatString = "    ANTIBIOTIC                               |^         1           |^          2         "
+                While Not sel_forupd2_rs.EOF
+                        grid_anti.AddItem sel_forupd2_rs("antibiotic") & vbTab & sel_forupd2_rs("antibio1") & vbTab & sel_forupd2_rs("antibio2")
+                        sel_forupd2_rs.MoveNext
+                Wend
+                End If
+            Else
+            'only one organisms
+            grid_anti.Rows = 1
+            grid_anti.FormatString = "    ANTIBIOTIC                               |^         1           "
+                While Not sel_forupd2_rs.EOF
+                    grid_anti.AddItem sel_forupd2_rs("antibiotic") & vbTab & sel_forupd2_rs("antibio1")
+                    sel_forupd2_rs.MoveNext
+                Wend
+            End If
+        Else
+            sel_forupd2_rs.Close
+            Exit Sub
+        End If
+'     sel_forupd2_rs.MoveNext
+     Wend
+     sel_forupd2_rs.Close
+    Exit Sub
+msg:
+    MsgBox Error(Err)
+End Sub
+'to get result from dmure table for view of urine report
+Private Sub getresult_urine()
+'ON ERROR GoTo msg
+    sel_forupd3_qr(0) = req_chglen(cmb_reqno)
+    Set sel_forupd3_rs = sel_forupd3_qr.OpenResultset(1, 3)
+    While Not sel_forupd3_rs.EOF
+        txt_urinecolour.Text = sel_forupd3_rs("color")
+        txt_gravity.Text = sel_forupd3_rs("sp")
+        txt_ph.Text = sel_forupd3_rs("ph")
+        txt_protins.Text = sel_forupd3_rs("protein")
+        txt_glucose.Text = sel_forupd3_rs("glucose")
+        txt_ketones.Text = sel_forupd3_rs("ketones")
+        txt_bilirubin.Text = sel_forupd3_rs("bulirubin")
+        txt_uro.Text = sel_forupd3_rs("urobilinog")
+        txt_blood.Text = sel_forupd3_rs("blood")
+        txt_MicroExam.Text = sel_forupd3_rs("micexam")
+        txt_wbc.Text = sel_forupd3_rs("wbc")
+        txt_rbc.Text = sel_forupd3_rs("rbc")
+        txt_squamous.Text = sel_forupd3_rs("sqepcell")
+        txt_bacteria.Text = sel_forupd3_rs("bacteria")
+        txt_casts.Text = sel_forupd3_rs("casts")
+        txt_urinother.Text = sel_forupd3_rs("others")
+        txt_urinecomment.Text = sel_forupd3_rs("comments")
+        sel_forupd3_rs.MoveNext
+    Wend
+    sel_forupd3_rs.Close
+    Exit Sub
+msg:
+    MsgBox Error(Err)
+End Sub
+
+Private Sub getresult_stool()
+'ON ERROR GoTo msg
+    sel_forupd4_qr(0) = mod_reqno
+    Set sel_forupd4_rs = sel_forupd4_qr.OpenResultset(1, 3)
+    While Not sel_forupd4_rs.EOF
+        'HERE ALL STOOL FIELD
+        txt_stoolcolour.Text = sel_forupd4_rs("COLOR")
+        txt_consistency.Text = sel_forupd4_rs("CONSISTENC")
+        txt_mucus.Text = sel_forupd4_rs("MUCUS")
+        txt_sblood.Text = sel_forupd4_rs("BLOOD")
+        txt_cysts.Text = sel_forupd4_rs("CYSTS")
+        txt_microphages.Text = sel_forupd4_rs("MACOPHAGES")
+        txt_stoolrbc.Text = sel_forupd4_rs("RBC")
+        txt_Ova.Text = sel_forupd4_rs("OVA")
+        txt_occult.Text = sel_forupd4_rs("OCCUTTBLOD")
+        txt_puscells.Text = sel_forupd4_rs("PUSCELL")
+        txt_fat.Text = sel_forupd4_rs("FAT")
+        txt_starch.Text = sel_forupd4_rs("STARCH")
+        txt_larvae.Text = sel_forupd4_rs("LARVAE")
+        txt_parasties.Text = sel_forupd4_rs("PARASTIES")
+        txt_stoolcomments.Text = sel_forupd4_rs("COMMENTS")
+        sel_forupd4_rs.MoveNext
+    Wend
+    sel_forupd4_rs.Close
+    Exit Sub
+msg:
+    MsgBox Error(Err)
+End Sub
+
+Private Sub getresult_other()
+'ON ERROR GoTo msg
+    sel_forupd5_qr(0) = mod_reqno
+    Set sel_forupd5_rs = sel_forupd5_qr.OpenResultset(1, 3)
+    While Not sel_forupd5_rs.EOF
+        txt_refer_service.Text = sel_forupd5_rs("refserv")
+        txt_test_perform.Text = sel_forupd5_rs("testperfor")
+        txt_result.Text = sel_forupd5_rs("result")
+        sel_forupd5_rs.MoveNext
+    Wend
+    Exit Sub
+msg:
+    MsgBox Error(Err)
+End Sub
+Private Sub getresult_myco()
+On Error GoTo msg
+    sel_forupd6_qr(0) = mod_reqno
+    Set sel_forupd6_rs = sel_forupd6_qr.OpenResultset(1, 3)
+    While Not sel_forupd6_rs.EOF
+        'cmb_stain.AddItem (Trim(sel_forupd6_rs("stain")))
+        cmb_stain.Text = (Trim(sel_forupd6_rs("stain")))
+        cmb_organisms.AddItem (Trim(sel_forupd6_rs("organism")))
+        cmb_organisms.Text = (Trim(sel_forupd6_rs("organism")))
+        txt_c_report.Text = Trim(sel_forupd6_rs("report"))
+        txt_c_comment.Text = Trim(sel_forupd6_rs("comment"))
+        sel_forupd6_rs.MoveNext
+    Wend
+    sel_forupd6_rs.Close
+    'load antibiotics
+    sel_forupd2_qr(0) = mod_reqno
+    Set sel_forupd2_rs = sel_forupd2_qr.OpenResultset(1, 3)
+    grid_c_anti.clear
+    grid_c_anti.Rows = 1
+    grid_c_anti.FormatString = "   ANTIMICROBIAL                               |^         1                      "
+    While Not sel_forupd2_rs.EOF
+        grid_c_anti.AddItem sel_forupd2_rs("antibiotic") & vbTab & sel_forupd2_rs("antibio1")
+        sel_forupd2_rs.MoveNext
+    Wend
+    
+    Exit Sub
+msg:
+    MsgBox Err.Description
+End Sub
+
+Private Sub set_flag(flag As String) 'used to flag status
+If Trim(flag) = "NEW" Then
+    new_flag = True
+    view_flag = False
+    mod_flag = False
+ElseIf Trim(flag) = "VIEW" Then
+    new_flag = False
+    view_flag = True
+    mod_flag = False
+ElseIf Trim(flag) = "MOD" Then
+    new_flag = False
+    view_flag = False
+    mod_flag = True
+Else
+    new_flag = False
+    view_flag = False
+    mod_flag = False
+End If
+End Sub
+
+Private Sub set_position() 'set top position for all three textboxes
+'ON ERROR GoTo msg
+'    grid_anti.Row = 1
+'    grid_anti.Col = 1
+'    txt_1.Width = grid_anti.CellWidth
+'    txt_1.Height = grid_anti.CellHeight
+'    txt_1.Left = grid_anti.CellLeft + grid_anti.Left
+'    txt_1.Top = grid_anti.CellTop + grid_anti.Top
+'    txt_1.Visible = False
+'
+'    grid_anti.Row = 1
+'    grid_anti.Col = 2
+'    txt_2.Width = grid_anti.CellWidth
+'    txt_2.Height = grid_anti.CellHeight
+'    txt_2.Left = grid_anti.CellLeft + grid_anti.Left
+'    txt_2.Top = grid_anti.CellTop + grid_anti.Top
+'    txt_2.Visible = False
+'
+'    grid_anti.Row = 1
+'    grid_anti.Col = 3
+'    txt_3.Width = grid_anti.CellWidth
+'    txt_3.Height = grid_anti.CellHeight
+'    txt_3.Left = grid_anti.CellLeft + grid_anti.Left
+'    txt_3.Top = grid_anti.CellTop + grid_anti.Top
+'    txt_3.Visible = False
+'    Exit Sub
+msg:
+    MsgBox Error(Err)
+End Sub
+    
+Private Sub enable_field()
+'called when modifying records so disable upper panel
+cmb_dept.Enabled = False
+cmb_modality.Enabled = False
+cmb_dept.Enabled = False
+cmb_reqno.Enabled = False
+MaskEdBox1.Enabled = False
+cmb_enteryby.Enabled = True
+cmb_final.Enabled = True
+'for panel1
+
+    txt_epith.Enabled = True
+    txt_pus.Enabled = True
+    txt_other.Enabled = True
+    txt_koh.Enabled = True
+    txt_organ1.Enabled = True
+    TXT_ORGAN2.Enabled = True
+    TXT_ORGAN3.Enabled = True
+    txt_1.Enabled = True
+    txt_2.Enabled = True
+    txt_3.Enabled = True
+    txt_comment.Enabled = True
+    
+'for panel2
+    txt_urinecolour.Enabled = True
+    txt_gravity.Enabled = True
+    txt_ph.Enabled = True
+    txt_glucose.Enabled = True
+    txt_blood.Enabled = True
+    txt_casts.Enabled = True
+    txt_urinother.Enabled = True
+    txt_urinecomment.Enabled = True
+    txt_bacteria.Enabled = True
+    txt_wbc.Enabled = True
+    txt_ketones.Enabled = True
+    txt_bilirubin.Enabled = True
+    txt_rbc.Enabled = True
+    txt_MicroExam.Enabled = True
+    txt_protins.Enabled = True
+    txt_uro.Enabled = True
+    txt_squamous.Enabled = True
+    txt_stoolcolour.Enabled = True
+    txt_consistency.Enabled = True
+    txt_puscells.Enabled = True
+    txt_stoolrbc.Enabled = True
+    txt_stoolother.Enabled = True
+    txt_stoolcomments.Enabled = True
+'for panel3
+    txt_refer_service.Enabled = True
+    txt_test_perform.Enabled = True
+    txt_result.Enabled = True
+'for all combo
+    cmb_gnb.Enabled = True
+    cmb_gnc.Enabled = True
+    cmb_gpb.Enabled = True
+    cmb_gpc.Enabled = True
+    cmb_india.Enabled = True
+    cmb_ziehl.Enabled = True
+    cmb_patho.Enabled = True
+    'for panel4
+    cmb_stain.Enabled = True
+    cmb_organisms.Enabled = True
+    txt_c_report.Enabled = True
+    txt_c_comment.Enabled = True
+    grid_c_anti.Enabled = True
+End Sub
+Private Sub disable_field()
+'for panel1(bacteriology)
+    txt_epith.Enabled = False
+    txt_pus.Enabled = False
+    txt_other.Enabled = False
+    txt_koh.Enabled = False
+    txt_organ1.Enabled = False
+    TXT_ORGAN2.Enabled = False
+    TXT_ORGAN3.Enabled = False
+    txt_1.Enabled = False
+    txt_2.Enabled = False
+    txt_3.Enabled = False
+    txt_comment.Enabled = False
+'for panel2(urine and stool)
+    txt_urinecolour.Enabled = False
+    txt_gravity.Enabled = False
+    txt_ph.Enabled = False
+    txt_glucose.Enabled = False
+    txt_blood.Enabled = False
+    txt_casts.Enabled = False
+    txt_urinother.Enabled = False
+    txt_urinecomment.Enabled = False
+    txt_bacteria.Enabled = False
+    txt_wbc.Enabled = False
+    txt_ketones.Enabled = False
+    txt_bilirubin.Enabled = False
+    txt_rbc.Enabled = False
+    txt_MicroExam.Enabled = False
+    txt_protins.Enabled = False
+    txt_uro.Enabled = False
+    txt_squamous.Enabled = False
+    txt_stoolcolour.Enabled = False
+    txt_consistency.Enabled = False
+    txt_puscells.Enabled = False
+    txt_stoolrbc.Enabled = False
+    txt_stoolother.Enabled = False
+    txt_stoolcomments.Enabled = False
+'for panel3(for other)
+    txt_refer_service.Enabled = False
+    txt_test_perform.Enabled = False
+    txt_result.Enabled = False
+'for all combo
+    cmb_gnb.Enabled = False
+    cmb_gnc.Enabled = False
+    cmb_gpb.Enabled = False
+    cmb_gpc.Enabled = False
+    cmb_india.Enabled = False
+    cmb_ziehl.Enabled = False
+    cmb_patho.Enabled = False
+ 'for panel4(myco)
+    cmb_stain.Enabled = False
+    cmb_organisms.Enabled = False
+    txt_c_report.Enabled = False
+    txt_c_comment.Enabled = False
+    grid_c_anti.Enabled = False
+End Sub
+
+Private Sub get_myco()
+On Error GoTo msg
+    sel_submodali_qr(0) = Trim(Mid(cmb_modality.Text, 1, InStr(cmb_modality.Text, "$") - 1))
+    Set sel_submodali_rs = sel_submodali_qr.OpenResultset(1, 3)
+    If Not sel_submodali_rs.EOF Then
+        While Not sel_submodali_rs.EOF
+            cmb_organisms.AddItem Trim(sel_submodali_rs(0))
+            sel_submodali_rs.MoveNext
+        Wend
+        sel_submodali_rs.Close
+     Else
+        MsgBox "Sorry No Organism Isolated is Available,Use Master Screen For Entring  ", vbOKOnly
+        sel_submodali_rs.Close
+        Exit Sub
+     End If
+     Exit Sub
+msg:
+    MsgBox Err.Description
+End Sub
+
+Private Sub GETUSERLIST()
+On Error GoTo msg
+    Set sel_ENTER_rs = sel_ENTER_qr.OpenResultset(1, 3)
+    If sel_ENTER_rs.RowCount > 0 Then
+        cmb_enteryby.clear
+            While Not sel_ENTER_rs.EOF
+                cmb_enteryby.AddItem Trim(sel_ENTER_rs("CCNAME"))
+                sel_ENTER_rs.MoveNext
+            Wend
+        sel_ENTER_rs.Close
+    Else
+        sel_ENTER_rs.Close
+    End If
+    Exit Sub
+msg:
+    MsgBox Err.Description
+End Sub
+
+Private Sub GETFINALLIST()
+On Error GoTo msg
+    Set sel_FINAL_rs = sel_FINAL_qr.OpenResultset(1, 3)
+    If sel_FINAL_rs.RowCount > 0 Then
+        cmb_final.clear
+            While Not sel_FINAL_rs.EOF
+                cmb_final.AddItem Trim(sel_FINAL_rs("CCNAME"))
+                sel_FINAL_rs.MoveNext
+            Wend
+            sel_FINAL_rs.Close
+    Else
+        sel_FINAL_rs.Close
+    End If
+    Exit Sub
+msg:
+    MsgBox Err.Description
+End Sub
+
+Private Sub insert_urine()
+    'insert in urine table DMURE
+            ins_4_qr(0) = mod_reqno
+            ins_4_qr(1) = Trim(txt_urinecolour.Text)
+            ins_4_qr(2) = Trim(txt_gravity.Text)
+            ins_4_qr(3) = Trim(txt_ph.Text)
+            ins_4_qr(4) = Trim(txt_protins.Text)
+            ins_4_qr(5) = Trim(txt_glucose.Text)
+            ins_4_qr(6) = Trim(txt_ketones.Text)
+            ins_4_qr(7) = Trim(txt_bilirubin.Text)
+            ins_4_qr(8) = Trim(txt_uro.Text)
+            ins_4_qr(9) = Trim(txt_blood.Text)
+            ins_4_qr(10) = Trim(txt_MicroExam.Text)
+            ins_4_qr(11) = Trim(txt_wbc.Text)
+            ins_4_qr(12) = Trim(txt_rbc.Text)
+            ins_4_qr(13) = Trim(txt_squamous.Text)
+            ins_4_qr(14) = Trim(txt_bacteria.Text)
+            ins_4_qr(15) = Trim(txt_casts.Text)
+            If Len(txt_urinother.Text) > 0 Then
+                ins_4_qr(16) = Null
+                ins_4_qr(16) = Trim(txt_urinother.Text)
+            Else
+                ins_4_qr(16) = Null
+                ins_4_qr(16) = " "
+            End If
+            If Len(txt_urinecomment.Text) > 0 Then
+                ins_4_qr(17) = Null
+                ins_4_qr(17) = Trim(txt_urinecomment.Text)
+            Else
+                ins_4_qr(17) = Null
+                ins_4_qr(17) = " "
+            End If
+            ins_4_qr.Execute
+update_rrequisitn
+update_rislib
+Exit Sub
+msg:
+    MsgBox Err.Description
+End Sub
+Private Sub insert_stool()
+On Error GoTo msg
+ins_5_qr(0) = mod_reqno
+            ins_5_qr(1) = txt_stoolcolour.Text
+            ins_5_qr(2) = txt_consistency.Text
+            ins_5_qr(3) = txt_mucus.Text
+            ins_5_qr(4) = txt_sblood.Text
+            ins_5_qr(5) = txt_parasties.Text
+            ins_5_qr(6) = txt_occult.Text
+            ins_5_qr(7) = txt_Ova.Text
+            ins_5_qr(8) = txt_cysts.Text
+            ins_5_qr(9) = txt_larvae.Text
+            ins_5_qr(10) = txt_puscells.Text
+            ins_5_qr(11) = txt_stoolrbc.Text
+            ins_5_qr(12) = txt_microphages.Text
+            ins_5_qr(13) = txt_starch.Text
+            ins_5_qr(14) = txt_fat.Text
+            ins_5_qr(15) = txt_stoolother.Text
+            If Len(txt_stoolcomments.Text) > 0 Then
+                ins_5_qr(16) = Null
+                ins_5_qr(16) = txt_stoolcomments.Text
+            Else
+                ins_5_qr(16) = Null
+                ins_5_qr(16) = " "
+            End If
+            ins_5_qr.Execute
+update_rrequisitn
+update_rislib
+Exit Sub
+msg:
+    MsgBox Err.Description
+End Sub
+Private Sub insert_myco()
+On Error GoTo msg
+ins_6_qr(0) = mod_reqno
+            ins_6_qr(1) = cmb_stain.Text
+            ins_6_qr(2) = cmb_organisms.Text
+            If Len(txt_c_report.Text) > 0 Then
+                ins_6_qr(3) = Null
+                ins_6_qr(3) = txt_c_report.Text
+            Else
+                ins_6_qr(3) = Null
+                ins_6_qr(3) = " "
+            End If
+            If Len(txt_c_comment.Text) > 0 Then
+                ins_6_qr(4) = Null
+                ins_6_qr(4) = txt_c_comment.Text
+            Else
+                ins_6_qr(4) = Null
+                ins_6_qr(4) = " "
+            End If
+            ins_6_qr.Execute
+            i = grid_c_anti.Rows
+            SRNO = 1
+                While Not SRNO = i
+                If Not (Trim(grid_c_anti.TextMatrix(SRNO, 1)) = "") Then
+                    ins_2_qr(0) = mod_reqno
+                    ins_2_qr(1) = Trim(grid_c_anti.TextMatrix(SRNO, 0)) 'first get name of antibiotic and insert
+                    ins_2_qr(2) = grid_c_anti.TextMatrix(SRNO, 1) 'get first value and insert
+                    ins_2_qr(3) = Null
+                    ins_2_qr(4) = Null
+                    ins_2_qr.Execute
+                End If
+                    SRNO = SRNO + 1
+                Wend
+    update_rrequisitn
+update_rislib
+Exit Sub
+msg:
+    MsgBox Err.Description
+End Sub
+Private Sub insert_other()
+On Error GoTo msg
+ins_0_qr(0) = mod_reqno
+            If Len(txt_refer_service.Text) > 0 Then
+                ins_0_qr(1) = Null
+                ins_0_qr(1) = txt_refer_service.Text
+            Else
+                ins_0_qr(1) = Null
+                ins_0_qr(1) = " "
+            End If
+            If Len(txt_test_perform.Text) > 0 Then
+                ins_0_qr(2) = Null
+                ins_0_qr(2) = txt_test_perform.Text
+            Else
+                ins_0_qr(2) = Null
+                ins_0_qr(2) = " "
+            End If
+            If Len(txt_result.Text) > 0 Then
+                ins_0_qr(3) = Null
+                ins_0_qr(3) = txt_result.Text
+            Else
+                ins_0_qr(3) = Null
+                ins_0_qr(3) = " "
+            End If
+            ins_0_qr.Execute
+update_rrequisitn
+update_rislib
+Exit Sub
+msg:
+    MsgBox Err.Description
+End Sub
+Private Sub insert_bacteriology()
+On Error GoTo msg
+            ins_1_qr(0) = mod_reqno
+            ins_1_qr(1) = Trim(txt_epith.Text)
+            ins_1_qr(2) = Trim(txt_pus.Text)
+            ins_1_qr(3) = Trim(txt_other.Text)
+            'ins_1_qr(4) = txt_ziehl.Text
+            ins_1_qr(4) = Trim(cmb_ziehl.Text)
+            ins_1_qr(5) = Trim(txt_koh.Text)
+            ins_1_qr(6) = Trim(cmb_gpc.Text)
+            ins_1_qr(7) = Trim(cmb_gnc.Text)
+            ins_1_qr(8) = Trim(cmb_gpb.Text)
+            ins_1_qr(9) = Trim(cmb_gnb.Text)
+            ins_1_qr(10) = Trim(cmb_india.Text)
+            If Len(txt_organ1.Text) > 0 Then
+                ins_1_qr(11) = Null
+                ins_1_qr(11) = Trim(txt_organ1.Text)
+            Else
+                ins_1_qr(11) = Null
+                ins_1_qr(11) = " "
+            End If
+            If Len(TXT_ORGAN2.Text) > 0 Then
+                ins_1_qr(12) = Null
+                ins_1_qr(12) = Trim(TXT_ORGAN2.Text)
+            Else
+                ins_1_qr(12) = Null
+                ins_1_qr(12) = " "
+            End If
+            If Len(TXT_ORGAN3.Text) > 0 Then
+                ins_1_qr(13) = Null
+                ins_1_qr(13) = Trim(TXT_ORGAN3.Text)
+            Else
+                ins_1_qr(13) = Null
+                ins_1_qr(13) = " "
+            End If
+            If cmb_patho.Text = "Yes" Then
+                ins_1_qr(14) = Null
+            Else
+                If Len(txt_report.Text) > 0 Then
+                    ins_1_qr(14) = Null
+                    ins_1_qr(14) = Trim(txt_report.Text)
+                Else
+                    ins_1_qr(14) = Null
+                    ins_1_qr(14) = " "
+                End If
+            End If
+            If Len(txt_comment.Text) > 0 Then
+                ins_1_qr(15) = Null
+                ins_1_qr(15) = Trim(txt_comment.Text)
+            Else
+                ins_1_qr(15) = Null
+                ins_1_qr(15) = " "
+            End If
+            ins_1_qr.Execute
+            'for inserting effect of antibiotics for modality 1
+            'here dept,srno is used to get total no. of rows
+            'CHECK HOW MANY ORGANISMS
+            If Len(txt_organ1.Text) > 1 Then
+                If Len(TXT_ORGAN2.Text) > 1 Then
+                    If Len(TXT_ORGAN3.Text) > 1 Then
+                    'three organisms
+                        i = grid_anti.Rows
+                        SRNO = 1
+                        While Not SRNO = i
+                        'check for all the three entry field they should not be empty
+                           ' If Not ((Trim(grid_anti.TextMatrix(SRNO, 1)) Is Null) Or (Trim(grid_anti.TextMatrix(SRNO, 2)) Is Null) Or (Trim(grid_anti.TextMatrix(SRNO, 3)) Is Null)) Then
+                            If ((Not Trim(grid_anti.TextMatrix(SRNO, 1)) = "") Or (Not Trim(grid_anti.TextMatrix(SRNO, 2)) = "") Or (Not Trim(grid_anti.TextMatrix(SRNO, 3)) = "")) Then
+                                ins_2_qr(0) = mod_reqno
+                                ins_2_qr(1) = Trim(grid_anti.TextMatrix(SRNO, 0)) 'first get name of antibiotic and insert
+                                ins_2_qr(2) = grid_anti.TextMatrix(SRNO, 1) 'get first value and insert
+                                ins_2_qr(3) = grid_anti.TextMatrix(SRNO, 2) 'get second value and insert"
+                                ins_2_qr(4) = grid_anti.TextMatrix(SRNO, 3) 'get third value and insert
+                                ins_2_qr.Execute
+                            End If
+                            SRNO = SRNO + 1
+                        Wend
+                    Else
+                    'two organisms
+                        i = grid_anti.Rows
+                        SRNO = 1
+                        While Not SRNO = i
+                        If ((Not Trim(grid_anti.TextMatrix(SRNO, 1)) = "") Or (Not Trim(grid_anti.TextMatrix(SRNO, 2)) = "")) Then
+                            ins_2_qr(0) = mod_reqno
+                            ins_2_qr(1) = Trim(grid_anti.TextMatrix(SRNO, 0)) 'first get name of antibiotic and insert
+                            ins_2_qr(2) = grid_anti.TextMatrix(SRNO, 1) 'get first value and insert
+                            ins_2_qr(3) = grid_anti.TextMatrix(SRNO, 2) 'get second value and insert"
+                            ins_2_qr(4) = Null
+                            ins_2_qr.Execute
+                        End If
+                            SRNO = SRNO + 1
+                        Wend
+                    End If
+                Else
+                'only one organisms
+                i = grid_anti.Rows
+                    SRNO = 1
+                    While Not SRNO = i
+                    If Not (Trim(grid_anti.TextMatrix(SRNO, 1)) = "") Then
+                        ins_2_qr(0) = mod_reqno
+                        ins_2_qr(1) = Trim(grid_anti.TextMatrix(SRNO, 0)) 'first get name of antibiotic and insert
+                        ins_2_qr(2) = grid_anti.TextMatrix(SRNO, 1) 'get first value and insert
+                        ins_2_qr(3) = Null
+                        ins_2_qr(4) = Null
+                        ins_2_qr.Execute
+                    End If
+                        SRNO = SRNO + 1
+                    Wend
+               End If
+            End If
+            update_rislib
+    update_rrequisitn
+Exit Sub
+msg:
+    MsgBox Err.Description
+End Sub
+Private Sub update_rrequisitn()
+On Error GoTo msg
+    upd_11_qr(0) = MaskEdBox1.FormattedText
+    upd_11_qr(1) = mod_reqno
+    upd_11_qr.Execute
+    MsgBox "Record Has Been Saved Successfully", vbOKOnly
+    clearupperpanel
+    Exit Sub
+msg:
+    MsgBox Err.Description
+End Sub
+
+Private Sub update_rislib()
+On Error GoTo msg
+    upd_8_qr(0) = UCase(cmb_enteryby.Text)
+    upd_8_qr(1) = GET_REVDATE(Format(DATE11, "DD/MM/YYYY"))
+    upd_8_qr(2) = UCase(cmb_final.Text)
+    upd_8_qr(3) = "T"
+    upd_8_qr(4) = UCase(cmb_final.Text)
+    upd_8_qr(5) = GET_REVDATE(Format(DATE11, "DD/MM/YYYY"))
+    upd_8_qr(6) = Trim(mod_reqno)
+    upd_8_qr.Execute
+    Exit Sub
+msg:
+    MsgBox Err.Description
+End Sub
+
+Private Sub GET_ENTER_BY()
+On Error GoTo msg
+    sel_RIS_qr(0) = mod_reqno
+    Set sel_RIS_RS = sel_RIS_qr.OpenResultset(1, 3)
+    If Not sel_RIS_RS.EOF Then
+        While Not sel_RIS_RS.EOF
+            'cmb_enteryby.AddItem sel_RIS_RS("ENTERBY") & ""
+            cmb_enteryby.Text = sel_RIS_RS("ENTERBY") & ""
+            'cmb_final.AddItem sel_RIS_RS("freportby") & ""
+            cmb_final.Text = sel_RIS_RS("freportby") & ""
+            cmb_enteryby.Enabled = False
+            cmb_final.Enabled = False
+        sel_RIS_RS.MoveNext
+        Wend
+        sel_RIS_RS.Close
+    Else
+        sel_RIS_RS.Close
+    End If
+    Exit Sub
+msg:
+    MsgBox Err.Description
+
+End Sub

@@ -1,0 +1,8 @@
+Line 15: Class MSWinsockLib.Winsock of control Winsock1 was not a loaded control class.
+Line 723: Class MSWinsockLib.Winsock of control WIN_CLIENT was not a loaded control class.
+Line 18: The property name _ExtentX in Winsock1 is invalid.
+Line 19: The property name _ExtentY in Winsock1 is invalid.
+Line 20: The property name _Version in Winsock1 is invalid.
+Line 726: The property name _ExtentX in WIN_CLIENT is invalid.
+Line 727: The property name _ExtentY in WIN_CLIENT is invalid.
+Line 728: The property name _Version in WIN_CLIENT is invalid.
